@@ -1,0 +1,10 @@
+.validationError{
+    color: red;
+    /* display: none; */ 
+    display: block;
+    font-weight: bold;
+}
+
+.show{
+    display: block;
+}

@@ -1,0 +1,98 @@
+.sticky-inner-wrapper {
+    position: relative;
+    z-index: 9999;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.frelencer_banner_area.developer_banner_area {
+    background: linear-gradient(1.14deg, rgb(244, 247, 252) 0%, rgb(255, 255, 255) 100%);
+}
+
+.react-reveal.fadeInUp,
+.react-reveal.fadeInRight,
+.react-reveal.fadeInDown {
+    animation-duration: 500ms;
+    animation-delay: 0ms;
+    animation-iteration-count: 1;
+    opacity: 1;
+}
+
+.fadeInUp.row {
+    animation-duration: 1000ms;
+}
+
+.t_color:nth-child(1) {
+    animation-duration: 700ms;
+}
+
+.t_color:nth-child(2) {
+    animation-duration: 900ms;
+}
+
+.chat_btn {
+    animation-duration: 1000ms;
+}
+
+.f_img_one {
+    animation-duration: 1400ms;
+}
+
+.f_img_two {
+    animation-duration: 1200ms;
+}
+
+.f_img_seven,
+.f_img_four {
+    animation-duration: 1600ms;
+}
+
+.f_img_five {
+    animation-duration: 2000ms;
+}
+
+.f_img_six {
+    animation-duration: 2200ms;
+}
+
+.f_img_eight {
+    animation-duration: 1200ms;
+}
+
+.fadeInRight.input_form {
+    animation-duration: 800ms;
+}
+
+
+.row.grid {
+    position: relative;
+    height: 1286.67px;
+}
+
+.slick-track {
+    width: 7070px;
+    opacity: 1;
+    transform: translate3d(-4040px, 0px, 0px);
+    transition: -webkit-transform 500ms ease 0s;
+}
+
+.slick-cloned {
+    width: 1010px;
+}
+
+.item {
+    width: 100%;
+    display: inline-block;
+}
+
+.slick-slide {
+    outline: none;
+    width: 1010px;
+}
+
+.slick-dots {
+    display: block;
+}
+
+.grid-item{
+    position: absolute;
+}
