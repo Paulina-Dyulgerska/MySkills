@@ -3,19 +3,42 @@
 
 html {
 	line-height: 30px;
-	font-size: 16px;
 	font-family: "Montserrat", "Poppins", sans-serif;
 }
 
-@media screen and (min-width: 576px) {
+/* Mobile first short: */
+/* mobile: */
+@media screen and (max-width: 600px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+/* tablet-portrait: */
+@media screen and (min-width: 600px) {
+	html {
+		font-size: 13px;
+	}
+}
+
+/* table landscape: */
+@media screen and (min-width: 900px)  {
 	html {
 		font-size: 14px;
 	}
 }
 
-@media screen and (min-width: 768px) {
+/* desktop: */
+@media screen and (min-width: 1200px) {
 	html {
 		font-size: 16px;
+	}
+}
+
+/* desktop big: */
+@media screen and (min-width: 1800px) {
+	html {
+		font-size: 18px;
 	}
 }
 
@@ -46,23 +69,23 @@ h1 {
 }
 
 h2 {
-	font-size: 2.0rem;
-}
-
-h3 {
 	font-size: 1.8rem;
 }
 
-h4 {
+h3 {
 	font-size: 1.6rem;
 }
 
-h5 {
+h4 {
 	font-size: 1.4rem;
 }
 
-h6 {
+h5 {
 	font-size: 1.2rem;
+}
+
+h6 {
+	font-size: 1.1rem;
 }
 
 ul,

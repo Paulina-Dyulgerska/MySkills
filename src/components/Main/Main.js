@@ -29,15 +29,28 @@ const Main = () => {
                         <span className="bubble b-six"></span>
                     </article>
                     <section className="developer-content">
-                        <h4 className="developer-content-title">
+                        <h5 className="developer-content-title">
                             FULL STACK DEVELOPER
-                        </h4>
-                        <p>
-                            Hey there!
-                            I am Paulina Dyulgerska
-                            Just graduated full stack developer 
-                        </p>
-                        <button>
+                        </h5>
+                        <article className="developer-content-description">
+                            <article className="developer-content-description-main">
+                                <p>
+                                    Hey there!
+                                </p>
+                                <p>
+                                    I am Paulina Dyulgerska.
+                                </p>
+                            </article>
+                            <article className="developer-content-description-secondary">
+                                <p >
+                                    Fresh new full stack developer.
+                            </p>
+                                <p>
+                                    I create and code beautiful and simple things and I love what I do.
+                            </p>
+                            </article>
+                        </article>
+                        <button className="btn btn-hire">
                             Hire me
                         </button>
                     </section>
