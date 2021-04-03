@@ -2,6 +2,7 @@
 
 html {
   box-sizing: border-box;
+  /* -webkit-tap-highlight-color: transparent; */
 }
 
 *,
@@ -11,10 +12,9 @@ html {
 }
 
 body {
-  max-width: 1440px;
+  max-width: 1240px;
   padding: 0;
   margin: 0 auto;
-  background-color: #eff4f4;
 }
 
 
