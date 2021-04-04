@@ -17,8 +17,8 @@ const Education = () => {
                     <TextBlockContent
                         title="This is my Passion Heart &amp; Soul"
                         primary={["Every great success is based on great many trainings"]}
-                        secondary={["I have studied all my life. Some people are asking me: Why?",
-                            "The simples answer is: Because I love knowedge and I want to know how the things are working, how the World is running and I could not stay a day without discovering at least one new thing. This is the human nature for me and I try to be a human."]}
+                        secondary={["I have studied all my life. Some people are asking me why?!",
+                            "The simples answer is: Because I love knowedge and I want to know how the things are working, how the World is running and I could not stay a day without discovering at least one new thing. This is the human nature for me and I try to be a Human."]}
                     >
                     </TextBlockContent>
                     <ButtonCta>Download CV</ButtonCta>
