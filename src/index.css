@@ -3,6 +3,7 @@
 html {
   box-sizing: border-box;
   /* -webkit-tap-highlight-color: transparent; */
+  background: linear-gradient(to right,#64f4ac,#f1f7fe);
 }
 
 *,

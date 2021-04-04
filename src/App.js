@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
 import About from './components/About/About';
 import Education from './components/Education/Education';
+import Experiance from './components/Experiance/Experiance';
 // import Dashboard from './components/Dashboard/Dashboard';
 // import PetDetails from './components/PetDetails/PetDetails'
 // import DemoFormUncontrolled from './components/DemoForm/DemoFormUncontrolled';
@@ -30,6 +31,7 @@ function App() {
             <Route path="/home" exact component={Main}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/education" component={Education}></Route>
+            <Route path="/experiance" component={Experiance}></Route>
             <Route path="/" component={Main}></Route>
 
             {/* <Route path="/dashboard" component={Dashboard}></Route>

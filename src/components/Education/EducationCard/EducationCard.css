@@ -1,0 +1,43 @@
+.education-skills-item {
+    /* opacity: 0.8; */
+    flex-basis: 45%;
+    flex-grow: 1;
+    background: #fff;
+    box-shadow: 0 50px 150px 0 rgb(4 73 89 / 5%);
+    padding: 20px;
+    margin: 10px 10px;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+@media screen and (max-width: 600px) {
+    .education-skills-item {
+        flex-basis: 100%;
+        padding: 10px;
+
+    }
+}
+
+.education-skills-item:hover {
+    box-shadow: 0 4px 60px 0 rgb(4 73 89 / 5%), 0 12px 100px 0 rgb(4 73 89 / 6%);
+    /* color: #64f4ac; */
+    /* color: #0ebb43; */
+    color: #00c99c;
+}
+
+.education-skills-item .speciality {
+    margin: 10px auto;
+}
+
+.education-skills-item .icon {
+    position: absolute;
+    opacity: 0.5;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+    color: #64f4ac;
+}
