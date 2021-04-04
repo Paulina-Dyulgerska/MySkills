@@ -1,0 +1,122 @@
+.header,
+.page-wrapper,
+.sidebar {
+    padding: 20px;
+    /* margin-top: 2px;
+  border-radius: 2px; */
+}
+
+.header {
+    position: relative;
+    /* position: sticky; */
+    /* top: 0; */
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+}
+
+.header .site-title {
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+.header .nav-toggler {
+    display: none;
+    font-weight: bold;
+}
+
+.header .nav {
+    margin-left: 0;
+    /* padding: 0 20px; */
+    display: flex;
+    justify-content: space-around;
+    flex-basis: 80%;
+    flex-grow: 1;
+}
+
+
+.header .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.header .nav-list:last-child {
+    justify-self: flex-end;
+}
+
+.header .nav-list .list-item {
+    background: #e5effd;
+    border-radius: 6px;
+    padding: 5px 5px;
+    margin: 5px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+}
+
+.header .nav-list .list-item:hover {
+    /* border-bottom: 2px solid #051441; */
+    /* border: 2px solid transparent; */
+    /* border: 2px solid #051441; */
+    box-shadow: 0px 0px 3px 1px rgb(191 211 212);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.header .nav-list a {
+    color: #0e2979;
+}
+
+.header img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .header .nav-toggler {
+        display: initial;
+        align-self: center;
+        margin: 20px 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-content: stretch;
+        align-items: unset;
+        padding-bottom: 0;
+        border: none;
+    }
+
+    .header .nav {
+        flex-basis: unset;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+    }
+
+    .header .site-title {
+        align-self: center;
+    }
+
+    .header .nav-list {
+        flex-direction: column;
+        border-top: 1px solid #051441;
+        border-bottom: 1px solid #051441;
+        border-radius: unset;
+        align-items: stretch;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .header .nav {
+        justify-content: space-between;
+        flex-basis: 100%;
+    }
+
+    .header .nav-list {
+        justify-content: center;
+        align-items: stretch;
+    }
+}

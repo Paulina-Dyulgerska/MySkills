@@ -2,9 +2,10 @@ import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
-// import Main from './components/Main/Main';
+import Main from './components/Main/Main';
+import About from './components/About/About';
+import Education from './components/Education/Education';
 // import Dashboard from './components/Dashboard/Dashboard';
 // import PetDetails from './components/PetDetails/PetDetails'
 // import DemoFormUncontrolled from './components/DemoForm/DemoFormUncontrolled';
@@ -21,12 +22,17 @@ function App() {
     <>
       <section className="content-wrapper">
         <Header isUserLoggedIn={true}></Header>
-        <Main></Main>
-        <Footer></Footer>
-        {/* <Switch>
-          <Route path="/" exact component={Main}></Route>
-          <Route path="/dashboard/:category" component={Dashboard}></Route>
-          <Route path="/dashboard" component={Dashboard}></Route>
+        <section className="page-wrapper">
+          <aside className="sidebar">
+            ASIDE is not shown at the moment
+            </aside>
+          <Switch>
+            <Route path="/home" exact component={Main}></Route>
+            <Route path="/about" component={About}></Route>
+            <Route path="/education" component={Education}></Route>
+            <Route path="/" component={Main}></Route>
+
+            {/* <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/pets/create" component={PetCreate}></Route>
           <Route path="/pets/details/:id" component={PetDetails}></Route>
           <Route path="/pets/edit/:id" component={PetEdit}></Route>
@@ -41,12 +47,12 @@ function App() {
             <DemoFormControlledFunc></DemoFormControlledFunc>
             <br />
             <DemoFormUncontrolled></DemoFormUncontrolled>
-          </Route>
-        </Switch>
-        <Footer></Footer> */}
+          </Route> */}
+          </Switch>
+        </section>
+        <Footer></Footer>
       </section>
-      <section className="notifications">
-      </section>
+      <section className="notifications">      </section>
     </>
   );
 }

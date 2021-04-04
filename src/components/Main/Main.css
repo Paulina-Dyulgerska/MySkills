@@ -1,0 +1,150 @@
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    /* flex-basis: 80%; */
+    /* background-color: #F0F6FD; */
+    /* background-color: #FEFEFF; */
+}
+
+.main-container {
+    flex-basis: 60%;
+}
+
+.img-container {
+    min-width: 100px;
+    /* max-width: 500px; */
+    padding-left: 20px;
+    flex-basis: 40%;
+}
+
+.programmer {
+    object-fit: contain;
+    width: 100%;
+    border-radius: 45% 20%;
+}
+
+.animated {
+    width: 100%;
+    position: relative;
+}
+
+.animated article {
+    position: absolute;
+    max-width: 18%;
+}
+
+.animated img {
+    width: 100%;
+}
+
+.animated .img-code-container {
+    top: 30%;
+    left: 20%;
+    /* transform: translate(-150%, -70%); */
+}
+
+.animated .img-code {
+    animation: fadeInUp3 1.5s .2s infinite alternate both;
+}
+
+.animated .img-htmlCss-container {
+    top: 60%;
+    left: 45%;
+    max-width: 10%;
+    /* transform: translate(100%, -120%); */
+}
+
+.animated .img-htmlCss {
+    animation: fadeInUp3 1.5s .6s infinite alternate both;
+}
+
+.animated .img-github-container {
+    top: 50%;
+    right: 5%;
+    /* transform: translate(400%, -250%); */
+}
+
+.animated .img-github {
+    animation: fadeInUp3 .5s .2s infinite alternate both;
+}
+
+.animated .img-sql-container {
+    top: 10%;
+    right: 0%;
+    max-width: 10%;
+}
+
+.animated .img-sql {
+    animation: fadeInUp3 3.0s .2s infinite alternate both;
+}
+
+.animated .img-cSharp-container {
+    top: 15%;
+    left: 5%;
+    max-width: 10%;
+    /* transform: translate(400%, -250%); */
+}
+
+.animated .img-cSharp {
+    animation: fadeInUp3 0.8s .2s infinite alternate both;
+}
+
+.animated .img-dotNet-container {
+    top: 5%;
+    right: 15%;
+    max-width: 15%;
+    /* transform: translate(500%, -550%); */
+}
+
+.animated .img-dotNet {
+    border-radius: 3px;
+    animation: fadeInUp3 1.5s .6s infinite alternate both;
+}
+
+.animated .img-aspNetCore-container {
+    top: 0%;
+    left: 30%;
+}
+
+.animated .img-aspNetCore {
+    animation: fadeInUp3 1.5s .6s infinite alternate both;
+}
+
+.animated .img-react-container {
+    top: 40%;
+    left: 10%;
+    /* transform: translate(10%, -200%); */
+
+}
+
+.animated .img-react {
+    animation: fadeInUp3 0.7s .6s infinite alternate both;
+}
+
+.animated .img-vs-container {
+    top: 30%;
+    right: 10%;
+    /* transform: translate(10%, -200%); */
+
+}
+
+.animated .img-vs {
+    animation: fadeInUp3 7s .6s infinite alternate both;
+}
+
+@keyframes fadeInUp3 {
+    0% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.developer-content {
+    padding: 30px 30px 30px 50px;
+}

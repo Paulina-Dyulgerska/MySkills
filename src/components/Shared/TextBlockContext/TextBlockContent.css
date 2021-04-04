@@ -1,0 +1,22 @@
+.text-block-content-title {
+  background: #b9f5fa;
+  border-radius: 4px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  display: inline-block;
+}
+
+.text-block-content-description .primary {
+  font-weight: 700;
+  font-size: 1.6em;
+  letter-spacing: 1.2px;
+  padding: 20px 0 10px 0;
+}
+
+.text-block-content-description .secondary {
+  letter-spacing:unset;
+  /* font-size: 1.4em; */
+  padding: 0px 60px 10px 0;
+}

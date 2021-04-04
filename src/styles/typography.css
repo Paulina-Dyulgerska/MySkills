@@ -88,25 +88,6 @@ h6 {
 	font-size: 1.1rem;
 }
 
-ul,
-ol {
-	padding-bottom: 0em;
-}
-
-ul,
-ol {
-	padding-left: 0em;
-}
-
-li {
-	list-style-position: inside;
-}
-
 blockquote {
-	width: 80%;
-	margin: 0 auto;
-	border-left: 4px solid #DDD;
 	font-style: italic;
-	padding: 1rem 2rem;
-	position: relative;
 }

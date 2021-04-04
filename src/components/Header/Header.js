@@ -27,9 +27,9 @@ const Header = (props) => {
                 <ul className="nav-list nav-left">
                     <NavigationItem path="/home">Home</NavigationItem>
                     <NavigationItem path="/about">About</NavigationItem>
-                    <NavigationItem path="/service">Service</NavigationItem>
+                    <NavigationItem path="/education">Education</NavigationItem>
+                    <NavigationItem path="/experiance">Experiance</NavigationItem>
                     <NavigationItem path="/portfolio">Portfolio</NavigationItem>
-                    <NavigationItem path="/testimonial">Testimonial</NavigationItem>
                     <NavigationItem path="/blog">Blog</NavigationItem>
                     <NavigationItem path="/contact">Contact</NavigationItem>
                 </ul>
