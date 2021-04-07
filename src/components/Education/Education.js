@@ -79,33 +79,36 @@ const Education = () => {
                         onClickTogglePopup={togglePopup}
                     >
                     </EducationCard>
-                    {isOpen && <Popup
-                        content={
-                            <>
-                                <b>Courses and main subjects</b>
-                                <p>
-                                    C# Programming Basic, C# Fundamentals, C# Advanced, C# OOP, JS Advanced,
-                                    JS Applications, Databases Basics - MS SQL Server, Entity Framework Core,
-                                    C# Web Basics, HTML &amp; CSS, ASP.NET Core, React
-                                </p>
-                                <p>
-                                    Production Automation, Informatics, Electrical Engineering, Mathematics,
-                                    Physics and Chemistry
-                                </p>
-                                <p>
-                                    Accounting, Corporate Analysis, Industrial Management, Macroeconomics,
-                                    Microeconomics, Marketing, Statistics, Finance, Labor Economics,
-                                    Taxes and Tax Policy
-                                </p>
-                                <p>
-                                    Mathematics and English
-                                </p>
-                                <button>Test button</button>
-                            </>
-                            // contentCurrent
-                        }
-                        handleClose={togglePopup}
-                    />}
+                    {isOpen
+                        &&
+                        <Popup
+                            content={
+                                <>
+                                    <b>Courses and main subjects</b>
+                                    <p>
+                                        C# Programming Basic, C# Fundamentals, C# Advanced, C# OOP, JS Advanced,
+                                        JS Applications, Databases Basics - MS SQL Server, Entity Framework Core,
+                                        C# Web Basics, HTML &amp; CSS, ASP.NET Core, React
+                                            </p>
+                                    <p>
+                                        Production Automation, Informatics, Electrical Engineering, Mathematics,
+                                        Physics and Chemistry
+                                            </p>
+                                    <p>
+                                        Accounting, Corporate Analysis, Industrial Management, Macroeconomics,
+                                        Microeconomics, Marketing, Statistics, Finance, Labor Economics,
+                                        Taxes and Tax Policy
+                                            </p>
+                                    <p>
+                                        Mathematics and English
+                                            </p>
+                                    <button>Test button</button>
+                                </>
+                                // contentCurrent
+                            }
+                            handleClose={togglePopup}
+                        />
+                    }
 
                     {/*                     
                     <EducationCard

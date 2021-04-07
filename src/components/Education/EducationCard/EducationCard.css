@@ -11,7 +11,40 @@
     position: relative;
     border-radius: 10px;
     cursor: pointer;
+    animation-fill-mode: both;
+    animation-duration: 1000ms;
+    animation-delay: 0ms;
+    animation-iteration-count: 1;
+    opacity: 1;
+}
+.education-skills-item:nth-child(2n){
+    animation-name: education-left;
+}
+.education-skills-item:nth-child(2n+1){
+    animation-name: education-right;
+}
+@keyframes education-left {
+    0% {
+        opacity: 0;
+        transform: translate3d(80px, -100%, 0px);
+    }
 
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes education-right {
+    0% {
+        opacity: 0;
+        transform: translate3d(-80px, -100%, 0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @media screen and (max-width: 600px) {
