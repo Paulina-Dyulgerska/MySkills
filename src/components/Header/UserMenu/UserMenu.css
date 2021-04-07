@@ -1,0 +1,21 @@
+.icon-wrapper {
+    position: relative;
+    color:#1DBFAF;
+    width: 33px;
+    height: 33px;
+}
+
+.icon-down {
+    background-position: -198px -33px;
+    cursor: pointer;
+    position: absolute;
+    top: -2px;
+    width: 33px;
+    height: 33px;
+    background-size: 231px 132px;
+    background-image: url('core_icons.png');
+}
+
+.icon-down:hover {
+    background-position: -165px -33px;
+}
