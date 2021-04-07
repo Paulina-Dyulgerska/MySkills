@@ -9,8 +9,10 @@ import UserMenu from './UserMenu/UserMenu';
 import CustomLink from '../CustomLink/CustomLink';
 
 const Header = (props) => {
-    return  (
+    return (
         <header className="header">
+            <input className="nav-toggler" type="checkbox" name="toggle-nav" id="toggle-nav" />
+
             {/* <div class="sticky-outer-wrapper">
                 <div class="sticky-inner-wrapper">
 
@@ -21,7 +23,9 @@ const Header = (props) => {
                 Paulina D.
             </h1>
 
-            <button className="nav-toggler">X Menu</button>
+            <label className="toggle-nav" for="toggle-nav">
+                <i className="fas fa-bars"></i> Menu
+            </label>
 
             <nav className="nav">
                 <ul className="nav-list nav-left">

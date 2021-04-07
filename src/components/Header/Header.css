@@ -1,13 +1,6 @@
-.header,
-.page-wrapper,
-.sidebar {
-    padding: 20px;
-    /* margin-top: 2px;
-  border-radius: 2px; */
-}
-
 .header {
     position: relative;
+    padding-bottom: 20px;
     /* position: sticky; */
     /* top: 0; */
     display: flex;
@@ -24,9 +17,10 @@
     margin: 30px 0;
 }
 
+/*Hide the nav label Menu:*/
+.header .toggle-nav,
 .header .nav-toggler {
     display: none;
-    font-weight: bold;
 }
 
 .header .nav {
@@ -37,7 +31,6 @@
     flex-basis: 80%;
     flex-grow: 1;
 }
-
 
 .header .nav-list {
     display: flex;
@@ -54,21 +47,71 @@
     border-radius: 6px;
     padding: 5px 5px;
     margin: 5px;
-    -webkit-transition: all .3s linear;
-    transition: all .3s linear;
+    /* -webkit-transition: all .3s linear;
+    transition: all .3s linear; */
 }
 
 .header .nav-list .list-item:hover {
     /* border-bottom: 2px solid #051441; */
     /* border: 2px solid transparent; */
     /* border: 2px solid #051441; */
-    box-shadow: 0px 0px 3px 1px rgb(191 211 212);
+    box-shadow: 1px 1px 1px 1.2px rgb(124 179 243 / 78%);
     font-size: 1em;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
-.header .nav-list a {
+.header .nav-list .list-item a {
     color: #0e2979;
+    position: relative;
+}
+
+/* remove infinite if you want only once */
+/* .header .nav-list .list-item > a:hover::after {
+    position: absolute;
+    content: '';
+    bottom: -2px;
+    left: 0px;
+    height: 2px;
+    width: 0%;
+    background-color: #0e2979; 
+    animation: underline 1s ease-in-out 0s infinite;
+    animation: underline 1s ease-in-out 0s 1;
+}  
+@keyframes underline {
+    to {
+        width: 100%;
+    }
+}
+*/
+
+.header .nav-list .list-item a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    bottom: -3px;
+    left: 0;
+    background: #0e2979;
+    visibility: hidden;
+    /* border-radius: 5px; */
+    transform: scaleX(0);
+    transition: .5s linear;
+}
+
+/* .header .nav-list .list-item a:hover:before,
+  .header .nav-list .list-item a:focus:before {
+    visibility: visible;
+    transform: scaleX(1);
+  } */
+.header .nav-list .list-item:hover a:before,
+.header .nav-list .list-item:focus a:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.header .nav-list .list-item a:before {
+    /* background: rgba(0,0,0,0); */
+    /* box-shadow: 0 0 10px 0.5px #fff;   */
 }
 
 .header img {
@@ -78,12 +121,6 @@
 }
 
 @media screen and (max-width: 600px) {
-    .header .nav-toggler {
-        display: initial;
-        align-self: center;
-        margin: 20px 0;
-    }
-
     .header {
         flex-direction: column;
         align-content: stretch;
@@ -92,14 +129,23 @@
         border: none;
     }
 
+    .header .site-title {
+        align-self: center;
+    }
+
+    .header .toggle-nav {
+        display: initial;
+        align-self: flex-end;
+        margin: 20px 0;
+    }
+
     .header .nav {
+        /*.header .nav is collapsed, this means - unvisible!!!*/
+        visibility: collapse;
         flex-basis: unset;
         flex-direction: column-reverse;
         flex-wrap: wrap;
-    }
-
-    .header .site-title {
-        align-self: center;
+        position: absolute;
     }
 
     .header .nav-list {
@@ -108,6 +154,21 @@
         border-bottom: 1px solid #051441;
         border-radius: unset;
         align-items: stretch;
+    }
+
+    /*Responsive nav*/
+    .header {
+            flex-wrap: wrap;
+        }
+    /*The label for na Menu button is shown:*/
+
+    /*If the input is checked, the following styles are applied to the header .nav:
+    V React ne raboti + i go zameni s ~ !!!!!*/
+    /* input:checked + .nav { */
+    input.nav-toggler:checked~.nav {
+        /*.header .nav is visible!!!*/
+        visibility: visible;
+        position: relative;
     }
 }
 

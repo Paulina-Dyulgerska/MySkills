@@ -39,6 +39,14 @@ blockquote {
   z-index: 1;
 }
 
+.header,
+.page-wrapper,
+.sidebar {
+    padding: 0 20px ;
+    /* margin-top: 2px;
+  border-radius: 2px; */
+}
+
 .main-wrapper,
 .sidebar {
   flex-grow: 1;

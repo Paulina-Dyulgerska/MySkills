@@ -3,7 +3,7 @@
 html {
   box-sizing: border-box;
   /* -webkit-tap-highlight-color: transparent; */
-  background: linear-gradient(to right,#64f4ac,#f1f7fe);
+  background: linear-gradient(to right,#6da4ff,#f1f7fe);
 }
 
 *,
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  max-width: 1240px;
+  max-width: 1440px;
   padding: 0;
   margin: 0 auto;
 }
