@@ -9,9 +9,11 @@ import UserMenu from './UserMenu/UserMenu';
 import CustomLink from '../CustomLink/CustomLink';
 
 const Header = (props) => {
+    let isInputChecked = false;
+
     return (
         <header className="header">
-            <input className="nav-toggler" type="checkbox" name="toggle-nav" id="toggle-nav" />
+            <input className="nav-toggler" type="checkbox" name="toggle-nav" id="toggle-nav"/>
 
             {/* <div class="sticky-outer-wrapper">
                 <div class="sticky-inner-wrapper">

@@ -11,7 +11,7 @@ const EducationCard = ({
 }) => {
 
     return (
-        <article className="education-skills-item" onClick={onClickTogglePopup}>
+        <article className="education-item" onClick={onClickTogglePopup}>
             <h5 className="degree">{degree}</h5>
             <h4 className="speciality">{speciality}</h4>
             <h6 className="university">{university}</h6>

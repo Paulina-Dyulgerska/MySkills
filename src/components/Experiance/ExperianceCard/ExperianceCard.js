@@ -2,20 +2,29 @@ import './ExperianceCard.css';
 
 import LogoNavigationItem from '../../Header/NavigationItem/LogoNavigationItem';
 
-const ExperianceCard = () => {
+const ExperianceCard = ({
+    link,
+    logo,
+    company,
+    job,
+    period,
+    details,
+    onClickTogglePopup,
+}) => {
     return (
-        <div className="exprience-item">
-            <div className="media-left">
-                <a href="https://www.liebherr.com">
-                    <img src="https://www.liebherr.com/media/global/img/svg/logo_ci_liebherr.svg" alt="Liebherr" />
+        <article className="expriance-item" onClick={onClickTogglePopup}> 
+            <article className="media-left">
+                <a className="link" href={link}>
+                    <img className="logo" src={logo} alt="Liebherr" />
                 </a>
-            </div>
-            <div className="media-body">
-                <h4>Liebherr</h4>
-                <span>March, 2015 - June, 2017 (1 year, 3 Month)</span>
-                <p>Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</p>
-            </div>
-        </div>
+                <p className="company">{company}</p>
+            </article>
+            <article className="media-body">
+                <h4 className="job">{job}</h4>
+                <span className="period">{`${period} - (years...)`}</span>
+                <p className="details">{details}</p>
+            </article>
+        </article>
     )
 }
 

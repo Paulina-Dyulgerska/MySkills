@@ -29,21 +29,25 @@ const Experiance = () => {
                 <article className="experiance-content">
                     {/* <img src={imgPolygon} alt="" className="polygon" /> */}
                     <TextBlockContent
-                        title="This is my Passion, Heart &amp; Soul"
-                        primary={["Every great success is based on great many trainings"]}
-                        secondary={["I have studied all my life. Some people are asking me why?!",
-                            "The simples answer is: Because I love knowedge and I want to know how the things are working, how the World is running and I could not stay a day without discovering at least one new thing. This is the human nature for me and I try to be a Human."]}
+                        title="This is my Life, Path &amp; Work"
+                        primary={["Every ..."]}
+                        secondary={["I am....",
+                            "....."]}
                     >
                     </TextBlockContent>
                 </article>
                 <article className="experiance-items">
-                    <ExperianceCard></ExperianceCard>
-                    <ExperianceCard></ExperianceCard>
-                    <ExperianceCard></ExperianceCard>
-                    <ExperianceCard></ExperianceCard>
-                    <ExperianceCard></ExperianceCard>
-                    <ExperianceCard></ExperianceCard>
-                    <ExperianceCard></ExperianceCard>
+                    <ExperianceCard
+                    link="https://www.liebherr.com"
+                    logo="https://www.liebherr.com/media/global/img/svg/logo_ci_liebherr.svg"
+                    company="Liebherr Hausgeraete Marica GmbH"
+                    job="Engineer - Environmental regulatory affairs"
+                    period="May 2013 - Present"
+                    details="Implement the product-related environmental requirements in the product development processes in Liebherr Hausgeraete Marica under the leadership of the Director of Product Development in Bulgaria and the Intercompany Coordinator in Germany. 
+                    Main responsibilities: implementing the company policy regarding product-related environmental protection in the factory in Bulgaria; staff training and consulting on questions related to the product development, material specifications and usage; communication with suppliers regarding the environmental requirements, documentation needed, confirmations, trainings of the suppliers; analyses and tests of new materials and verification of the compliance of the used ones; software adjustments; issuing and management of declarations, confirmations, technical delivery specifications, internal norms and construction papers.
+                    "
+                    onClickTogglePopup={togglePopup}
+                    ></ExperianceCard>
 
                     {isOpen && <Popup
                         content={

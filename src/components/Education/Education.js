@@ -74,7 +74,7 @@ const Education = () => {
                         university="High School of Mathematics - Stara Zagora"
                         period="1991 – 1996"
                         path="/education"
-                        iconClassName="fas fa-shapes"
+                        iconClassName="fas fa-square-root-alt"
                         onClickEvent={() => { }}
                         onClickTogglePopup={togglePopup}
                     >
@@ -137,7 +137,7 @@ const Education = () => {
                         university="Technical University – Sofia, Branch Plovdiv"
                         period="1997 – 2003"
                         path="/education"
-                        iconClassName="fas fa-square-root-alt"
+                        iconClassName="fas fa-shapes"
                         onClickEvent={() => { }}
                     >
                     </EducationCard>

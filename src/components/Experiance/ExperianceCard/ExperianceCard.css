@@ -1,22 +1,94 @@
-.exprience-item {
-    padding: 0 15px;
-    animation-fill-mode: both;
-    animation-duration: 1000ms;
-    animation-delay: 0ms;
-    animation-iteration-count: 1;
-    opacity: 1;
-    animation-name: experiance;
-  }
+.expriance-item {
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 50px 150px 0 rgb(4 73 89 / 5%);
+  padding: 20px;
+  margin: 10px 10px;
+  -webkit-transition: all .3s linear;
+  transition: all .3s line;
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  animation-fill-mode: both;
+  animation-duration: 1000ms;
+  animation-delay: 0ms;
+  animation-iteration-count: 1;
+  opacity: 1;
+  animation-name: experiance;
+}
 
 @keyframes experiance {
-    0% {
-      opacity: 0;
-      /* transform: translate3d(0px, -100%, 0px); */
-      transform: translate3d(0px, 100%, 0px);
-    }
-  
-    100% {
-      opacity: 1;
-      transform: none;
-    }
+  0% {
+    opacity: 0;
+    /* transform: translate3d(0px, -100%, 0px); */
+    transform: translate3d(0px, 100%, 0px);
   }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .expriance-item {
+    flex-basis: 100%;
+    padding: 10px;
+  }
+}
+
+.expriance-item .media-left {
+  padding-right: 10px;
+  text-align: center;
+}
+
+.expriance-item .media-body {
+  flex-basis: 80%;
+}
+
+.expriance-item .logo {
+  max-width: 170px;
+  width: 100%;
+  object-fit: contain;
+  transition: all .3s linear;
+
+}
+
+.expriance-item .company {
+  transition: all .3s linear;
+  color: #545454;
+}
+
+.expriance-item:hover {
+  box-shadow: 0 4px 60px 0 rgb(4 73 89 / 5%), 0 12px 100px 0 rgb(4 73 89 / 6%);
+  /* color: #64f4ac; */
+  /* color: #0ebb43; */
+  /* color: #00c99c; */
+}
+
+.expriance-item:hover .job {
+  color: #00c99c;
+}
+
+.expriance-item:hover .logo,
+.expriance-item:hover .company {
+  transform: scale(1.1);
+}
+
+
+/* 
+.expriance-item .speciality {
+  margin: 10px auto;
+}
+
+.expriance-item .icon {
+  position: absolute;
+  opacity: 0.5;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+  color: #64f4ac;
+} */
