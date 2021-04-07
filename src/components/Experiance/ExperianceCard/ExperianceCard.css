@@ -1,0 +1,22 @@
+.exprience-item {
+    padding: 0 15px;
+    animation-fill-mode: both;
+    animation-duration: 1000ms;
+    animation-delay: 0ms;
+    animation-iteration-count: 1;
+    opacity: 1;
+    animation-name: experiance;
+  }
+
+@keyframes experiance {
+    0% {
+      opacity: 0;
+      /* transform: translate3d(0px, -100%, 0px); */
+      transform: translate3d(0px, 100%, 0px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
