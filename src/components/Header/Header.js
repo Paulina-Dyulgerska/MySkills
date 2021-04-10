@@ -23,10 +23,12 @@ const Header = (props) => {
                 </div>
                  </div> */}
                 <h1 className="site-title">
-                    <LogoNavigationItem path="/" src={logo} alt="Logo" className="logo-img"></LogoNavigationItem>
-                    <span className="logo-text">
-                        Paulina D.
-                    </span>
+                    <LogoNavigationItem
+                        path="/"
+                        src={logo} alt="Logo"
+                        className="logo-img"
+                        logoText="Paulina D.">
+                    </LogoNavigationItem>
                 </h1>
 
                 <label className="toggle-nav" htmlFor="toggle-nav">

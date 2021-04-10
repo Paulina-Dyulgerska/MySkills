@@ -1,4 +1,4 @@
-.header-wrapper{
+.header-wrapper {
     background: linear-gradient(1.14deg, rgb(244, 247, 252) 0%, rgb(255, 255, 255) 100%);
 
 }
@@ -122,8 +122,12 @@
 
 .header-content .logo-text {
     position: absolute;
-    top:50%;
-    transform: translateY(-50%);
+    width: 100%;
+    top: 50%;
+    right: 50%;
+    transform: translate(55%, -50%);
+    color: #051441;
+
 }
 
 @media screen and (max-width: 600px) {

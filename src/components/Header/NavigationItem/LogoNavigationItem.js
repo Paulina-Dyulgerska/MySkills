@@ -5,6 +5,9 @@ const LogoNavigationItem = (props) => {
         <article className="list-item" >
             <Link to={props.path || '/'}>
                 <img src={props.src} alt={props.alt} />
+                <h1 className="logo-text">
+                    {props.logoText}
+                </h1>
             </Link >
         </article>
     );
