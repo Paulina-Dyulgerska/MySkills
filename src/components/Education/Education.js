@@ -22,7 +22,6 @@ const Education = () => {
     }
     return (
         <section className="education-wrapper">
-            <Bubbles></Bubbles>
             <section className="education-container">
                 <article className="education-content">
                     {/* <img src={imgPolygon} alt="" className="polygon" /> */}

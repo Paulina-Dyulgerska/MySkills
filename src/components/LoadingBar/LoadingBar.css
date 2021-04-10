@@ -2,10 +2,10 @@
 .loading {
     background-color: lightgrey;
     height: 2px;
-    margin: 1em;
+    margin: 1rem;
     overflow: hidden;
     position: relative;
-    width: 12em;
+    width: 12rem;
 }
 
 .loading-bar {

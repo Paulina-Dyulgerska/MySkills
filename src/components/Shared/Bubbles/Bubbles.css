@@ -1,7 +1,7 @@
 .bubbles .bubble {
   position: absolute;
   border-radius: 50%;
-  z-index: -1;
+  z-index: 99999;
 }
 
 .bubble.b-one,
@@ -32,8 +32,8 @@
 
 .bubble.b-two {
   background: #c7dcfa;
-  top: 25%;
-  left: 155px;
+  top: 35%;
+  left: 50%;
   -webkit-animation: spin1 2s infinite alternate;
   animation: spin1 2s infinite alternate;
 }

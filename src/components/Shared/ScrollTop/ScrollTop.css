@@ -1,0 +1,72 @@
+.arrow-icon-hd {
+    position: absolute;
+    top: 90vh;
+    right: 10px;
+    width: 3.5rem;
+    z-index: 9999;
+    transition: .25s linear;
+}
+
+.nvc-btn-icon {
+    position: absolute;
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.nvc-btn-icon::after, .nvc-btn-icon::before {
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: .3s ease-out;
+    background-color: #fff;
+}
+
+.icon-arrow {
+    position: absolute;
+    /* background-image: url('top-button.png'); */
+    background-image: url('btn-arrow.png');
+    background-size: 2.5em 2.5rem;
+    margin-left: -1.25rem;
+    margin-top: -1.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 50%;
+    left: 50%;
+    opacity: 0.5;
+    z-index: 999;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.icon-arrow:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* If hover is on, then the before and after elements are changed */
+.nvc-btn-icon:hover.nvc-btn-icon::before,
+.nvc-btn-icon:hover.nvc-btn-icon::after {
+    border-radius: 25%;
+    background-color: #64F4AC;
+    /* background-color: #fff; */
+
+}
+
+/* If hover is on, then the before element is changed */
+.nvc-btn-icon:hover.nvc-btn-icon::before {
+    top: -4px;
+    left: -4px;
+    opacity: 0.4;
+}
+
+/* If hover is on, then the after element is changed */
+.nvc-btn-icon:hover.nvc-btn-icon::after {
+    top: 4px;
+    left: 4px;
+    opacity: 0.6;
+}

@@ -16,7 +16,7 @@ const EducationCard = ({
             <h4 className="speciality">{speciality}</h4>
             <h6 className="university">{university}</h6>
             <p className="period">{period}</p>
-            <span className="icon"><i class={iconClassName}></i></span>
+            <span className="icon"><i className={iconClassName}></i></span>
         </article>
     )
 }

@@ -1,0 +1,27 @@
+.experiance-wrapper{
+    position: relative;
+}
+
+
+.experiance-content {
+    padding: 30px 50px 0px 50px;
+}
+
+.experiance-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: stretch; */
+    /* justify-items: stretch; */
+    padding: 20px 30px;
+}
+
+.experiance-item {
+    /* flex-basis: 80%; */
+}
+
+@media screen and (max-width: 600px) {
+    .experiance-items {
+        padding: 10px;
+    }
+}

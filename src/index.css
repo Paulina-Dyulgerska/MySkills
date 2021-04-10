@@ -3,7 +3,9 @@
 html {
   box-sizing: border-box;
   /* -webkit-tap-highlight-color: transparent; */
-  background: linear-gradient(to right,#6da4ff,#f1f7fe);
+  background-color:#6da4ff ;
+  /* background: linear-gradient(1.14deg, rgb(244, 247, 252) 0%, rgb(255, 255, 255) 100%); */
+  /* background: linear-gradient(to right,#6da4ff,#f1f7fe); */
 }
 
 *,
@@ -15,7 +17,9 @@ html {
 }
 
 body {
-  max-width: 1440px;
   padding: 0;
   margin: 0 auto;
+  color: #051441;
+  /* color: #0e2979; */
+
 }

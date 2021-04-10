@@ -8,7 +8,6 @@ import imgPolygon from "../../img/polygon.png";
 const About = () => {
     return (
         <section className="about-wrapper">
-            <Bubbles></Bubbles>
             <section className="about-container">
                 <article className="about-content">
                     <h6>Introduce</h6>

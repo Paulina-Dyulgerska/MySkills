@@ -1,69 +1,68 @@
-import Bubbles from '../Shared/Bubbles/Bubbles';
-import ButtonCta from '../Shared/ButtonCta/ButtonCta';
-import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import './Main.css';
 
-import imgCode from "../../img/code.png";
-import imgProgrammer from "../../img/programmer3.jpg";
-import imgHtml from "../../img/html_css.png";
-import imgGitHub from "../../img/github_logo3.png";
-import imgSQL from "../../img/sql_logo.png";
-import imgCSharp from "../../img/cSharp_blue_logo.png";
-import imgDotNet from "../../img/dot_net5_logo.png";
-import imgAspNetCore from "../../img/asp_net_core_logo.png";
-import imgReact from "../../img/react.png";
-import imgVS from "../../img/vs_logo.png";
+import Home from '../Home/Home';
+import About from '../About/About';
+import Education from '../Education/Education';
+import Experiance from '../Experiance/Experiance';
+import Blog from '../Blog/Blog';
+import ScrollTop from '../Shared/ScrollTop/ScrollTop';
+import Bubbles from '../Shared/Bubbles/Bubbles';
 
 const Main = () => {
+    const [width, setWidth] = useState(0);
+    const [height, setHeight] = useState(0);
+    const parentDivRef = useRef(null);
+
+    // useEffect(() => {
+    // useLayoutEffect is used, because it is identical to useEffect, but it fires synchronously after all DOM mutations
+    useEffect(() => {
+        if (parentDivRef.current) {
+            setWidth(parentDivRef.current.offsetWidth);
+            setHeight(parentDivRef.current.offsetHeight);
+        }
+    }, [parentDivRef]);
+    console.log(width + " parentDivRef width")
+
     return (
         <main className="main-wrapper">
-            <section className="overlay-color"></section>
             <Bubbles></Bubbles>
-            <section className="main-container">
-                <article className="developer-content">
-                    <TextBlockContent
-                        title="FULL STACK DEVELOPER"
-                        primary={["Hey there!", "I am Paulina Dyulgerska."]}
-                        secondary={["Fresh new full stack developer.",
-                            "I create and code beautiful and simple things and I love what I do."]}
-                    >
-                    </TextBlockContent>
-                    <ButtonCta>HIRE ME</ButtonCta>
-                </article>
-            </section>
-            <section className="img-container">
-                <article className="animated">
-                    <img src={imgProgrammer} alt="" className="programmer" />
 
-                    <article className="img-code-container">
-                        <img src={imgCode} alt="" className="img-code" />
-                    </article>
-                    <article className="img-htmlCss-container">
-                        <img src={imgHtml} alt="" className="img-htmlCss" />
-                    </article>
-                    <article className="img-github-container">
-                        <img src={imgGitHub} alt="" className="img-github" />
-                    </article>
-                    <article className="img-sql-container">
-                        <img src={imgSQL} alt="" className="img-sql" />
-                    </article>
-                    <article className="img-cSharp-container">
-                        <img src={imgCSharp} alt="" className="img-cSharp" />
-                    </article>
-                    <article className="img-dotNet-container">
-                        <img src={imgDotNet} alt="" className="img-dotNet" />
-                    </article>
-                    <article className="img-aspNetCore-container">
-                        <img src={imgAspNetCore} alt="" className="img-aspNetCore" />
-                    </article>
-                    <article className="img-react-container">
-                        <img src={imgReact} alt="" className="img-react" />
-                    </article>
-                    <article className="img-vs-container">
-                        <img src={imgVS} alt="" className="img-vs" />
-                    </article>
-                </article>
+            <section className="content-wrapper" ref={parentDivRef}>
+                <ScrollTop parentDiv={parentDivRef}></ScrollTop>
+
+                <aside className="sidebar">
+                    ASIDE is not shown at the moment
+                </aside>
+
+                <Switch>
+                    <Route path="/home" exact component={Home}></Route>
+                    <Route path="/about" component={About}></Route>
+                    <Route path="/education" component={Education}></Route>
+                    <Route path="/experiance" component={Experiance}></Route>
+                    <Route path="/blog" component={Blog}></Route>
+                    <Route path="/" component={Home}></Route>
+
+                    {/* <Route path="/dashboard" component={Dashboard}></Route>
+                        <Route path="/pets/create" component={PetCreate}></Route>
+                        <Route path="/pets/details/:id" component={PetDetails}></Route>
+                        <Route path="/pets/edit/:id" component={PetEdit}></Route>
+                        <Route path="/portfolio" component={Portfolio}></Route>
+                        <Route path="/pets/delete/:id" component={PetDelete}></Route>
+
+                        <Route path="/demo">
+                            <DemoFormControlled></DemoFormControlled>
+                            <br />
+                            <DemoFormControlledRef></DemoFormControlledRef>
+                            <br />
+                            <DemoFormControlledFunc></DemoFormControlledFunc>
+                            <br />
+                            <DemoFormUncontrolled></DemoFormUncontrolled>
+                        </Route> */}
+                </Switch>
+
             </section>
         </main>
     )

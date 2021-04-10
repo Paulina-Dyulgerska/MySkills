@@ -1,3 +1,3 @@
-<div class="loading center">
-<div class="loading-bar"> </div>
+<div className="loading center">
+<div className="loading-bar"> </div>
 </div>

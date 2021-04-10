@@ -10,13 +10,19 @@
 
 .text-block-content-description .primary {
   font-weight: 700;
-  font-size: 1.6em;
+  font-size: 1.6rem;
   letter-spacing: 1.2px;
   padding: 20px 0 10px 0;
 }
 
 .text-block-content-description .secondary {
-  letter-spacing:unset;
-  /* font-size: 1.4em; */
+  letter-spacing: unset;
+  /* font-size: 1.4rem; */
   padding: 0px 60px 10px 0;
+}
+
+@media screen and (max-width: 600px) {
+  .text-block-content-description .secondary {
+    padding: 0px 10px;
+  }
 }

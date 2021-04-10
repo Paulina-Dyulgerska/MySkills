@@ -5,9 +5,9 @@ const Footer = () => {
     const date = new Date();
 
     return (
-        <footer className="footer">
-            <section className="footer-container">
-                <ul className="footer-container-social">
+        <footer className="footer-wrapper">
+            <section className="footer-content content-wrapper">
+                <ul className="footer-content-social">
                     <li className="list-item">
                         <a href="https://www.linkedin.com/in/dyulgerska-paulina-28271583">
                             <i className="fab fa-linkedin-in"></i>

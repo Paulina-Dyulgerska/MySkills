@@ -16,57 +16,23 @@ blockquote {
 }
 
 .content-wrapper {
-  position: relative;
-  max-width: 95%;
-  margin: 5px auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  /* color: #051441; */
-  color: #0e2979;
-  background: linear-gradient(1.14deg, rgb(244, 247, 252) 0%, rgb(255, 255, 255) 100%);
-  box-shadow: 0px 0px 3px 1px rgb(191 211 212);
-  border-radius: 4px;
-}
-
-.page-wrapper {
+  /* position: relative; */
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* min-height: 100px; */
-  /* align-items: stretch; */
   align-items: center;
-  z-index: 1;
+  box-shadow: 0px 0px 20px 0px #6da4ff45;
+  padding: 30px;
 }
 
-.header,
-.page-wrapper,
-.sidebar {
-    padding: 0 20px ;
-    /* margin-top: 2px;
-  border-radius: 2px; */
-}
-
-.main-wrapper,
-.sidebar {
-  flex-grow: 1;
-}
-
-.sidebar {
-  display: none;
-}
-
-.overlay-color {
-  position: absolute;
-  width: 40%;
-  height: 100%;
-  right: 0px;
-  top: 2px;
-  background-color: #e5effd;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-  opacity: 0.53;
-  z-index: -1;
+@media screen and (max-width: 600px) {
+  .content-wrapper {
+      flex-direction: column;
+      padding:10px;
+      /* align-items: center; */
+  }
 }
 
 /* Bootstrap breakpoints - max-width:
