@@ -38,8 +38,9 @@ const Education = () => {
                     <EducationCard
                         degree="Professional degree: CPE"
                         speciality="C# Web Developer (Full Stack)"
-                        university="Software University"
-                        period="2019 – 2021"
+                        institution="Software University"
+                        startDate="2019"
+                        endDate="2021"
                         path="/education"
                         iconClassName="fas fa-laptop"
                         onClickTogglePopup={togglePopup}
@@ -48,8 +49,9 @@ const Education = () => {
                     <EducationCard
                         degree="Master degree: MAcc"
                         speciality="Accounting, Economics"
-                        university="University of Plovdiv"
-                        period="2005 – 2007"
+                        institution="University of Plovdiv"
+                        startDate="2005"
+                        endDate="2007"
                         path="/education"
                         iconClassName="fas fa-chart-line"
                         onClickEvent={() => { }}
@@ -59,8 +61,9 @@ const Education = () => {
                     <EducationCard
                         degree="Master degree: MEng"
                         speciality="Automation, Information and Control Systems"
-                        university="Technical University – Sofia, branch Plovdiv"
-                        period="1997 – 2003"
+                        institution="Technical University – Sofia, branch Plovdiv"
+                        startDate="1997"
+                        endDate="2003"
                         path="/education"
                         iconClassName="fas fa-tools"
                         onClickEvent={() => { }}
@@ -70,8 +73,9 @@ const Education = () => {
                     <EducationCard
                         degree="High School"
                         speciality="Mathematics and English"
-                        university="High School of Mathematics - Stara Zagora"
-                        period="1991 – 1996"
+                        institution="High School of Mathematics - Stara Zagora"
+                        startDate="1991"
+                        endDate="1996"
                         path="/education"
                         iconClassName="fas fa-square-root-alt"
                         onClickEvent={() => { }}

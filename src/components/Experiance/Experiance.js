@@ -39,7 +39,20 @@ const Experiance = () => {
                 </article>
                 <article className="experiance-items">
                     <ExperianceCard
-                        link="https://www.liebherr.com"
+                        url="https://www.liebherr.com"
+                        logo="https://www.liebherr.com/media/global/img/svg/logo_ci_liebherr.svg"
+                        company="Liebherr Hausgeraete Marica GmbH"
+                        job="Engineer - Environmental regulatory affairs"
+                        startDate="May 2013"
+                        endDate="Present"
+                        details="Implement the product-related environmental requirements in the product development processes in Liebherr Hausgeraete Marica under the leadership of the Director of Product Development in Bulgaria and the Intercompany Coordinator in Germany. 
+                    Main responsibilities: implementing the company policy regarding product-related environmental protection in the factory in Bulgaria; staff training and consulting on questions related to the product development, material specifications and usage; communication with suppliers regarding the environmental requirements, documentation needed, confirmations, trainings of the suppliers; analyses and tests of new materials and verification of the compliance of the used ones; software adjustments; issuing and management of declarations, confirmations, technical delivery specifications, internal norms and construction papers.
+                    "
+                        onClickTogglePopup={togglePopup}
+
+                    ></ExperianceCard>
+                    <ExperianceCard
+                        url="https://www.liebherr.com"
                         logo="https://www.liebherr.com/media/global/img/svg/logo_ci_liebherr.svg"
                         company="Liebherr Hausgeraete Marica GmbH"
                         job="Engineer - Environmental regulatory affairs"
@@ -51,7 +64,7 @@ const Experiance = () => {
 
                     ></ExperianceCard>
                     <ExperianceCard
-                        link="https://www.liebherr.com"
+                        url="https://www.liebherr.com"
                         logo="https://www.liebherr.com/media/global/img/svg/logo_ci_liebherr.svg"
                         company="Liebherr Hausgeraete Marica GmbH"
                         job="Engineer - Environmental regulatory affairs"
@@ -63,19 +76,7 @@ const Experiance = () => {
 
                     ></ExperianceCard>
                     <ExperianceCard
-                        link="https://www.liebherr.com"
-                        logo="https://www.liebherr.com/media/global/img/svg/logo_ci_liebherr.svg"
-                        company="Liebherr Hausgeraete Marica GmbH"
-                        job="Engineer - Environmental regulatory affairs"
-                        period="May 2013 - Present"
-                        details="Implement the product-related environmental requirements in the product development processes in Liebherr Hausgeraete Marica under the leadership of the Director of Product Development in Bulgaria and the Intercompany Coordinator in Germany. 
-                    Main responsibilities: implementing the company policy regarding product-related environmental protection in the factory in Bulgaria; staff training and consulting on questions related to the product development, material specifications and usage; communication with suppliers regarding the environmental requirements, documentation needed, confirmations, trainings of the suppliers; analyses and tests of new materials and verification of the compliance of the used ones; software adjustments; issuing and management of declarations, confirmations, technical delivery specifications, internal norms and construction papers.
-                    "
-                        onClickTogglePopup={togglePopup}
-
-                    ></ExperianceCard>
-                    <ExperianceCard
-                        link="https://www.liebherr.com"
+                        url="https://www.liebherr.com"
                         logo="https://www.liebherr.com/media/global/img/svg/logo_ci_liebherr.svg"
                         company="Liebherr Hausgeraete Marica GmbH"
                         job="Engineer - Environmental regulatory affairs"

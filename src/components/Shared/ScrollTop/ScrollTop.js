@@ -55,10 +55,10 @@ const ScrollBackToTop = ({
     // useEffect(() => {
     // useLayoutEffect is used, because it is identical to useEffect, but it fires synchronously after all DOM mutations
     useLayoutEffect(() => {
-        window.addEventListener('scroll', () => {
-            setOffsetY((window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0) - 250);
-            setOffsetX((window.innerWidth - parentDiv.current.offsetWidth) / 2 )
-
+        window.addEventListener('scroll', (e) => {
+            setOffsetY((window.pageYOffset || document.documentElement.scrollTop || 
+                        document.body.scrollTop || 0) - 250);
+            setOffsetX((window.innerWidth - parentDiv.current.offsetWidth -20) / 2 )
             if (window.pageYOffset > 60) {
                 handleShow(true);
             } else handleShow(false);
@@ -73,10 +73,9 @@ const ScrollBackToTop = ({
     const backToTop = () => {
         window.scroll({ top: 0, behavior: 'smooth' });
     };
-
-    console.log(`${offsetY} - offset 2`);
-    console.log(window.innerHeight);
-    console.log(document.documentElement.clientHeight);
+    // console.log(`${offsetY} - offset 2`);
+    // console.log(window.innerHeight);
+    // console.log(document.documentElement.clientHeight);
     // console.log(parentDiv.current.offsetWidth + 'parent width from the child')
     // var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
 

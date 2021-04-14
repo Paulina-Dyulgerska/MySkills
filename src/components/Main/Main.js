@@ -24,7 +24,9 @@ const Main = () => {
             setHeight(parentDivRef.current.offsetHeight);
         }
     }, [parentDivRef]);
-    console.log(width + " parentDivRef width")
+    // console.log(width + " parentDivRef width")
+    // console.log(window.innerWidth);
+    // console.log(parentDivRef.clientWidth + " parentDivRef outer width")
 
     return (
         <main className="main-wrapper">

@@ -4,8 +4,9 @@ import './EducationCard.css';
 const EducationCard = ({
     degree,
     speciality,
-    university,
-    period,
+    institution,
+    startDate,
+    endDate,
     iconClassName,
     onClickTogglePopup,
 }) => {
@@ -14,8 +15,8 @@ const EducationCard = ({
         <article className="education-item" onClick={onClickTogglePopup}>
             <h5 className="degree">{degree}</h5>
             <h4 className="speciality">{speciality}</h4>
-            <h6 className="university">{university}</h6>
-            <p className="period">{period}</p>
+            <h6 className="university">{institution}</h6>
+            <p className="period">{startDate} - {endDate}</p>
             <span className="icon"><i className={iconClassName}></i></span>
         </article>
     )
