@@ -13,18 +13,17 @@ import imgPolygon from "../../img/polygon.png";
 
 
 const Education = () => {
-    const [contentCurrent, setContentCurrent] = useState('');
     const [educations, setEducations] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [details, setDetails] = useState('');
 
     useEffect(() => {
         educationService.getAll()
             .then(res => setEducations(res))
-    }, [educations]);
+    }, []);
 
-    const togglePopup = (contentClicked) => {
+    const togglePopup = () => {
         setIsOpen(!isOpen);
-        setContentCurrent(contentClicked)
     }
     return (
         <section className="education-wrapper">
@@ -41,7 +40,28 @@ const Education = () => {
                     <ButtonCta>Download CV</ButtonCta>
                 </article>
                 <article className="education-skills">
-                    <EducationCard
+                    {educations.map((e) => {
+                        return (
+                            <EducationCard
+                                key={e.id}
+                                id={e.id}
+                                degree={e.degree}
+                                speciality={e.speciality}
+                                institution={e.institution}
+                                startYear={e.startYear}
+                                endYear={e.endYear}
+                                path={e.path}
+                                details={e.details}
+                                iconClassName={e.iconClassName}
+                                onClickTogglePopup={togglePopup}
+                            />
+                            ////moje i taka s destruktorirane:
+                            // <EducationCard
+                            // key={e.id} {...e}/>
+                        )
+                    })}
+
+                    {/* <EducationCard
                         degree="Professional degree: CPE"
                         speciality="C# Web Developer (Full Stack)"
                         institution="Software University"
@@ -87,30 +107,14 @@ const Education = () => {
                         onClickEvent={() => { }}
                         onClickTogglePopup={togglePopup}
                     >
-                    </EducationCard>
+                    </EducationCard> */}
                     {isOpen
                         &&
                         <Popup
                             content={
                                 <>
                                     <b>Courses and main subjects</b>
-                                    <p>
-                                        C# Programming Basic, C# Fundamentals, C# Advanced, C# OOP, JS Advanced,
-                                        JS Applications, Databases Basics - MS SQL Server, Entity Framework Core,
-                                        C# Web Basics, HTML &amp; CSS, ASP.NET Core, React
-                                            </p>
-                                    <p>
-                                        Production Automation, Informatics, Electrical Engineering, Mathematics,
-                                        Physics and Chemistry
-                                            </p>
-                                    <p>
-                                        Accounting, Corporate Analysis, Industrial Management, Macroeconomics,
-                                        Microeconomics, Marketing, Statistics, Finance, Labor Economics,
-                                        Taxes and Tax Policy
-                                            </p>
-                                    <p>
-                                        Mathematics and English
-                                            </p>
+
                                     <button>Test button</button>
                                 </>
                                 // contentCurrent

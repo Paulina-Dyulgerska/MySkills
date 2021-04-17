@@ -5,9 +5,10 @@ const EducationCard = ({
     degree,
     speciality,
     institution,
-    startDate,
-    endDate,
+    startYear,
+    endYear,
     iconClassName,
+    details,
     onClickTogglePopup,
 }) => {
 
@@ -16,7 +17,7 @@ const EducationCard = ({
             <h5 className="degree">{degree}</h5>
             <h4 className="speciality">{speciality}</h4>
             <h6 className="university">{institution}</h6>
-            <p className="period">{startDate} - {endDate}</p>
+            <p className="period">{startYear} - {endYear}</p>
             <span className="icon"><i className={iconClassName}></i></span>
         </article>
     )

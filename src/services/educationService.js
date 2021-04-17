@@ -1,51 +1,85 @@
-const url='https://localhost:44319/api/educations';
+const baseURL = 'https://localhost:44319/api/educations';
+
+function makeHeaders(httpMethod, data) {
+    const headers = {
+        method: httpMethod,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            "Content-Type": "application/json",
+        }
+    }
+
+    if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
+        headers.body = JSON.stringify(data);
+    }
+
+    return headers;
+}
+
+function handleError(e) {
+    if (!e.ok) {
+        throw new Error(e.statusText);
+    }
+    return e;
+}
+
+function serializeData(x) {
+    return x.json();
+}
+
+async function fetchData(url, headers) {
+    const e = await fetch(url, headers);
+    const x = await handleError(e);
+    return serializeData(x);
+}
 
 const getAll = () => {
-    return fetch(url)
-        .then(res => res.json())
-        .catch(err => console.error(err))
+    const headers = makeHeaders('GET');
+    const url = `${baseURL}`;
+
+    return fetchData(url, headers);
 }
 
 const getOne = (id) => {
-    return fetch(`${url}/${id}`)
-        .then(res => res.json())
-        .catch(err => console.error(err))
+    const headers = makeHeaders('GET');
+    const url = `${baseURL}/${id}`;
+
+    return fetchData(url, headers);
 }
 
-const create = (education) => {
-    return fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(education),
-    })
+const post = (data) => {
+    const headers = makeHeaders('POST', data);
+    const url = `${baseURL}`;
+
+    return fetchData(url, headers);
 }
 
-const update = (education) => {
-    return fetch(`${url}/${education.id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(education),
-    })
+const put = (data) => {
+    const headers = makeHeaders('PUT', data);
+    const url = `${baseURL}/${data.id}`;
+
+    return fetchData(url, headers);
 }
 
-const patch = (educationId, data) => {
-    return  fetch(`${url}/${educationId}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
+const patch = (data) => {
+    const headers = makeHeaders('PATCH', data);
+    const url = `${baseURL}/${data.id}`;
+
+    return fetchData(url, headers);
+}
+
+const del = (id) => {
+    const headers = makeHeaders('DELETE');
+    const url = `${baseURL}/${id}`;
+
+    return fetchData(url, headers);
 }
 
 export {
     getAll,
     getOne,
-    create,
+    post,
     patch,
-    update,
+    put,
+    del,
 };
