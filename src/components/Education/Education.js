@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './Education.css';
+import * as educationService from '../../services/educationService.js';
 
 import Bubbles from '../Shared/Bubbles/Bubbles';
 import ButtonCta from '../Shared/ButtonCta/ButtonCta';
@@ -13,8 +14,13 @@ import imgPolygon from "../../img/polygon.png";
 
 const Education = () => {
     const [contentCurrent, setContentCurrent] = useState('');
-
+    const [educations, setEducations] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        educationService.getAll()
+            .then(res => setEducations(res))
+    }, [educations]);
 
     const togglePopup = (contentClicked) => {
         setIsOpen(!isOpen);
