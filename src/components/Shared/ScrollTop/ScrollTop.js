@@ -58,7 +58,7 @@ const ScrollBackToTop = ({
         window.addEventListener('scroll', (e) => {
             setOffsetY((window.pageYOffset || document.documentElement.scrollTop || 
                         document.body.scrollTop || 0) - 250);
-            setOffsetX((window.innerWidth - parentDiv.current.offsetWidth -20) / 2 )
+            setOffsetX((window.innerWidth - parentDiv.current.offsetWidth + 10) / 2 )
             if (window.pageYOffset > 60) {
                 handleShow(true);
             } else handleShow(false);
