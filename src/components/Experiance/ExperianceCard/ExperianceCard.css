@@ -11,7 +11,6 @@
   transition: all .3s line;
   position: relative;
   border-radius: 10px;
-  cursor: pointer;
   animation-fill-mode: both;
   animation-duration: 1000ms;
   animation-delay: 0ms;
@@ -43,10 +42,19 @@
 .expriance-item .media-left {
   padding-right: 10px;
   text-align: center;
+  flex-basis: 30%;
 }
 
 .expriance-item .media-body {
-  flex-basis: 80%;
+  flex-basis: 70%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+}
+
+.expriance-item a {
+  cursor: pointer;
 }
 
 .expriance-item .logo {
@@ -62,8 +70,13 @@
   color: #545454;
 }
 
+.expriance-item .btn-cta {
+  align-self: right;
+}
+
 .expriance-item:hover {
-  box-shadow: 0 4px 60px 0 rgb(4 73 89 / 5%), 0 12px 100px 0 rgb(4 73 89 / 6%);
+  /* box-shadow: 0 4px 60px 0 rgb(4 73 89 / 25%), 0 12px 100px 0 rgb(4 73 89 / 26%); */
+  box-shadow: 0px 0px 20px 0px #6da4ffc9;
   /* color: #64f4ac; */
   /* color: #0ebb43; */
   /* color: #00c99c; */
