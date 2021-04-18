@@ -16,15 +16,17 @@ const Education = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [educations, setEducations] = useState([]);
     const [details, setDetails] = useState('');
+    const [speciality, setSpeciality] = useState('');
 
     useEffect(() => {
         educationService.getAll()
             .then(res => setEducations(res))
     }, []);
 
-    const showPopup = (currentDetails) => {
+    const showPopup = (currentDetails, currentSpeciality) => {
         setIsModalOpen(true);
         setDetails(currentDetails);
+        setSpeciality(currentSpeciality);
     }
 
     const hidePopup = () => {
@@ -60,7 +62,7 @@ const Education = () => {
                                     path={e.path}
                                     details={e.details}
                                     iconClassName={e.iconClassName}
-                                    onClickTogglePopup={() => showPopup(e.details)}
+                                    onClickTogglePopup={() => showPopup(e.details, e.speciality)}
                                 />
                                 ////moje i taka s destruktorirane:
                                 // <EducationCard
@@ -72,8 +74,9 @@ const Education = () => {
                             <Popup
                                 content={
                                     <TextBlockContent
-                                        primary={["Courses and main subjects:"]}
-                                        secondary={[details]}
+                                        title="Courses and main subjects:"
+                                        primary={[speciality]}
+                                        secondary={details.split(', ')}
                                     >
                                     </TextBlockContent>}
                                 handleClose={() => hidePopup()}

@@ -5,15 +5,19 @@
     height: 100vh;
     top: 0;
     left: 0;
+    z-index: 9999;
 }
 
 .box {
     position: relative;
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
-    height: auto;
-    max-height: 70vh;
-    margin-top: calc(100vh - 65vh);
+    /* height: auto; */
+    /* max-height: 70vh; */
+    /* margin-top: calc(100vh - 80%); */
+    top: 50%;
+    right: 50%;
+    transform: translate(100%, -50%);
     background: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -25,16 +29,18 @@
     content: 'x';
     font-weight: bold;
     cursor: pointer;
-    position: fixed;
-    right: calc(15% - 30px);
-    top: calc(100vh - 65vh - 33px);
-    /* top: calc(0%); */
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    /* right: calc(15% - 30px);
+    top: calc(100vh - 50% - 33px); */
     background: #ededed;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 10px;
     line-height: 20px;
     text-align: center;
-    border: 1px solid #999;
     font-size: 20px;
+    opacity: 0.8;
 }
