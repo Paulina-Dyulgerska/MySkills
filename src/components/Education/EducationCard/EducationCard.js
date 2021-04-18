@@ -1,6 +1,8 @@
 
 import './EducationCard.css';
 
+import ButtonCta from '../../Shared/ButtonCta/ButtonCta';
+
 const EducationCard = ({
     degree,
     speciality,
@@ -9,6 +11,7 @@ const EducationCard = ({
     endYear,
     iconClassName,
     details,
+    buttonText,
     onClickTogglePopup,
 }) => {
 
@@ -20,6 +23,7 @@ const EducationCard = ({
             <h6 className="university">{institution}</h6>
             <p className="period">{startYear} - {endYear}</p>
             <span className="icon"><i className={iconClassName}></i></span>
+            <ButtonCta>{buttonText}</ButtonCta>
         </article>
     )
 }

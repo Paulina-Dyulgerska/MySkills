@@ -1,9 +1,8 @@
 import { useState, useEffect, createContext } from 'react';
 
 import './Education.css';
-import * as educationService from '../../services/educationService.js';
+import * as educationsService from '../../services/educationsService.js';
 
-import Bubbles from '../Shared/Bubbles/Bubbles';
 import ButtonCta from '../Shared/ButtonCta/ButtonCta';
 import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 import EducationCard from '../Education/EducationCard/EducationCard';
@@ -19,10 +18,12 @@ const Education = () => {
     const [speciality, setSpeciality] = useState('');
 
     useEffect(() => {
-        educationService.getAll()
+        educationsService.getAll()
             .then(res => setEducations(res))
     }, []);
 
+    const moreDetailsButtonText = 'More Details for this Education';
+    
     const showPopup = (currentDetails, currentSpeciality) => {
         setIsModalOpen(true);
         setDetails(currentDetails);
@@ -62,6 +63,7 @@ const Education = () => {
                                     path={e.path}
                                     details={e.details}
                                     iconClassName={e.iconClassName}
+                                    buttonText={moreDetailsButtonText}
                                     onClickTogglePopup={() => showPopup(e.details, e.speciality)}
                                 />
                                 ////moje i taka s destruktorirane:
