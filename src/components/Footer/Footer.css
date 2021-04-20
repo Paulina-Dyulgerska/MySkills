@@ -29,7 +29,7 @@
   /* display: inline-block; */
   padding: 0 15px;
   animation-fill-mode: both;
-  animation-duration: 1000ms;
+  animation-duration: 2000ms;
   animation-delay: 0ms;
   animation-iteration-count: 1;
   opacity: 1;
@@ -45,15 +45,15 @@
   line-height: 35px;
   border-radius: 50%;
   display: inline-block;
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   text-align: center;
 }
 
 @keyframes social {
   0% {
     opacity: 0;
-    transform: translate3d(0px, -100%, 0px);
+    transform: translate3d(0px, -500%, 0px);
   }
 
   100% {
@@ -79,4 +79,8 @@
   color: #0e2979;
   font-weight: bold;
   text-decoration: none;
+}
+
+.footer-content-social .list-item a:hover{
+  transform: scale(1.2);
 }

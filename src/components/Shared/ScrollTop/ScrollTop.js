@@ -56,9 +56,9 @@ const ScrollBackToTop = ({
     // useLayoutEffect is used, because it is identical to useEffect, but it fires synchronously after all DOM mutations
     useLayoutEffect(() => {
         window.addEventListener('scroll', (e) => {
-            setOffsetY((window.pageYOffset || document.documentElement.scrollTop || 
-                        document.body.scrollTop || 0) - 250);
-            setOffsetX((window.innerWidth - parentDiv?.current.offsetWidth + 10) / 2 )
+            setOffsetY((window.pageYOffset || document.documentElement.scrollTop ||
+                document.body.scrollTop || 0) - 250);
+            setOffsetX((window.innerWidth - parentDiv?.current.offsetWidth - 5) / 2)
             if (window.pageYOffset > 60) {
                 handleShow(true);
             } else handleShow(false);
@@ -82,17 +82,17 @@ const ScrollBackToTop = ({
     return (
         <>
             {show && (
-                <div className="arrow-icon-hd"
+                <article className="arrow-icon-hd"
                     onClick={backToTop}
                     style={{
                         transform: `translateY(${offsetY}px)`,
                         right: `${offsetX}px`
                     }}
                 >
-                    <div className="nvc-btn-icon">
-                        <div className="icon-arrow"></div>
-                    </div>
-                </div>
+                    <article className="nvc-btn-icon">
+                        <span className="icon-arrow"></span>
+                    </article>
+                </article>
             )}
         </>
     );
