@@ -1,13 +1,19 @@
-.contact-area-container {
+.contact-area-wrapper {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-/* .contact-area-section-title{
-    margin-bottom: 70px;
-} */
+@media screen and (max-width: 900px) {
+    .contact-area-wrapper {
+        flex-direction: column;
 
-.contact-area-content {
+        padding:10px;
+        align-items: center;
+    }
+  }
+
+.contact-area-container {
     flex-basis: 30%;
 }
 .contact-area-form {
@@ -28,10 +34,15 @@
 }
 
 .input {
-    flex-basis: 40%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    flex-basis: 45%;
+    margin: 10px;
 }
+
+@media screen and (max-width: 900px) {
+    .input {
+        flex-basis: 100%;
+    }
+  }
 
 .fadeInRight {
     -webkit-animation-name: fadeInRight;
