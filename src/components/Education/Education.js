@@ -3,7 +3,7 @@ import { useState, useEffect, createContext } from 'react';
 import './Education.css';
 import * as educationsService from '../../services/educationsService.js';
 
-import ButtonCta from '../Shared/ButtonCta/ButtonCta';
+import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 import EducationCard from '../Education/EducationCard/EducationCard';
 import Popup from '../Shared/Popup/Popup';

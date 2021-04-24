@@ -6,7 +6,6 @@ import "./Header.css";
 import NavigationItem from './NavigationItem/NavigationItem';
 import LogoNavigationItem from './NavigationItem/LogoNavigationItem';
 import UserMenu from './UserMenu/UserMenu';
-import CustomLink from '../CustomLink/CustomLink';
 
 const Header = (props) => {
     let isInputChecked = false;

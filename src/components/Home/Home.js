@@ -1,4 +1,4 @@
-import ButtonCta from '../Shared/ButtonCta/ButtonCta';
+import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 
 import './Home.css';
@@ -27,7 +27,11 @@ const Home = () => {
                             "I create and code beautiful and simple things and I love what I do."]}
                     >
                     </TextBlockContent>
-                    <ButtonCta>HIRE ME</ButtonCta>
+                    <ButtonCta
+                        to={`#`}
+                    >
+                        HIRE ME
+                    </ButtonCta>
                 </article>
             </section>
             <section className="img-container">

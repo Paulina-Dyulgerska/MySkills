@@ -1,17 +1,23 @@
 import './Contact.css';
 
 import MediaItem from './MediaItem/MediaItem';
+import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
+import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 
 const Contact = () => {
     return (
         <section className="contact-area-wrapper">
             <section className="contact-area-container">
-                <section className="contact-area-contacts">
-                    <article className="contact-area-section-title">
-                        <h6>Get in Touch</h6>
-                        <h2>Talk or Meet with Me</h2>
-                    </article>
+                <article className="contact-area-content">
+                    <TextBlockContent
+                        title="Talk Or Meet Me"
+                        primary={["Get in touch"]}
+                        secondary={[]}
+                    >
+                    </TextBlockContent>
+
                     <MediaItem
+                        key='1'
                         title='Call Me Now'
                         link=''
                         linkText='02934567845'
@@ -38,35 +44,44 @@ const Contact = () => {
                         linkText='john.com'
                         details=''
                     />
-                </section>
-                <section className="contact-area-form">
-                    <article className="contact-area-section-title">
-                        <h6>Contact us</h6>
-                        <h2>Let me know</h2>
-                    </article>
-                    <form className="form_className">
-                        <div className="row">
-                            <div className="col-lg-6">
+                </article>
+                <article className="contact-area-form fadeInRight">
+                    <TextBlockContent
+                        title="Let Me Know"
+                        primary={["Contact me"]}
+                        secondary={[]}
+                    >
+                    </TextBlockContent>
+
+                    <form className="contact-area-form">
+                        <article className="input-fields">
+                            <span className="input">
                                 <input type="text" id="name" name="name" className="form-control" placeholder="Your Name*" />
-                                <p></p>
-                            </div>
-                            <div className="col-lg-6">
-                                <input type="email" className="form-control" id="email" name="email" placeholder="Your Email*" />
-                                <p></p>
-                            </div>
-                            <div className="col-lg-6">
+                                <span className="actions"></span>
+                            </span>
+                            <span className="input">
+                                <input type="email" id="email" name="email" className="form-control" placeholder="Your Email*" />
+                                <span className="actions"></span>
+                            </span>
+                            <span className="input">
                                 <input type="text" id="subject" name="subject" className="form-control" placeholder="Subject*" />
-                                <p></p>
-                            </div>
-                            <div className="col-lg-6">
-                                <input type="text" className="form-control" id="phone" name="phone" placeholder="Phone*" />
-                                <p></p>
-                            </div>
-                        </div>
-                        <textarea name="message" id="message" className="form-control" rows="6" placeholder="Your Message ..."></textarea>
-                        <button type="submit" className="btn send_btn theme_btn">Send Message</button>
+                                <span className="actions"></span>
+                            </span>
+                            <span className="input">
+                                <input type="text" id="phone" name="phone" className="form-control" placeholder="Phone*" />
+                                <span className="actions"></span>
+                            </span>
+                        </article>
+                        <span className="input">
+                            <textarea name="message" id="message" name="testarea" className="form-control" rows="6" placeholder="Your Message ..."></textarea>
+                        </span>
+                        <ButtonSubmit
+                            path={`#`}
+                        >
+                            Send Message
+                        </ButtonSubmit>
                     </form>
-                </section>
+                </article>
             </section>
         </section >
     )

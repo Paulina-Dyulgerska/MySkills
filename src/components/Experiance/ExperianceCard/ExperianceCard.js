@@ -1,7 +1,7 @@
 import './ExperianceCard.css';
 
 import LogoNavigationItem from '../../Header/NavigationItem/LogoNavigationItem';
-import ButtonCta from '../../Shared/ButtonCta/ButtonCta';
+import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
 
 function formatDate(userDOB) {
     const dob = new Date(userDOB);
@@ -64,7 +64,11 @@ const ExperianceCard = ({
                 <h4 className="job">{job}</h4>
                 <span className="period">{`${dateString} (${workPeriodString})`}</span>
                 <p className="details">{shortenText(details)}</p>
-                <ButtonCta>{buttonText}</ButtonCta>
+                <ButtonCta
+                    to={'#'} // path
+                >
+                    {buttonText}
+                </ButtonCta>
             </article>
         </article>
     )

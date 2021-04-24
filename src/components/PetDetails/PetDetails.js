@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom';
 
 import * as petsService from '../../services/petsService';
-import CustomLink from '../CustomLink/CustomLink';
+import CustomLink from '../Shared/CustomLink/CustomLink';
 
 const PetDetails = ({
     match
