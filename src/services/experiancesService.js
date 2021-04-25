@@ -1,85 +1,93 @@
-const baseURL = 'https://localhost:44319/api/experiances';
+import baseService from './baseService';
 
-function makeHeaders(httpMethod, data) {
-    const headers = {
-        method: httpMethod,
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-            "Content-Type": "application/json",
-        }
-    }
+const experiancesURL = 'https://localhost:44319/api/experiances';
 
-    if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
-        headers.body = JSON.stringify(data);
-    }
+export default baseService(experiancesURL);
 
-    return headers;
-}
 
-function handleError(e) {
-    if (!e.ok) {
-        throw new Error(e.statusText);
-    }
-    return e;
-}
 
-function serializeData(x) {
-    return x.json();
-}
+// const baseURL = 'https://localhost:44319/api/experiances';
 
-async function fetchData(url, headers) {
-    const e = await fetch(url, headers);
-    const x = await handleError(e);
-    return serializeData(x);
-}
+// function makeHeaders(httpMethod, data) {
+//     const headers = {
+//         method: httpMethod,
+//         headers: {
+//             'Access-Control-Allow-Origin': '*',
+//             "Content-Type": "application/json",
+//         }
+//     }
 
-const getAll = () => {
-    const headers = makeHeaders('GET');
-    const url = `${baseURL}`;
+//     if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
+//         headers.body = JSON.stringify(data);
+//     }
 
-    return fetchData(url, headers);
-}
+//     return headers;
+// }
 
-const getOne = (id) => {
-    const headers = makeHeaders('GET');
-    const url = `${baseURL}/${id}`;
+// function handleError(e) {
+//     if (!e.ok) {
+//         throw new Error(e.statusText);
+//     }
+//     return e;
+// }
 
-    return fetchData(url, headers);
-}
+// function serializeData(x) {
+//     return x.json();
+// }
 
-const post = (data) => {
-    const headers = makeHeaders('POST', data);
-    const url = `${baseURL}`;
+// async function fetchData(url, headers) {
+//     const e = await fetch(url, headers);
+//     const x = await handleError(e);
+//     return serializeData(x);
+// }
 
-    return fetchData(url, headers);
-}
+// const getAll = () => {
+//     const headers = makeHeaders('GET');
+//     const url = `${baseURL}`;
 
-const put = (data) => {
-    const headers = makeHeaders('PUT', data);
-    const url = `${baseURL}/${data.id}`;
+//     return fetchData(url, headers);
+// }
 
-    return fetchData(url, headers);
-}
+// const getOne = (id) => {
+//     const headers = makeHeaders('GET');
+//     const url = `${baseURL}/${id}`;
 
-const patch = (data) => {
-    const headers = makeHeaders('PATCH', data);
-    const url = `${baseURL}/${data.id}`;
+//     return fetchData(url, headers);
+// }
 
-    return fetchData(url, headers);
-}
+// const post = (data) => {
+//     const headers = makeHeaders('POST', data);
+//     const url = `${baseURL}`;
 
-const del = (id) => {
-    const headers = makeHeaders('DELETE');
-    const url = `${baseURL}/${id}`;
+//     return fetchData(url, headers);
+// }
 
-    return fetchData(url, headers);
-}
+// const put = (data) => {
+//     const headers = makeHeaders('PUT', data);
+//     const url = `${baseURL}/${data.id}`;
 
-export {
-    getAll,
-    getOne,
-    post,
-    patch,
-    put,
-    del,
-};
+//     return fetchData(url, headers);
+// }
+
+// const patch = (data) => {
+//     const headers = makeHeaders('PATCH', data);
+//     const url = `${baseURL}/${data.id}`;
+
+//     return fetchData(url, headers);
+// }
+
+// const del = (id) => {
+//     const headers = makeHeaders('DELETE');
+//     const url = `${baseURL}/${id}`;
+
+//     return fetchData(url, headers);
+// }
+
+// export {
+//     getAll,
+//     getOne,
+//     post,
+//     patch,
+//     put,
+//     del,
+// };

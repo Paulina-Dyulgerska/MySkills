@@ -1,7 +1,8 @@
 import { useState, useEffect, createContext } from 'react';
 
 import './Experiance.css';
-import * as experiancesService from '../../services/experiancesService';
+// import * as experiancesService from '../../services/experiancesService';
+import experiancesService from '../../services/experiancesService';
 
 import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 import ExperianceCard from './ExperianceCard/ExperianceCard';
