@@ -1,10 +1,21 @@
 import './Contact.css';
 
+import { useEffect, useState } from 'react';
+
+import contactsService from '../../services/contactsService';
+
 import MediaItem from './MediaItem/MediaItem';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 
 const Contact = () => {
+    const [contacts, setContacts] = useState([]);
+
+    useEffect(() => {
+        contactsService.getAll()
+            .then(res => setContacts(res))
+    }, []);
+
     return (
         <section className="contact-area-wrapper">
             <section className="contact-area-container">
@@ -14,39 +25,21 @@ const Contact = () => {
                     secondary={[]}
                 >
                 </TextBlockContent>
-
-                <MediaItem
-                    key='1'
-                    icon='fas fa-phone-volume'
-                    title='Call Me Now'
-                    link=''
-                    linkText='+359887684868'
-                />
-                <MediaItem
-                    key='2'
-                    icon='fas fa-envelope-open-text'
-                    title='Contact Me'
-                    link=''
-                    linkText='paylina_st@yahoo.com'
-                    details=''
-                />
-                <MediaItem
-                    key='3'
-                    icon='fas fa-street-view'
-                    title='Get Me Here'
-                    link=''
-                    linkText='4003 - Plovidv, Bulgaria'
-                    details=''
-                />
-                <MediaItem
-                    key='4'
-                    icon='fas fa-headphones'
-                    title='Listen To Me'
-                    link=''
-                    linkText='paulinaweb.com; dotnetweb.net'
-                    details=''
-                />
+                {
+                    contacts.map((c) => {
+                        return (
+                            < MediaItem
+                                key={c.id}
+                                icon={c.icon}
+                                title={c.title}
+                                link={c.link}
+                                linkText={c.linkText}
+                            />
+                        )
+                    })
+                }
             </section>
+
             <section className="contact-area-form fadeInRight">
                 <TextBlockContent
                     title="Let Me Know"
@@ -76,12 +69,11 @@ const Contact = () => {
                     </article>
                     <span className="input">
                         <textarea name="message" id="message" name="testarea" className="form-control" rows="6" placeholder="Your Message ..."></textarea>
+                        <span className="actions"></span>
                     </span>
-                    <ButtonSubmit
-                        path={`#`}
-                    >
+                    <ButtonSubmit path={`#`}>
                         Send Message
-                        </ButtonSubmit>
+                    </ButtonSubmit>
                 </form>
             </section>
         </section>
