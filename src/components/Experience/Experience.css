@@ -1,13 +1,13 @@
-.experiance-wrapper{
+.experience-wrapper{
     position: relative;
 }
 
 
-.experiance-content {
+.experience-content {
     padding: 30px 50px 0px 50px;
 }
 
-.experiance-items {
+.experience-items {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -16,12 +16,12 @@
     padding: 20px 30px;
 }
 
-.experiance-item {
+.experience-item {
     /* flex-basis: 80%; */
 }
 
 @media screen and (max-width: 600px) {
-    .experiance-items {
+    .experience-items {
         padding: 10px;
     }
 }

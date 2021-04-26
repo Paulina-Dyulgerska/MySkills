@@ -1,10 +1,5 @@
 import './About.css';
 
-import Bubbles from '../Shared/Bubbles/Bubbles';
-
-import imgPolygon from "../../img/polygon.png";
-
-
 const About = () => {
     return (
         <section className="about-wrapper">

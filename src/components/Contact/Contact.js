@@ -68,7 +68,7 @@ const Contact = () => {
                         </span>
                     </article>
                     <span className="input">
-                        <textarea name="message" id="message" name="testarea" className="form-control" rows="6" placeholder="Your Message ..."></textarea>
+                        <textarea id="message" name="message" className="form-control" rows="6" placeholder="Your Message ..."></textarea>
                         <span className="actions"></span>
                     </span>
                     <ButtonSubmit path={`#`}>

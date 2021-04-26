@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import logo from "../../img/logo.png";
 import "./Header.css";
@@ -8,8 +8,6 @@ import LogoNavigationItem from './NavigationItem/LogoNavigationItem';
 import UserMenu from './UserMenu/UserMenu';
 
 const Header = (props) => {
-    let isInputChecked = false;
-
     return (
         <header className="header-wrapper" >
             <section className="content-wrapper header-content">
@@ -39,7 +37,7 @@ const Header = (props) => {
                         <NavigationItem path="/home">Home</NavigationItem>
                         <NavigationItem path="/about">About</NavigationItem>
                         <NavigationItem path="/education">Education</NavigationItem>
-                        <NavigationItem path="/experiance">Experiance</NavigationItem>
+                        <NavigationItem path="/experience">Experience</NavigationItem>
                         <NavigationItem path="/portfolio">Portfolio</NavigationItem>
                         <NavigationItem path="/blog">Blog</NavigationItem>
                         <NavigationItem path="/contact">Contact</NavigationItem>

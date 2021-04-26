@@ -8,7 +8,7 @@ import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 import EducationCard from '../Education/EducationCard/EducationCard';
 import Popup from '../Shared/Popup/Popup';
 
-import imgPolygon from "../../img/polygon.png";
+// import imgPolygon from "../../img/polygon.png";
 export const ModalContext = createContext();
 
 const Education = () => {

@@ -1,12 +1,12 @@
 import baseService from './baseService';
 
-const experiancesURL = 'https://localhost:44319/api/experiances';
+const experiencesURL = 'https://localhost:44319/api/experiences';
 
-export default baseService(experiancesURL);
+export default baseService(experiencesURL);
 
 
 
-// const baseURL = 'https://localhost:44319/api/experiances';
+// const baseURL = 'https://localhost:44319/api/experiences';
 
 // function makeHeaders(httpMethod, data) {
 //     const headers = {

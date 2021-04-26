@@ -1,4 +1,4 @@
-import './ExperianceCard.css';
+import './ExperienceCard.css';
 
 import LogoNavigationItem from '../../Header/NavigationItem/LogoNavigationItem';
 import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
@@ -30,7 +30,7 @@ function monthsDiff(d1, d2) {
     return `${years ? `${years} years and ` : ''}${months} months`;
 }
 
-const ExperianceCard = ({
+const ExperienceCard = ({
     url,
     logo,
     company,
@@ -74,7 +74,7 @@ const ExperianceCard = ({
     )
 }
 
-export default ExperianceCard;
+export default ExperienceCard;
 
 function shortenText(t) {
     if (t.length > 150) {

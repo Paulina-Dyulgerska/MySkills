@@ -6,7 +6,7 @@ import './Main.css';
 import Home from '../Home/Home';
 import About from '../About/About';
 import Education from '../Education/Education';
-import Experiance from '../Experiance/Experiance';
+import Experience from '../Experience/Experience';
 import Contact from '../Contact/Contact';
 import Blog from '../Blog/Blog';
 import ScrollTop from '../Shared/ScrollTop/ScrollTop';
@@ -44,7 +44,7 @@ const Main = () => {
                     <Route path="/home" exact component={Home}></Route>
                     <Route path="/about" component={About}></Route>
                     <Route path="/education" component={Education}></Route>
-                    <Route path="/experiance" component={Experiance}></Route>
+                    <Route path="/experience" component={Experience}></Route>
                     <Route path="/contact" component={Contact}></Route>
                     <Route path="/blog" component={Blog}></Route>
                     <Route path="/" component={Home}></Route>
