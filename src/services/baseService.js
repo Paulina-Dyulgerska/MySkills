@@ -5,7 +5,6 @@ const baseService = (baseURL) => {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBheWxpbmFfc3RAeWFob28uY29tIiwibmFtZWlkIjoiYTBmMGNmMzMtZGZkZi00NGFiLTgzYmYtNDIyNzZhYmIyMDAyIiwicm9sZSI6IkFkbWluaXN0cmF0b3IiLCJuYmYiOjE2MjEwMTIxMzcsImV4cCI6MTYyMTYxNjkzNywiaWF0IjoxNjIxMDEyMTM3LCJpc3MiOiJNeVNraWxsc1NlcnZlciIsImF1ZCI6Ik15U2tpbGxzQ2xpZW50In0.k3-FdXoEYzMpCUUpMPvPm8qsThVbqLs8KZhmDvy5Bcg',
             }
         }
 
