@@ -1,5 +1,7 @@
 import './MediaItem.css';
 
+import NavigationItem from '../../Header/NavigationItem/NavigationItem';
+
 const MediaItem = ({
     icon,
     title,
@@ -12,7 +14,7 @@ const MediaItem = ({
             <i className={icon}></i>
             <article className="media-item-body">
                 <h6>{title}</h6>
-                <a href={link}>{linkText}</a>
+                <NavigationItem path={link}>{linkText}</NavigationItem>
             </article>
         </article>
     )

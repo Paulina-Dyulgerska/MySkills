@@ -7,6 +7,7 @@ import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 import EducationCard from '../Education/EducationCard/EducationCard';
 import Popup from '../Shared/Popup/Popup';
+import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
 // import imgPolygon from "../../img/polygon.png";
 export const ModalContext = createContext();
@@ -20,10 +21,11 @@ const Education = () => {
     useEffect(() => {
         educationsService.getAll()
             .then(res => setEducations(res))
+            .catch(err => console.log(err));
     }, []);
 
     const moreDetailsButtonText = 'More Details for this Education';
-    
+
     const showPopup = (currentDetails, currentSpeciality) => {
         setIsModalOpen(true);
         setDetails(currentDetails);
@@ -49,10 +51,11 @@ const Education = () => {
                         </TextBlockContent>
                         <ButtonCta>Download CV</ButtonCta>
                     </article>
+
                     <article className="education-skills">
-                        {educations.map((e) => {
-                            return (
-                                <EducationCard
+                        {educations.length === 0 ? <LoadingBar></LoadingBar> :
+                            educations.map((e) => {
+                                return <EducationCard
                                     key={e.id}
                                     id={e.id}
                                     degree={e.degree}
@@ -69,8 +72,7 @@ const Education = () => {
                                 ////moje i taka s destruktorirane:
                                 // <EducationCard
                                 // key={e.id} {...e}/>
-                            )
-                        })}
+                            })}
 
                         {isModalOpen &&
                             <Popup

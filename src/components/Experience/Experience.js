@@ -7,6 +7,7 @@ import experiencesService from '../../services/experiencesService';
 import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 import ExperienceCard from './ExperienceCard/ExperienceCard';
 import Popup from '../Shared/Popup/Popup';
+import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
 // import imgPolygon from "../../img/polygon.png";
 
@@ -21,6 +22,7 @@ const Experience = () => {
     useEffect(() => {
         experiencesService.getAll()
             .then(res => setExperiences(res))
+            .catch(err => console.log(err));
     }, []);
 
     const moreDetailsButtonText = 'More Details for this Position';
@@ -46,49 +48,56 @@ const Experience = () => {
                     <article className="experience-content">
                         {/* <img src={imgPolygon} alt="" className="polygon" /> */}
                         <TextBlockContent
-                            title="This is my Life, Path &amp; Work"
-                            primary={["Every ..."]}
-                            secondary={["I am....",
-                                "....."]}
+                            // title="This is my Life, Path &amp; Work"
+                            // primary={["Every ..."]}
+                            // secondary={["I am....",
+                            //     "....."]}
+                            title="This is my Passion, Heart &amp; Soul"
+                            primary={["Every great success is based on great many trainings"]}
+                            secondary={["I have studied all my life. Some people are asking me why?!",
+                                "The simples answer is: Because I love knowedge and I want to know how the things are working, how the World is running and I could not stay a day without discovering at least one new thing. This is the human nature for me and I try to be a Human."]}
+
                         >
                         </TextBlockContent>
                     </article>
-                    <article className="experience-items">
-                        {experiences.map((e) => {
-                            return (
-                                <ExperienceCard
-                                    key={e.id}
-                                    id={e.id}
-                                    url={e.url}
-                                    logo={e.logo}
-                                    company={e.company}
-                                    job={e.job}
-                                    startDate={e.startDate}
-                                    endDate={e.endDate}
-                                    details={e.details}
-                                    iconClassName={e.iconClassName}
-                                    buttonText={moreDetailsButtonText}
-                                    onClickTogglePopup={() => showPopup(e.details, e.job)}
-                                />
-                                ////moje i taka s destruktorirane:
-                                // <ExperienceCard
-                                // key={e.id} {...e}/>
-                            )
-                        })}
+                    {experiences.length === 0 ? <LoadingBar></LoadingBar> :
+                        <article className="experience-items">
+                            {experiences.map((e) => {
+                                return (
+                                    <ExperienceCard
+                                        key={e.id}
+                                        id={e.id}
+                                        url={e.url}
+                                        logo={e.logo}
+                                        company={e.company}
+                                        job={e.job}
+                                        startDate={e.startDate}
+                                        endDate={e.endDate}
+                                        details={e.details}
+                                        iconClassName={e.iconClassName}
+                                        buttonText={moreDetailsButtonText}
+                                        onClickTogglePopup={() => showPopup(e.details, e.job)}
+                                    />
+                                    ////moje i taka s destruktorirane:
+                                    // <ExperienceCard
+                                    // key={e.id} {...e}/>
+                                )
+                            })}
 
-                        {isModalOpen &&
-                            <Popup
-                                content={
-                                    <TextBlockContent
-                                        title="Job main description and responsibilities:"
-                                        primary={[job]}
-                                        secondary={details.split(', ')}
-                                    >
-                                    </TextBlockContent>}
-                                handleClose={() => hidePopup()}
-                            />
-                        }
-                    </article>
+                            {isModalOpen &&
+                                <Popup
+                                    content={
+                                        <TextBlockContent
+                                            title="Job main description and responsibilities:"
+                                            primary={[job]}
+                                            secondary={details.split(', ')}
+                                        >
+                                        </TextBlockContent>}
+                                    handleClose={() => hidePopup()}
+                                />
+                            }
+                        </article>
+                    }
                 </ModalContext.Provider>
             </section>
         </section>
