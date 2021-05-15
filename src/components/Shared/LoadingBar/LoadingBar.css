@@ -1,0 +1,55 @@
+.loading {
+    text-align: center;
+}
+
+.loading-container {
+    /* background-color: lightgrey; */
+    background-color: #64F4AC;
+    height: 8px;
+    margin: 1rem;
+    overflow: hidden;
+    position: relative;
+    width: 12rem;
+    border-radius: 7px;
+    animation: scaleUp 2s infinite alternate;
+}
+
+@keyframes scaleUp {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.loading-bar {
+    animation: side2side 2s ease-in-out infinite;
+    /* background-color: dodgerblue; */
+    background-color: white;
+    height: 100%;
+    position: absolute;
+    width: 50%;
+}
+
+@keyframes side2side {
+
+    0%,
+    100% {
+        transform: translateX(-50%);
+    }
+
+    50% {
+        transform: translateX(150%);
+    }
+}
+
+.center {
+    /* left: 50%; */
+    margin: 0;
+    /* position: absolute; */
+    /* top: 50%; */
+    transform: translate(-50%, -50%);
+}
