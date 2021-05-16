@@ -17,6 +17,10 @@
     margin-top: 10px;
 }
 
+.header-content .site-title .logo-img{
+    max-width: 100px;
+}
+
 /*Hide the nav label Menu:*/
 .header-content .toggle-nav,
 .header-content .nav-toggler {

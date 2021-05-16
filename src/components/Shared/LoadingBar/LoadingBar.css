@@ -1,5 +1,8 @@
 .loading {
     text-align: center;
+    font-size: 1.5rem;
+    margin: 10px auto;
+    animation: scaleUp 2s infinite alternate;
 }
 
 .loading-container {
@@ -21,7 +24,7 @@
     }
 
     50% {
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
 }
 
@@ -48,7 +51,7 @@
 
 .center {
     /* left: 50%; */
-    margin: 0;
+    margin: 0 auto;
     /* position: absolute; */
     /* top: 50%; */
     transform: translate(-50%, -50%);

@@ -19,14 +19,14 @@ const Header = (props) => {
 
                 </div>
                  </div> */}
-                <h1 className="site-title">
+                <article className="site-title">
                     <LogoNavigationItem
                         path="/"
                         src={logo} alt="Logo"
                         className="logo-img"
                         logoText="Paulina D.">
                     </LogoNavigationItem>
-                </h1>
+                </article>
 
                 <label className="toggle-nav" htmlFor="toggle-nav">
                     <i className="fas fa-bars"></i> Menu

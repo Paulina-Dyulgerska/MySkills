@@ -2,7 +2,7 @@ import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 
 import './ScrollTop.css';
 
-const ScrollBackToTop = ({
+const ScrollTop = ({
     parentDiv,
 }) => {
     // componentDidMount: function() {
@@ -98,4 +98,4 @@ const ScrollBackToTop = ({
     );
 };
 
-export default ScrollBackToTop;
+export default ScrollTop;

@@ -2,14 +2,14 @@ import './LoadingBar.css';
 
 const LoadingBar = () => {
     return (
-        <section className="">
+        <article className="">
             <p className="loading">
                 Loading...
             </p>
             <article className="loading-container center">
                 <span className="loading-bar"> </span>
             </article>
-        </section>
+        </article>
     )
 }
 

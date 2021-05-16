@@ -4,10 +4,10 @@ const LogoNavigationItem = (props) => {
     return (
         <article className="list-item" >
             <Link to={props.path || '/'}>
-                <img src={props.src} alt={props.alt} />
-                <h1 className="logo-text">
+                <img className="logo-img" src={props.src} alt={props.alt} />
+                <h5 className="logo-text">
                     {props.logoText}
-                </h1>
+                </h5>
             </Link >
         </article>
     );
