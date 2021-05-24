@@ -5,24 +5,37 @@
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 999999;
 }
 
 .box {
     position: relative;
-    width: 50%;
+    max-width: 30%;
+    max-height: 85%;
     margin: 0 auto;
     /* height: auto; */
     /* max-height: 70vh; */
     /* margin-top: calc(100vh - 80%); */
     top: 50%;
-    right: 50%;
-    transform: translate(100%, -50%);
+    right: 0%;
+    transform: translate(0%, -50%);
     background: #fff;
     border-radius: 10px;
     padding: 20px;
     border: 1px solid #999;
-    overflow: auto;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 900px) {
+    .box {
+        max-width: 70%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .box {
+        max-width: 50%;
+    }
 }
 
 .close-icon {

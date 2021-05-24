@@ -1,6 +1,6 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Route, Switch } from 'react-router-dom';
-
+import educationsService from '../../services/educationsService.js';
 import './Main.css';
 
 import Home from '../Home/Home';
@@ -16,6 +16,12 @@ const Main = () => {
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const parentDivRef = useRef(null);
+
+    //to wake up backend server:
+    useEffect(() => {
+        educationsService.getOne(1)
+            .catch(err => console.log(err));
+    }, []);
 
     // useEffect(() => {
     // useLayoutEffect is used, because it is identical to useEffect, but it fires synchronously after all DOM mutations

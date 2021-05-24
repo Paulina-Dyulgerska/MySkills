@@ -1,3 +1,8 @@
+.text-block-content {
+  display: flex;
+  flex-direction: column;
+}
+
 .text-block-content-title {
   background: #b9f5fa;
   border-radius: 4px;
@@ -5,7 +10,8 @@
   letter-spacing: 1.2px;
   text-transform: uppercase;
   padding: 15px 30px;
-  display: inline-block;
+  overflow-wrap: break-word;
+  align-self: baseline;
 }
 
 .text-block-content-description .primary {

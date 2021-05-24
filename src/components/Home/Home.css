@@ -128,7 +128,7 @@
 }
 
 .animated .img-vs {
-    animation: fadeInUp3 7s .6s infinite alternate both;
+    animation: fadeInUp3 4s .6s infinite alternate both;
 }
 
 @keyframes fadeInUp3 {

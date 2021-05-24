@@ -1,6 +1,9 @@
 import baseService from './baseService';
+import globalConstants from '../globalConstants/globalConstants';
 
-const educationsURL = 'https://localhost:44319/api/educations';
+// const educationsURL = 'https://localhost:44319/api/educations';
+// const educationsURL = 'http://www.dotnetweb.net/api/educations';
+const educationsURL = globalConstants.backendWebApiServerUrl + '/educations';
 
 export default baseService(educationsURL);
 

@@ -1,6 +1,9 @@
 import baseService from './baseService';
+import globalConstants from '../globalConstants/globalConstants';
 
-const experiencesURL = 'https://localhost:44319/api/experiences';
+// const experiencesURL = 'https://localhost:44319/api/experiences';
+// const experiencesURL = 'http://www.dotnetweb.net/api/experiences';
+const experiencesURL = globalConstants.backendWebApiServerUrl + '/experiences';
 
 export default baseService(experiencesURL);
 

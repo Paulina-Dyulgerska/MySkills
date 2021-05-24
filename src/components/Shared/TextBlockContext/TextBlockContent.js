@@ -6,7 +6,7 @@ const TextBlockContent = ({
     secondary,
 }) => {
     return (
-        <>
+        <article className="text-block-content">
             <h5 className="text-block-content-title">{title}</h5>
             <article className="text-block-content-description">
                 <article className="primary">
@@ -28,7 +28,7 @@ const TextBlockContent = ({
                     }
                 </article>
             </article>
-        </>
+        </article>
     )
 }
 
