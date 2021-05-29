@@ -1,6 +1,8 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import educationsService from '../../services/educationsService.js';
+import experiencesService from '../../services/experiencesService.js';
+import contactsService from '../../services/contactsService.js';
 import './Main.css';
 
 import Home from '../Home/Home';
@@ -20,6 +22,12 @@ const Main = () => {
     //to wake up backend server:
     useEffect(() => {
         educationsService.getOne(1)
+            .catch(err => console.log(err));
+        educationsService.getAll()
+            .catch(err => console.log(err));
+        experiencesService.getAll()
+            .catch(err => console.log(err));
+        contactsService.getAll()
             .catch(err => console.log(err));
     }, []);
 

@@ -23,3 +23,30 @@ body {
   /* color: #0e2979; */
 
 }
+
+
+/* Mobile first short: */
+/* mobile: */
+@media screen and (max-width: 600px) {
+   
+}
+
+/* tablet-portrait: */
+@media screen and (min-width: 600px) {
+    
+}
+
+/* table landscape: */
+@media screen and (min-width: 900px)  {
+
+}
+
+/* desktop: */
+@media screen and (min-width: 1200px) {
+
+}
+
+/* desktop big: */
+@media screen and (min-width: 1800px) {
+     
+}

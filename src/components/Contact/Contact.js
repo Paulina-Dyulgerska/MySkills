@@ -8,6 +8,8 @@ import MediaItem from './MediaItem/MediaItem';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
 
+// TODO - to store the collection in the Context
+
 const Contact = () => {
     const [contacts, setContacts] = useState([]);
 

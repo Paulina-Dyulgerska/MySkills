@@ -10,6 +10,7 @@ import Popup from '../Shared/Popup/Popup';
 import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
 // import imgPolygon from "../../img/polygon.png";
+// TODO - to store the collection in the Context
 
 export const ModalContext = createContext();
 

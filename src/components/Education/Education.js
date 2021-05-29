@@ -10,6 +10,8 @@ import Popup from '../Shared/Popup/Popup';
 import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
 // import imgPolygon from "../../img/polygon.png";
+// TODO - to store the collection in the Context
+// TODO - add the pdfs from the studies and store them in a file storage (in Firebase)
 export const ModalContext = createContext();
 
 const Education = () => {
