@@ -1,6 +1,7 @@
 import './ExperienceCard.css';
 
 import LogoNavigationItem from '../../Header/NavigationItem/LogoNavigationItem';
+import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
 import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
 
 function formatDate(userDOB) {
@@ -51,10 +52,10 @@ const ExperienceCard = ({
         <article className="expriance-item" >
             <article className="media-left">
                 {url &&
-                    <a className="link" href={url}>
+                    <ExternalNavigationItem className="link" path={url}>
                         <img className="logo" src={logo} alt="Company Logo" />
                         <p className="company">{company}</p>
-                    </a>
+                    </ExternalNavigationItem>
                 }
                 {!url &&
                     <p className="company">{company}</p>

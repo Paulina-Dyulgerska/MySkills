@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
-import NavigationItem from '../Header/NavigationItem/NavigationItem';
+import ExternalNavigationItem from '../Header/NavigationItem/ExternalNavigationItem';
 
 const Footer = () => {
     const date = new Date();
@@ -8,15 +9,15 @@ const Footer = () => {
         <footer className="footer-wrapper">
             <section className="footer-content content-wrapper">
                 <ul className="footer-content-social">
-                    <NavigationItem path="https://www.linkedin.com/in/dyulgerska-paulina-28271583">
+                    <ExternalNavigationItem path="https://www.linkedin.com/in/dyulgerska-paulina-28271583" >
                         <i className="fab fa-linkedin-in"></i>
-                    </NavigationItem>
-                    <NavigationItem path="https://www.facebook.com/paulina.dyulgerska">
+                    </ExternalNavigationItem>
+                    <ExternalNavigationItem path="https://www.facebook.com/paulina.dyulgerska" >
                         <i className="fab fa-facebook"></i>
-                    </NavigationItem>
-                    <NavigationItem path="https://www.twitter.com/DyulgerskaP">
+                    </ExternalNavigationItem>
+                    <ExternalNavigationItem path="https://www.twitter.com/DyulgerskaP" >
                         <i className="fab fa-twitter"></i>
-                    </NavigationItem>
+                    </ExternalNavigationItem>
                 </ul>
                 <p className="footer-made-by">Made with love by<a href="/">&nbsp;Paulina</a></p>
                 <p className="footer-copyright">&copy; {date.getFullYear()} Paulina Dyulgerska - All Rights Reserved</p>
