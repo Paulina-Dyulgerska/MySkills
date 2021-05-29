@@ -55,7 +55,9 @@
     transition: all .3s linear; */
 }
 
-.header-content .nav-list .list-item:hover {
+.header-content .nav-list .list-item:hover,
+.header-content .nav-list .list-item:focus,
+.header-content .nav-list .list-item:active {
     /* border-bottom: 2px solid #051441; */
     /* border: 2px solid transparent; */
     /* border: 2px solid #051441; */
@@ -93,7 +95,7 @@
     position: absolute;
     width: 100%;
     height: 1.5px;
-    bottom: -3px;
+    bottom: 2px;
     left: 0;
     background: #0e2979;
     visibility: hidden;
@@ -108,7 +110,8 @@
     transform: scaleX(1);
   } */
 .header-content .nav-list .list-item:hover a:before,
-.header-content .nav-list .list-item:focus a:before {
+.header-content .nav-list .list-item:focus a:before,
+.header-content .nav-list .list-item:active a:before {
     visibility: visible;
     transform: scaleX(1);
 }
@@ -137,6 +140,7 @@
 @media screen and (max-width: 600px) {
     .header-content {
         flex-direction: column;
+        flex-wrap: wrap;
         align-content: stretch;
         align-items: unset;
         padding: 0 10px;
@@ -151,15 +155,13 @@
         display: initial;
         align-self: flex-end;
         position: absolute;
-        top: 42%;
+        top: 50px;
     }
 
     .header-content .nav {
         /*.header-content .nav is collapsed, this means - unvisible!!!*/
-        visibility: collapse;
-        flex-basis: unset;
-        flex-direction: column-reverse;
-        flex-wrap: wrap;
+        /* visibility: collapse; */
+        display: none;
         position: absolute;
     }
 
@@ -171,20 +173,30 @@
         align-items: stretch;
     }
 
-    /*Responsive nav*/
-    .header-content {
-        flex-wrap: wrap;
+    .header-content .nav-list a {
+        text-align: center;
     }
 
     /*The label for na Menu button is shown:*/
-
     /*If the input is checked, the following styles are applied to the header-content .nav:
     V React ne raboti + i go zameni s ~ !!!!!*/
     /* input:checked + .nav { */
     input.nav-toggler:checked~.nav {
         /*.header-content .nav is visible!!!*/
-        visibility: visible;
+        /* visibility: visible; */
+        display: flex;
+        flex-basis: unset;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
         position: relative;
+    }
+
+    .header-content .nav-list .list-item:hover a:before,
+    .header-content .nav-list .list-item:focus a:before,
+    .header-content .nav-list .list-item:active a:before {
+        /* visibility: visible;
+        transform: scaleX(1); */
+        transition: .1s linear;
     }
 }
 

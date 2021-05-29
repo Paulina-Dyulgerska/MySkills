@@ -12,15 +12,22 @@ const Header = (props) => {
 
     const [isMenuTogglerChecked, setIsMenuTogglerChecked] = useState(false);
 
-    const changeMenuTogglerCheckedStatus = () => {
+    const onChangeMenuTogglerCheckedStatus = async () => {
         setIsMenuTogglerChecked(!isMenuTogglerChecked);
     }
+
+    const onClickNavItem = () => {
+        setIsMenuTogglerChecked(false);
+        console.log('Old isMenuChecked is ' + isMenuTogglerChecked);
+    }
+
+    console.log('Now isMenuChecked is ' + isMenuTogglerChecked);
 
     return (
         <header className="header-wrapper" >
             <section className="content-wrapper header-content">
 
-                <input onChange={changeMenuTogglerCheckedStatus}
+                <input onChange={onChangeMenuTogglerCheckedStatus}
                     ref={menuToggler} checked={isMenuTogglerChecked}
                     className="nav-toggler" type="checkbox" name="toggle-nav" id="toggle-nav" />
 
@@ -42,7 +49,7 @@ const Header = (props) => {
                     <i className="fas fa-bars"></i> Menu
                 </label>
 
-                <nav className="nav" onClick={changeMenuTogglerCheckedStatus}>
+                <nav className="nav" onClick={onClickNavItem}>
                     <ul className="nav-list nav-left">
                         <NavigationItem path="/home">Home</NavigationItem>
                         <NavigationItem path="/about">About</NavigationItem>
