@@ -17,7 +17,7 @@
     margin-top: 10px;
 }
 
-.header-content .site-title .logo-img{
+.header-content .site-title .logo-img {
     max-width: 100px;
 }
 
@@ -139,7 +139,7 @@
         flex-direction: column;
         align-content: stretch;
         align-items: unset;
-        padding-bottom: 0;
+        padding: 0 10px;
         border: none;
     }
 
@@ -150,7 +150,8 @@
     .header-content .toggle-nav {
         display: initial;
         align-self: flex-end;
-        margin: 20px 0;
+        position: absolute;
+        top: 42%;
     }
 
     .header-content .nav {
