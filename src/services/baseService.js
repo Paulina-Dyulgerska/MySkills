@@ -4,8 +4,11 @@ const baseService = (baseURL) => {
             method: httpMethod,
             headers: {
                 'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Credentials': true,
                 'Content-Type': 'application/json',
-            }
+                // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBheWxpbmFfc3RAeWFob28uY29tIiwibmFtZWlkIjoiYTBmMGNmMzMtZGZkZi00NGFiLTgzYmYtNDIyNzZhYmIyMDAyIiwicm9sZSI6IkFkbWluaXN0cmF0b3IiLCJuYmYiOjE2MjIyNjc4ODYsImV4cCI6MTYyMjg3MjY4NiwiaWF0IjoxNjIyMjY3ODg2LCJpc3MiOiJNeVNraWxsc1NlcnZlciIsImF1ZCI6Ik15U2tpbGxzQ2xpZW50In0.6Fxztg52V2YhUPhMjTyc3PdRWONlfI7cNoBs9k1NoBw',
+            },
+            // credentials: "include",
         }
 
         if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {

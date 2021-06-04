@@ -11,6 +11,8 @@ import Education from '../Education/Education';
 import Experience from '../Experience/Experience';
 import Contact from '../Contact/Contact';
 import Blog from '../Blog/Blog';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
 import ScrollTop from '../Shared/ScrollTop/ScrollTop';
 import Bubbles from '../Shared/Bubbles/Bubbles';
 
@@ -55,6 +57,8 @@ const Main = () => {
                 </aside>
 
                 <Switch>
+                    <Route path="/register" exact component={Register}></Route>
+                    <Route path="/login" exact component={Login}></Route>
                     <Route path="/home" exact component={Home}></Route>
                     <Route path="/about" component={About}></Route>
                     <Route path="/education" component={Education}></Route>
