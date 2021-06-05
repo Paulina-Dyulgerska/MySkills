@@ -1,21 +1,37 @@
-const baseService = (baseURL) => {
-    function makeHeaders(httpMethod, data) {
-        const headers = {
+import globalConstants from '../globalConstants/globalConstants';
+
+const baseService = (baseURL, authorizationToken, contentType) => {
+    function makeRequestOptions(httpMethod, data) {
+        const contentTypeHeader = contentType || 'application/json';
+        const requestOptions = {
             method: httpMethod,
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 // 'Access-Control-Allow-Credentials': true,
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer',
+                'Content-Type': contentTypeHeader,
             },
             // credentials: "include",
         }
 
-        if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
-            headers.body = JSON.stringify(data);
+        if (authorizationToken) {
+           requestOptions.headers.Authorization = `Bearer ${authorizationToken}`;
         }
 
-        return headers;
+        if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
+            // Build form data object.
+            var urlencoded = new URLSearchParams();
+            urlencoded.append(globalConstants.email, data[globalConstants.email]);
+            urlencoded.append(globalConstants.password, data[globalConstants.password]);
+
+            requestOptions.body = urlencoded;
+
+            // data appended:
+            // for (var pair of urlencoded.entries()) {
+            //     console.log(pair[0] + ', ' + pair[1]);
+            // }
+        }
+
+        return requestOptions;
     }
 
     function handleError(e) {
@@ -29,57 +45,52 @@ const baseService = (baseURL) => {
         return x.json();
     }
 
-    async function fetchData(url, headers) {
-        const e = await fetch(url, headers);
+    async function fetchData(url, requestOptions) {
+        const e = await fetch(url, requestOptions);
         const x = await handleError(e);
         return serializeData(x);
     }
 
-    const getAll = () => {
-        const headers = makeHeaders('GET');
-        const url = `${baseURL}`;
+    const get = (id) => {
+        const requestOptions = makeRequestOptions('GET');
+        let url = `${baseURL}`;
+        if (id) {
+            url += `/${id}`;
+        }
 
-        return fetchData(url, headers);
-    }
-
-    const getOne = (id) => {
-        const headers = makeHeaders('GET');
-        const url = `${baseURL}/${id}`;
-
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     const post = (data) => {
-        const headers = makeHeaders('POST', data);
+        const requestOptions = makeRequestOptions('POST', data);
         const url = `${baseURL}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     const put = (data) => {
-        const headers = makeHeaders('PUT', data);
+        const requestOptions = makeRequestOptions('PUT', data);
         const url = `${baseURL}/${data.id}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     const patch = (data) => {
-        const headers = makeHeaders('PATCH', data);
+        const requestOptions = makeRequestOptions('PATCH', data);
         const url = `${baseURL}/${data.id}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     const del = (id) => {
-        const headers = makeHeaders('DELETE');
+        const requestOptions = makeRequestOptions('DELETE');
         const url = `${baseURL}/${id}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     return {
-        getAll,
-        getOne,
+        get,
         post,
         patch,
         put,
