@@ -1,8 +1,11 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+
 import educationsService from '../../services/educationsService.js';
 import experiencesService from '../../services/experiencesService.js';
 import contactsService from '../../services/contactsService.js';
+import accountsService from '../../services/accountsService.js';
+
 import './Main.css';
 
 import Home from '../Home/Home';
@@ -57,6 +60,10 @@ const Main = () => {
                 </aside>
 
                 <Switch>
+                    <Route path="/logout" render={props => {
+                        accountsService.logout();
+                        return <Redirect to='/' />
+                    }} />
                     <Route path="/register" exact component={Register}></Route>
                     <Route path="/login" exact component={Login}></Route>
                     <Route path="/home" exact component={Home}></Route>

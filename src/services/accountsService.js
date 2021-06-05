@@ -1,102 +1,7 @@
 import globalConstants from '../globalConstants/globalConstants';
+import baseService from './baseService';
 
 const accountsURL = globalConstants.backendWebApiServerUrl + '/accounts';
-
-const baseService = (baseURL, contentType) => {
-    
-    function makeRequestOptions(httpMethod, data) {
-
-        const contentTypeHeader = contentType || 'application/json';
-
-        const requestOptions = {
-            method: httpMethod,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                // 'Access-Control-Allow-Credentials': true,
-                'Content-Type': contentTypeHeader,
-                'Authorization': 'Bearer',
-            },
-            // credentials: "include",
-        }
-
-        if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
-            // Build form data object.
-            var urlencoded = new URLSearchParams();
-            urlencoded.append(globalConstants.email, data[globalConstants.email]);
-            urlencoded.append(globalConstants.password, data[globalConstants.password]);
-
-            requestOptions.body = urlencoded;
-
-            // data appended:
-            // for (var pair of urlencoded.entries()) {
-            //     console.log(pair[0] + ', ' + pair[1]);
-            // }
-        }
-
-        return requestOptions;
-    }
-
-    function handleError(e) {
-        if (!e.ok) {
-            throw new Error(e.statusText);
-        }
-        return e;
-    }
-
-    function serializeData(x) {
-        return x.json();
-    }
-
-    async function fetchData(url, requestOptions) {
-        const e = await fetch(url, requestOptions);
-        const x = await handleError(e);
-        return serializeData(x);
-    }
-
-    const get = (id) => {
-        const requestOptions = makeRequestOptions('GET');
-        const url = `${baseURL}${id ? `/${id}` : null}`;
-
-        return fetchData(url, requestOptions);
-    }
-
-    const post = (data) => {
-        const requestOptions = makeRequestOptions('POST', data);
-        const url = `${baseURL}`;
-
-        return fetchData(url, requestOptions);
-    }
-
-    const put = (data) => {
-        const requestOptions = makeRequestOptions('PUT', data);
-        const url = `${baseURL}/${data.id}`;
-
-        return fetchData(url, requestOptions);
-    }
-
-    const patch = (data) => {
-        const requestOptions = makeRequestOptions('PATCH', data);
-        const url = `${baseURL}/${data.id}`;
-
-        return fetchData(url, requestOptions);
-    }
-
-    const del = (id) => {
-        const requestOptions = makeRequestOptions('DELETE');
-        const url = `${baseURL}/${id}`;
-
-        return fetchData(url, requestOptions);
-    }
-
-    return {
-        get,
-        post,
-        patch,
-        put,
-        del,
-    };
-}
-
 const contentTypeFormUrlencoded = 'application/x-www-form-urlencoded';
 // const contentTypeFormMultipart = 'multipart/form-data';
 
@@ -114,26 +19,27 @@ authentication.login = async function (email, password) {
     });
 };
 
-authentication.register = async function (email, password, repeatPassword) {
+authentication.register = async function (email, password, confirmPassword) {
     return new Promise((resolve, reject) => {
-        if (password !== repeatPassword || password === '' || repeatPassword === '') {
-            console.log(email, password, 1);
+        if (password !== confirmPassword || password === '' || confirmPassword === '') {
+            console.log(email, password, ' from front end');
             reject(new Error('Password fields must match and not be empty.'));
         } else {
             console.log(email, password, 2);
-            baseService(`${accountsURL}/register`, contentTypeFormUrlencoded).post(email, password)
+            baseService(`${accountsURL}/register`, contentTypeFormUrlencoded).post(email, password, confirmPassword)
                 .then((res) => resolve(res))
                 .catch((reason) => reject(reason)); //to catch the firebase throw, otherwise "Uncaught error"!!!!!
         }
     });
 };
 
-authentication.logout = async function () {
-    return new Promise((resolve, reject) => {
-        baseService(`${accountsURL}/logout`).post()
-            .then((res) => resolve(res))
-            .catch((reason) => reject(reason)); //to catch the firebase throw, otherwise "Uncaught error"!!!!!
-    });
+authentication.logout =  function () {
+    localStorage.removeItem('userCredentialAccessTokenJWT');
+    // return new Promise((resolve, reject) => {
+    //     baseService(`${accountsURL}/logout`).post()
+    //         .then((res) => resolve(res))
+    //         .catch((reason) => reject(reason)); //to catch the firebase throw, otherwise "Uncaught error"!!!!!
+    // });
 };
 
 authentication.onUserAuthStateChanged = function (user, setUser) {

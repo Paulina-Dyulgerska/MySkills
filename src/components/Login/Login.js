@@ -18,12 +18,10 @@ const Login = () => {
 
         try {
             var userCredential = await accountsService.login({ email, password });
-            var token = userCredential.accessToken;
             history.push('/');
-            console.log(token);
             console.log(userCredential);
-            localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
-            setJwt(userCredential.accessToken);
+            localStorage.setItem('userCredentialAccessTokenJWT', userCredential.AccessToken);
+            setJwt(userCredential.AccessToken);
         } catch (ex) {
             var errorCode = ex.code;
             var errorMessage = ex.message;

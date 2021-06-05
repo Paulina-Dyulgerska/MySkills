@@ -35,9 +35,9 @@
 // //   });
 // // };
 
-// // authentication.register = async function (email, password, repeatPassword) {
+// // authentication.register = async function (email, password, confirmPassword) {
 // //   return new Promise((resolve, reject) => {
-// //     if (password !== repeatPassword || password === '' || repeatPassword === '') {
+// //     if (password !== confirmPassword || password === '' || confirmPassword === '') {
 // //       console.log(email, password, 1);
 // //       reject(new Error('Password fields must match and not be empty.'));
 // //     } else {

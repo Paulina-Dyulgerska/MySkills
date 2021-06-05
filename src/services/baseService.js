@@ -1,6 +1,6 @@
 import globalConstants from '../globalConstants/globalConstants';
 
-const baseService = (baseURL, authorizationToken, contentType) => {
+const baseService = (baseURL, contentType) => {
     function makeRequestOptions(httpMethod, data) {
         const contentTypeHeader = contentType || 'application/json';
         const requestOptions = {
@@ -13,15 +13,20 @@ const baseService = (baseURL, authorizationToken, contentType) => {
             // credentials: "include",
         }
 
+        const authorizationToken = localStorage.getItem('userCredentialAccessTokenJWT');
         if (authorizationToken) {
-           requestOptions.headers.Authorization = `Bearer ${authorizationToken}`;
+            requestOptions.headers.Authorization = `Bearer ${authorizationToken}`;
         }
 
         if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
             // Build form data object.
             var urlencoded = new URLSearchParams();
+            console.log(data[globalConstants.confirmPassword] + ' Hi from data');
             urlencoded.append(globalConstants.email, data[globalConstants.email]);
             urlencoded.append(globalConstants.password, data[globalConstants.password]);
+            if (data[globalConstants.confirmPassword]) {
+                urlencoded.append(globalConstants.confirmPassword, data[globalConstants.confirmPassword]);
+            }
 
             requestOptions.body = urlencoded;
 

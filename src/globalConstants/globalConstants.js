@@ -3,9 +3,11 @@
 const backendWebApiServerUrl = process.env.REACT_APP_WEBAPI_URL;
 const email = 'email';
 const password = 'password';
+const confirmPassword = 'confirmPassword';
 
 export default {
     backendWebApiServerUrl,
     email,
     password,
+    confirmPassword,
 }
