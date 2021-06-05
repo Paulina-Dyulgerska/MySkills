@@ -23,13 +23,13 @@ const Main = () => {
 
     //to wake up backend server:
     useEffect(() => {
-        educationsService.getOne(1)
+        educationsService.get(1)
             .catch(err => console.log(err));
-        educationsService.getAll()
+        educationsService.get()
             .catch(err => console.log(err));
-        experiencesService.getAll()
+        experiencesService.get()
             .catch(err => console.log(err));
-        contactsService.getAll()
+        contactsService.get()
             .catch(err => console.log(err));
     }, []);
 

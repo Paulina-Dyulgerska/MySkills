@@ -21,7 +21,7 @@ const Experience = () => {
     const [job, setJob] = useState('');
 
     useEffect(() => {
-        experiencesService.getAll()
+        experiencesService.get()
             .then(res => setExperiences(res))
             .catch(err => console.log(err));
     }, []);

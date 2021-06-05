@@ -21,7 +21,7 @@ const Education = () => {
     const [speciality, setSpeciality] = useState('');
 
     useEffect(() => {
-        educationsService.getAll()
+        educationsService.get()
             .then(res => setEducations(res))
             .catch(err => console.log(err));
     }, []);

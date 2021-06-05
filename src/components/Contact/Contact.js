@@ -14,7 +14,7 @@ const Contact = () => {
     const [contacts, setContacts] = useState([]);
 
     useEffect(() => {
-        contactsService.getAll()
+        contactsService.get()
             .then(res => setContacts(res))
             .catch(err => console.log(err));
     }, []);
