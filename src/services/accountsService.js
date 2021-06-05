@@ -2,40 +2,38 @@ import globalConstants from '../globalConstants/globalConstants';
 
 const accountsURL = globalConstants.backendWebApiServerUrl + '/accounts';
 
-const baseService = (baseURL) => {
-    function makeHeaders(httpMethod, data) {
-        const headers = {
+const baseService = (baseURL, contentType) => {
+    
+    function makeRequestOptions(httpMethod, data) {
+
+        const contentTypeHeader = contentType || 'application/json';
+
+        const requestOptions = {
             method: httpMethod,
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 // 'Access-Control-Allow-Credentials': true,
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Type': 'multipart/form-data',
-                // 'Content-Type': 'undefined',
-                // 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBheWxpbmFfc3RAeWFob28uY29tIiwibmFtZWlkIjoiYTBmMGNmMzMtZGZkZi00NGFiLTgzYmYtNDIyNzZhYmIyMDAyIiwicm9sZSI6IkFkbWluaXN0cmF0b3IiLCJuYmYiOjE2MjIyNjc4ODYsImV4cCI6MTYyMjg3MjY4NiwiaWF0IjoxNjIyMjY3ODg2LCJpc3MiOiJNeVNraWxsc1NlcnZlciIsImF1ZCI6Ik15U2tpbGxzQ2xpZW50In0.6Fxztg52V2YhUPhMjTyc3PdRWONlfI7cNoBs9k1NoBw',
+                'Content-Type': contentTypeHeader,
+                'Authorization': 'Bearer',
             },
             // credentials: "include",
         }
 
         if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
-            // Build formData object.
-            let formData = new FormData();
-            console.log('Hi from fetch login:')
-            console.log(data[globalConstants.email] + ';' + data[globalConstants.password]);
-            // formData.append('email', 'data[globalConstants.email]');
-            // formData.append('password', 'data[globalConstants.password]');
-            formData.append('email', 'data[globalConstants.email]');
-            formData.append('password', 'data[globalConstants.password]');
-            // headers.headers['Content-Type'] = 'application/json';
+            // Build form data object.
+            var urlencoded = new URLSearchParams();
+            urlencoded.append(globalConstants.email, data[globalConstants.email]);
+            urlencoded.append(globalConstants.password, data[globalConstants.password]);
 
-            headers.body = formData;
+            requestOptions.body = urlencoded;
 
-            for(var pair of formData.entries()) {
-                console.log(pair[0]+', '+pair[1]);
-              }
+            // data appended:
+            // for (var pair of urlencoded.entries()) {
+            //     console.log(pair[0] + ', ' + pair[1]);
+            // }
         }
 
-        return headers;
+        return requestOptions;
     }
 
     function handleError(e) {
@@ -49,45 +47,45 @@ const baseService = (baseURL) => {
         return x.json();
     }
 
-    async function fetchData(url, headers) {
-        const e = await fetch(url, headers);
+    async function fetchData(url, requestOptions) {
+        const e = await fetch(url, requestOptions);
         const x = await handleError(e);
         return serializeData(x);
     }
 
     const get = (id) => {
-        const headers = makeHeaders('GET');
+        const requestOptions = makeRequestOptions('GET');
         const url = `${baseURL}${id ? `/${id}` : null}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     const post = (data) => {
-        const headers = makeHeaders('POST', data);
+        const requestOptions = makeRequestOptions('POST', data);
         const url = `${baseURL}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     const put = (data) => {
-        const headers = makeHeaders('PUT', data);
+        const requestOptions = makeRequestOptions('PUT', data);
         const url = `${baseURL}/${data.id}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     const patch = (data) => {
-        const headers = makeHeaders('PATCH', data);
+        const requestOptions = makeRequestOptions('PATCH', data);
         const url = `${baseURL}/${data.id}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     const del = (id) => {
-        const headers = makeHeaders('DELETE');
+        const requestOptions = makeRequestOptions('DELETE');
         const url = `${baseURL}/${id}`;
 
-        return fetchData(url, headers);
+        return fetchData(url, requestOptions);
     }
 
     return {
@@ -99,13 +97,16 @@ const baseService = (baseURL) => {
     };
 }
 
-const auth = baseService(accountsURL);
+const contentTypeFormUrlencoded = 'application/x-www-form-urlencoded';
+// const contentTypeFormMultipart = 'multipart/form-data';
+
+// const auth = baseService(accountsURL, contentTypeFormUrlencoded);
 
 const authentication = function () { };
 
 authentication.login = async function (email, password) {
     return new Promise((resolve, reject) => {
-        baseService(`${accountsURL}/login`).post(email, password)
+        baseService(`${accountsURL}/login`, contentTypeFormUrlencoded).post(email, password)
             // .then(res => console.log("ResponseHeaders:" + res.headers))
             // .then(res => console.log("Response:" + res))
             .then((res) => resolve(res))
@@ -120,7 +121,7 @@ authentication.register = async function (email, password, repeatPassword) {
             reject(new Error('Password fields must match and not be empty.'));
         } else {
             console.log(email, password, 2);
-            baseService(`${accountsURL}/register`).post(email, password)
+            baseService(`${accountsURL}/register`, contentTypeFormUrlencoded).post(email, password)
                 .then((res) => resolve(res))
                 .catch((reason) => reject(reason)); //to catch the firebase throw, otherwise "Uncaught error"!!!!!
         }
@@ -136,7 +137,7 @@ authentication.logout = async function () {
 };
 
 authentication.onUserAuthStateChanged = function (user, setUser) {
-    auth.onAuthStateChanged((user) => {
+    baseService(`${accountsURL}`).onAuthStateChanged((user) => {
         if (user) {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
@@ -152,8 +153,5 @@ authentication.onUserAuthStateChanged = function (user, setUser) {
     });
 }
 // authentication.onUserAuthStateChanged();
-
-
-
 
 export default authentication;
