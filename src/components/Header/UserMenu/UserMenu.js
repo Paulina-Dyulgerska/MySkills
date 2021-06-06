@@ -22,7 +22,7 @@ const UserMenu = (props) => {
         <>
             <ul className="nav-list nav-right">
                 <NavigationItem path="/user" className="welcome-user icon-wrapper">
-                    {`Welcome, ${props.username || "user"}!`}
+                    {`Welcome, ${props.user || "user"}!`}
                     <span className="icon-sprite icon-down"></span>
                 </NavigationItem>
                 <NavigationItem path="/logout" className="logout">

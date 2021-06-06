@@ -15,6 +15,7 @@ authentication.login = async function (email, password) {
             // .then(res => console.log("ResponseHeaders:" + res.headers))
             // .then(res => console.log("Response:" + res))
             .then((res) => resolve(res))
+            .then((res) => { localStorage.setItem('userEmail', res.UserEmail) })
             .catch((reason) => reject(reason)); //to catch a throw, otherwise "Uncaught error"!!!!!
     });
 };
@@ -33,8 +34,10 @@ authentication.register = async function (email, password, confirmPassword) {
     });
 };
 
-authentication.logout =  function () {
+authentication.logout = function () {
     localStorage.removeItem('userCredentialAccessTokenJWT');
+    localStorage.removeItem('userEmail');
+
     // return new Promise((resolve, reject) => {
     //     baseService(`${accountsURL}/logout`).post()
     //         .then((res) => resolve(res))
@@ -42,21 +45,23 @@ authentication.logout =  function () {
     // });
 };
 
-authentication.onUserAuthStateChanged = function (user, setUser) {
-    baseService(`${accountsURL}`).onAuthStateChanged((user) => {
-        if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            var uid = user.uid;
-            console.log(user);
-            console.log(uid);
-            console.log("Logged In")
-        } else {
-            // User is signed out
-            console.log("Logged out")
-        }
-        setUser(user);
+authentication.getUser = async function () {
+    return new Promise((resolve, reject) => {
+        baseService(`${accountsURL}`).get()
+            .then((res) => resolve(res.userEmail))
+            // .then((res) => { localStorage.setItem('userEmail', res.UserEmail) })
+            .catch((reason) => reject(reason)); //to catch a throw, otherwise "Uncaught error"!!!!!
     });
+};
+
+authentication.onUserAuthStateChanged = function (user, setUser) {
+    if (localStorage.getItem('userEmail')) {
+        console.log("Logged In");
+        setUser(localStorage.getItem('userEmail'));
+    } else {
+        setUser(null);
+        console.log("Logged out");
+    }
 }
 // authentication.onUserAuthStateChanged();
 

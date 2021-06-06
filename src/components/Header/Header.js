@@ -59,7 +59,7 @@ const Header = (props) => {
                         <NavigationItem path="/blog">Blog</NavigationItem>
                         <NavigationItem path="/contact">Contact</NavigationItem>
                     </ul>
-                    <UserMenu isUserLoggedIn={props.isUserLoggedIn}></UserMenu>
+                    <UserMenu isUserLoggedIn={props.isUserLoggedIn} user={props.user}></UserMenu>
                 </nav>
             </section>
         </header >
