@@ -1,13 +1,16 @@
 
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
+
+import './App.css';
 
 import accountsService from './services/accountsService';
 
-import './App.css';
+import AuthContext from './contexts/AuthContext';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
-import { useHistory } from 'react-router';
 
 // import Dashboard from './components/Dashboard/Dashboard';
 // import PetDetails from './components/PetDetails/PetDetails'
@@ -21,27 +24,27 @@ import { useHistory } from 'react-router';
 // import PetDelete from './components/PetDelete/PetDelete';
 
 function App() {
-  const [user, setUser] = useState(null);
-  const history = useHistory();
+  const [user, setUser] = useState({
+    userEmail: '',
+    accessToken: localStorage.getItem('userCredentialAccessTokenJWT'),
+    userRoles: [],
+    expiresIn: localStorage.getItem('userCredentialJWTExpiresIn'),
+  });
+  // const history = useHistory();
 
   useEffect(() => {
     //zakacham tozi event na cheliq app i taka mi e validen navsqkyde vyv vsekq componenta po-nadolu!!!!
     // firebase.auth().onAuthStateChanged(setUser);
-    accountsService.onUserAuthStateChanged(user, setUser);
-    (async () => {
-      try {
-        const currentUser = await accountsService.getUser();
-        setUser(currentUser);
-        console.log(currentUser);
-      } catch (ex) {
-        var errorCode = ex.code;
-        var errorMessage = ex.message;
-        // setErrorMessage(errorMessage);
-        console.log(errorCode, errorMessage);
-      }
-    })()
 
-
+    // accountsService.onUserAuthStateChanged(user, setUser);
+    accountsService.getUser()
+      .then(res => setUser(currentState => ({
+        ...currentState, 
+        userEmail: res.userEmail,
+        userRoles: res.userRoles
+      })))
+      .then(console.log(user))
+      .catch(err => console.log(err));
 
     // window.addEventListener('storage', syncLogout)
 
@@ -55,10 +58,13 @@ function App() {
 
   return (
     <>
-      <Header isUserLoggedIn={true} user={user}></Header>
-      <Main></Main>
-      <Footer></Footer>
-      <section className="notifications"></section>
+      <AuthContext.Provider value={{ user, setUser }}>
+        {/* <Header isUserLoggedIn={true} user={user}></Header> */}
+        <Header></Header>
+        <Main></Main>
+        <Footer></Footer>
+        <section className="notifications"></section>
+      </AuthContext.Provider>
     </>
   );
 }

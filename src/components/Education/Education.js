@@ -4,7 +4,7 @@ import './Education.css';
 import educationsService from '../../services/educationsService.js';
 
 import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
-import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
+import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import EducationCard from '../Education/EducationCard/EducationCard';
 import Popup from '../Shared/Popup/Popup';
 import LoadingBar from '../Shared/LoadingBar/LoadingBar';

@@ -6,7 +6,7 @@ import contactsService from '../../services/contactsService';
 
 import MediaItem from './MediaItem/MediaItem';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
-import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
+import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 
 // TODO - to store the collection in the Context
 

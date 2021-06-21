@@ -15,7 +15,6 @@ authentication.login = async function (email, password) {
             // .then(res => console.log("ResponseHeaders:" + res.headers))
             // .then(res => console.log("Response:" + res))
             .then((res) => resolve(res))
-            .then((res) => { localStorage.setItem('userEmail', res.UserEmail) })
             .catch((reason) => reject(reason)); //to catch a throw, otherwise "Uncaught error"!!!!!
     });
 };
@@ -27,17 +26,15 @@ authentication.register = async function (email, password, confirmPassword) {
             reject(new Error('Password fields must match and not be empty.'));
         } else {
             console.log(email, password, 2);
-            baseService(`${accountsURL}/register`, contentTypeFormUrlencoded).post(email, password, confirmPassword)
+            baseService(`${accountsURL}/register`, contentTypeFormUrlencoded)
+                .post(email, password, confirmPassword)
                 .then((res) => resolve(res))
                 .catch((reason) => reject(reason)); //to catch the firebase throw, otherwise "Uncaught error"!!!!!
         }
     });
 };
 
-authentication.logout = function () {
-    localStorage.removeItem('userCredentialAccessTokenJWT');
-    localStorage.removeItem('userEmail');
-
+authentication.logout = async function () {
     // return new Promise((resolve, reject) => {
     //     baseService(`${accountsURL}/logout`).post()
     //         .then((res) => resolve(res))
@@ -48,21 +45,20 @@ authentication.logout = function () {
 authentication.getUser = async function () {
     return new Promise((resolve, reject) => {
         baseService(`${accountsURL}`).get()
-            .then((res) => resolve(res.userEmail))
-            // .then((res) => { localStorage.setItem('userEmail', res.UserEmail) })
+            .then((res) => resolve(res))
             .catch((reason) => reject(reason)); //to catch a throw, otherwise "Uncaught error"!!!!!
     });
 };
 
-authentication.onUserAuthStateChanged = function (user, setUser) {
-    if (localStorage.getItem('userEmail')) {
-        console.log("Logged In");
-        setUser(localStorage.getItem('userEmail'));
-    } else {
-        setUser(null);
-        console.log("Logged out");
-    }
-}
+// authentication.onUserAuthStateChanged = function (user, setUser) {
+//     if (localStorage.getItem('userEmail')) {
+//         console.log("Logged In");
+//         setUser({userEmail: localStorage.userEmail, });
+//     } else {
+//         setUser(null);
+//         console.log("Logged out");
+//     }
+// }
 // authentication.onUserAuthStateChanged();
 
 export default authentication;

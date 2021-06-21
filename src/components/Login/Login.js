@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useState, useContext } from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
 import InputError from '../Shared/InputError/InputError';
 import accountsService from '../../services/accountsService.js';
+import AuthContext from '../../contexts/AuthContext';
 
 
 const Login = () => {
+    const { user, setUser } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
     const history = useHistory();
-    const storedJwt = localStorage.getItem('userCredentialAccessTokenJWT');
-    const [jwt, setJwt] = useState(storedJwt || null);
 
     const onLoginFormSubmitHandler = async (e) => {
         e.preventDefault();
@@ -16,18 +16,14 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        try {
-            var userCredential = await accountsService.login({ email, password });
-            history.push('/');
-            console.log(userCredential);
-            localStorage.setItem('userCredentialAccessTokenJWT', userCredential.AccessToken);
-            setJwt(userCredential.AccessToken);
-        } catch (ex) {
-            var errorCode = ex.code;
-            var errorMessage = ex.message;
-            setErrorMessage(errorMessage);
-            console.log(errorCode, errorMessage);
-        }
+        accountsService.login({ email, password })
+            .then(userCredential => {
+                setUser(userCredential);
+                localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
+                localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
+                history.push('/');
+            })
+            .catch(err => console.log(err));
     }
 
     return (

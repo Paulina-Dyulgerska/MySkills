@@ -1,5 +1,5 @@
 import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
-import TextBlockContent from '../Shared/TextBlockContext/TextBlockContent';
+import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 
 import './Home.css';
 

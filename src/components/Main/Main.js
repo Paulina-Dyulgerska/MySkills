@@ -15,6 +15,7 @@ import Experience from '../Experience/Experience';
 import Contact from '../Contact/Contact';
 import Blog from '../Blog/Blog';
 import Login from '../Login/Login';
+import Logout from '../Logout/Logout';
 import Register from '../Register/Register';
 import ScrollTop from '../Shared/ScrollTop/ScrollTop';
 import Bubbles from '../Shared/Bubbles/Bubbles';
@@ -26,6 +27,8 @@ const Main = () => {
 
     //to wake up backend server:
     useEffect(() => {
+        accountsService.getUser()
+            .catch(err => console.log(err));
         educationsService.get(1)
             .catch(err => console.log(err));
         educationsService.get()
@@ -60,10 +63,7 @@ const Main = () => {
                 </aside>
 
                 <Switch>
-                    <Route path="/logout" render={props => {
-                        accountsService.logout();
-                        return <Redirect to='/' />
-                    }} />
+                    <Route path="/logout" component={Logout} />
                     <Route path="/register" exact component={Register}></Route>
                     <Route path="/login" exact component={Login}></Route>
                     <Route path="/home" exact component={Home}></Route>
