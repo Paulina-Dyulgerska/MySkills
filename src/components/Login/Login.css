@@ -1,11 +1,11 @@
-.contact-area-wrapper {
+.login-area-wrapper {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
 @media screen and (max-width: 900px) {
-    .contact-area-wrapper {
+    .login-area-wrapper {
         flex-direction: column;
 
         padding:10px;
@@ -13,10 +13,10 @@
     }
   }
 
-.contact-area-container {
+.login-area-container {
     flex-basis: 30%;
 }
-.contact-area-form {
+.login-area-form {
     display: flex;
     flex-direction: column;
     flex-basis: 60%;
@@ -26,7 +26,7 @@
     opacity: 1;
 }
 
-.contact-area-form .input-fields {
+.login-area-form .input-fields {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

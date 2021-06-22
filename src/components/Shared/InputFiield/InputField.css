@@ -1,0 +1,22 @@
+.input {
+    flex-basis: 45%;
+    margin: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    .input {
+        flex-basis: 100%;
+    }
+  }
+
+.form-control {
+    font-size: 1.2rem;
+    width: 100%;
+    border: 1px solid #ededed;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.form-control:focus{
+    outline-color: #6da4ff;
+}
