@@ -1,6 +1,6 @@
 import './InputField.css';
 
-const Contact = ({
+const InputField = ({
     htmlFor,
     labelText,
     type,
@@ -23,4 +23,4 @@ const Contact = ({
     )
 }
 
-export default Contact;
+export default InputField;

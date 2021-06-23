@@ -11,10 +11,13 @@ import AuthContext from '../../contexts/AuthContext';
 import InputField from '../Shared/InputFiield/InputField';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
+import InputFieldWithLabel from '../Shared/InputFiield/InputFieldWIthLabel';
 
 const Login = () => {
     const { user, setUser } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
+    const [passwordShow, setPasswordShow] = useState(false);
+    const [rememberMe, setRememberMe] = useState(true);
     const history = useHistory();
 
     const onLoginFormSubmitHandler = async (e) => {
@@ -31,6 +34,11 @@ const Login = () => {
                 history.push('/');
             })
             .catch(err => console.log(err));
+    }
+
+    const onclickPasswordShowButton = (e) => {
+        e.preventDefault();
+        setPasswordShow(!passwordShow)
     }
 
     return (
@@ -50,26 +58,31 @@ const Login = () => {
             <section className="login-area-form fadeInRight">
                 <form className="login-area-form" onSubmit={onLoginFormSubmitHandler}>
                     <InputError>{errorMessage}</InputError>
-                    <InputField
-                        htmlFor="email"
-                        labelText="Email"
-                        type="text"
-                        id="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="Email"
-                        iconClassName="fas fa-user"
-                    />
-                    <InputField
-                        htmlFor="password"
-                        labelText="Password"
-                        type="password"
-                        id="password"
-                        name="password"
-                        className="form-control"
-                        placeholder="Password"
-                        iconClassName="fas fa-key"
-                    />
+                    <div className="field">
+                        <InputFieldWithLabel
+                            type="text"
+                            name="email"
+                            id="email"
+                            className="form-control error"
+                        >
+                            Email
+                        </InputFieldWithLabel>
+                        <span className="inputError">Please enter a valid email.</span>
+                    </div>
+                    <div className="field">
+                        <InputFieldWithLabel
+                            type={passwordShow ? 'text' : 'password'}
+                            id="password"
+                            name="password"
+                            className="form-control error"
+                        >
+                            Password
+                        </InputFieldWithLabel>
+                        <button type="button" className="passwordToggle" onClick={onclickPasswordShowButton}>
+                            {passwordShow ? 'SHOW' : 'HIDE'}
+                        </button>
+                        <span className="inputError">Your password must contain between 4 and 60 characters.</span>
+                    </div>
                     <InputField
                         htmlFor="checkBox"
                         labelText="Remember me"
@@ -77,6 +90,7 @@ const Login = () => {
                         id="checkBox"
                         name="checkBox"
                         className="form-control"
+                        value={rememberMe}
                     />
                     <Link to={"/" || "/login/forgot-password"}>
                         Forgot password?
@@ -87,7 +101,7 @@ const Login = () => {
                 </form>
             </section>
 
-            <div class="login-content login-form hybrid-login-form hybrid-login-form-signup" data-uia="login-page-container">
+            {/* <div class="login-content login-form hybrid-login-form hybrid-login-form-signup" data-uia="login-page-container">
                 <div class="hybrid-login-form-main">
                     <h1 data-uia="login-page-title">Sign In</h1>
                     <form method="post" class="login-form" action="">
@@ -172,7 +186,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/}
 
         </section>
     )
