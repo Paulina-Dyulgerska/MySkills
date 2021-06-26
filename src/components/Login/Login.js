@@ -31,7 +31,7 @@ const Login = () => {
         try {
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
-                    { action: 'submit' })
+                    { action: 'loginSubmit' })
                     .then(token => accountsService.login(email, password, token))
                     .then(userCredential => {
                         setUser(userCredential);
@@ -41,7 +41,6 @@ const Login = () => {
                     })
                     .catch(err => console.log(err));
             });
-            // history.push('/');
         } catch (ex) {
             var errorCode = ex.code;
             var errorMessage = ex.message;
@@ -108,9 +107,9 @@ const Login = () => {
                         >
                             Password
                         </InputFieldWithLabel>
-                        {/* <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
-                            {passwordShow ? 'SHOW' : 'HIDE'}
-                        </button> */}
+                        <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
+                            {passwordShow ? 'HIDE' : 'SHOW'}
+                        </button>
                         <span className="inputError">Your password must contain between 4 and 60 characters.</span>
                     </article>
                     <InputField

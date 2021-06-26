@@ -2,6 +2,8 @@ import './Contact.css';
 
 import { useEffect, useState } from 'react';
 
+import InputError from '../Shared/InputError/InputError';
+import globalConstants from '../../globalConstants/globalConstants';
 import contactsService from '../../services/contactsService';
 
 import MediaItem from './MediaItem/MediaItem';
@@ -13,12 +15,44 @@ import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
 
 const Contact = () => {
     const [contacts, setContacts] = useState([]);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     useEffect(() => {
         contactsService.get()
             .then(res => setContacts(res))
             .catch(err => console.log(err));
     }, []);
+
+    const onContactFormSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const subject = e.target.subject.value;
+        const phone = e.target.phone.value;
+                    
+        console.log(name, email, subject, phone);
+        
+        try {
+            await window.grecaptcha.ready(() => {
+                window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
+                    { action: 'contactSubmit' })
+                    .then(token => contactsService.post(name, email, subject, phone, token))
+                    .then(userCredential => {
+                        // setUser(userCredential);
+                        // localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
+                        // localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
+                        // history.push('/');
+                    })
+                    .catch(err => console.log(err));
+            });
+        } catch (ex) {
+            var errorCode = ex.code;
+            var errorMessage = ex.message;
+            setErrorMessage(errorMessage);
+            console.log(errorCode, errorMessage);
+        }
+    }
 
     return (
         <section className="contact-area-wrapper">
@@ -51,7 +85,7 @@ const Contact = () => {
                     secondary={[]}
                 >
                 </TextBlockContent>
-                <form className="contact-area-form">
+                <form className="contact-area-form" onSubmit={onContactFormSubmitHandler}>
                     <article className="input-fields">
                         <InputFieldWithLabel
                             type="text"
@@ -90,9 +124,10 @@ const Contact = () => {
                         <textarea id="message" name="message" className="form-control" rows="6" placeholder="Your Message ..."></textarea>
                         <span className="actions"></span>
                     </span>
-                    <ButtonSubmit path={`#`}>
-                        Send Message
-                    </ButtonSubmit>
+                    <ButtonSubmit
+                        className="btn btn-submit g-recaptcha"
+                        data-action="contactSubmit"
+                        value="Send message" />
                 </form>
             </section>
         </section>
