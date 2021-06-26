@@ -11,7 +11,7 @@ const TextBlockContent = ({
             <article className="text-block-content-description">
                 <article className="primary">
                     {
-                        primary.map((p, i) => {
+                        primary?.map((p, i) => {
                             return (
                                 <p key={i}>{p}</p>
                             )
@@ -20,7 +20,7 @@ const TextBlockContent = ({
                 </article>
                 <article className="secondary">
                     {
-                        secondary.map((p, i) => {
+                        secondary?.map((p, i) => {
                             return (
                                 <p key={i}>{p}</p>
                             )

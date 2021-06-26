@@ -56,21 +56,34 @@ textarea {
     resize: none;
 }
 
-
-.nfPasswordToggle {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+.passwordToggler {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 30px;
+    right: 0px;
     color: #8c8c8c;
-    font-size: 14px;
-    border: 0;
-    background: 0 0;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -moz-box-flex: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
+    padding: 0 20px;
+    font-size: 1.0rem;
+}
+
+.rememberMe {
+    display: flex;
+    justify-content: center;
+}
+
+.rememberMe>label,
+input {
+    cursor: pointer;
+}
+
+.rememberMe>input {
+    flex-basis: 10%;
+    align-self: center;
+    min-height: 20px;
+}
+
+.forgotPassword,
+.registerLink {
+    text-decoration: underline;
 }

@@ -27,7 +27,10 @@ const baseService = (baseURL, contentType) => {
             if (data[globalConstants.confirmPassword]) {
                 urlencoded.append(globalConstants.confirmPassword, data[globalConstants.confirmPassword]);
             }
-
+            if (data[globalConstants.token]) {
+                urlencoded.append(globalConstants.token, data[globalConstants.token]);
+            }
+            
             requestOptions.body = urlencoded;
 
             // data appended:

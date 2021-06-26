@@ -22,7 +22,7 @@ const Home = () => {
                 <article className="developer-content">
                     <TextBlockContent
                         title="FULL STACK DEVELOPER"
-                        primary={["Hey there!", "I am Paulina Dyulgerska."]}
+                        primary={["Hey there!", "I am Paulina Dyulgerska"]}
                         secondary={["Fresh new full stack developer.",
                             "I create and code beautiful and simple things and I love what I do."]}
                     >

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 // import authentication from '../../utils/firebase';
 import InputError from '../Shared/InputError/InputError';
 import accountsService from '../../services/accountsService.js';
+import globalConstants from '../../globalConstants/globalConstants';
 
 const Register = () => {
 
@@ -18,8 +19,15 @@ const Register = () => {
         const confirmPassword = e.target.confirmPassword.value;
 
         try {
-            var userCredential = await accountsService.register({ email, password, confirmPassword });
-            console.log(userCredential);
+            await window.grecaptcha.ready(() => {
+                window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
+                    { action: 'registerSubmit' })
+                    .then(token => accountsService.register(email, password, confirmPassword, token))
+                    .catch(err => console.log(err));
+            });
+
+            // var userCredential = await accountsService.register(email, password, confirmPassword, currentToken);
+            // console.log(userCredential);
             history.push('/login');
         } catch (ex) {
             var errorCode = ex.code;
@@ -59,7 +67,11 @@ const Register = () => {
                             <i className="fas fa-key"></i>
                         </span>
                     </p>
-                    <input className="button submit" type="submit" value="Register" />
+                    <input
+                        className="button submit g-recaptcha"
+                        type="submit"
+                        data-action="registerSubmit"
+                        value="Register" />
                 </fieldset>
             </form>
         </section>

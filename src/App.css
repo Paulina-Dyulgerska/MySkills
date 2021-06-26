@@ -36,6 +36,10 @@ blockquote {
   }
 }
 
+.grecaptcha-badge{
+  /* display: none; */
+}
+
 /* Bootstrap breakpoints - max-width:
 phone (+ landscape phones) - max-width: 576px;
 tablet - min-widht: 576px;

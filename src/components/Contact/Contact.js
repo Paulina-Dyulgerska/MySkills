@@ -7,7 +7,7 @@ import contactsService from '../../services/contactsService';
 import MediaItem from './MediaItem/MediaItem';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
-import InputField from '../Shared/InputFiield/InputField';
+import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
 
 // TODO - to store the collection in the Context
 
@@ -53,10 +53,38 @@ const Contact = () => {
                 </TextBlockContent>
                 <form className="contact-area-form">
                     <article className="input-fields">
-                        <InputField type="text" id="name" name="name" className="form-control" placeholder="Your Name*" />
-                        <InputField type="email" id="email" name="email" className="form-control" placeholder="Your Email*" />
-                        <InputField type="text" id="subject" name="subject" className="form-control" placeholder="Subject*" />
-                        <InputField type="text" id="phone" name="phone" className="form-control" placeholder="Phone*" />
+                        <InputFieldWithLabel
+                            type="text"
+                            id="name"
+                            name="name"
+                            className="form-control error"
+                        >
+                            Your Name*
+                        </InputFieldWithLabel>
+                        <InputFieldWithLabel
+                            type="email"
+                            id="email"
+                            name="email"
+                            className="form-control error"
+                        >
+                            Your Email*
+                        </InputFieldWithLabel>                        
+                        <InputFieldWithLabel
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            className="form-control error"
+                        >
+                            Subject*
+                        </InputFieldWithLabel>                       
+                        <InputFieldWithLabel
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            className="form-control error"
+                        >
+                            Phone*
+                        </InputFieldWithLabel>
                     </article>
                     <span className="input">
                         <textarea id="message" name="message" className="form-control" rows="6" placeholder="Your Message ..."></textarea>

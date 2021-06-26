@@ -22,7 +22,7 @@ CustomLink.propTypes = {
 };
 
 CustomLink.defaultProps = {
-    onClick: () => {}
+    onClick: () => {},
 };
 
 export default withRouter(CustomLink);

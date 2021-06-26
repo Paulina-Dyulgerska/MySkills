@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 import './App.css';
 
 import accountsService from './services/accountsService';
-
+import globalConstants from './globalConstants/globalConstants';
 import AuthContext from './contexts/AuthContext';
 
 import Header from './components/Header/Header';
@@ -39,7 +39,7 @@ function App() {
     // accountsService.onUserAuthStateChanged(user, setUser);
     accountsService.getUser()
       .then(res => setUser(currentState => ({
-        ...currentState, 
+        ...currentState,
         userEmail: res.userEmail,
         userRoles: res.userRoles
       })))
@@ -54,6 +54,31 @@ function App() {
     //     history.push('/login')
     //   }
     // }
+  }, []);
+
+  useEffect(() => {
+    const loadScriptByURL = (id, url, callback) => {
+      const isScriptExist = document.getElementById(id);
+
+      if (!isScriptExist) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = url;
+        script.id = id;
+        script.onload = function () {
+          if (callback) callback();
+        };
+        document.body.appendChild(script);
+      }
+
+      if (isScriptExist && callback) callback();
+    }
+    // load the script by passing the URL
+    loadScriptByURL("recaptcha-key",
+      `https://www.google.com/recaptcha/api.js?render=${globalConstants.reCaptchaSiteKey}`,
+      function () {
+        console.log("Script reCaptcha loaded!");
+      });
   }, []);
 
   return (

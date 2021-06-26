@@ -9,9 +9,10 @@ const contentTypeFormUrlencoded = 'application/x-www-form-urlencoded';
 
 const authentication = function () { };
 
-authentication.login = async function (email, password) {
+authentication.login = async function (email, password, token) {
     return new Promise((resolve, reject) => {
-        baseService(`${accountsURL}/login`, contentTypeFormUrlencoded).post(email, password)
+        baseService(`${accountsURL}/login`, contentTypeFormUrlencoded)
+            .post({email, password, token})
             // .then(res => console.log("ResponseHeaders:" + res.headers))
             // .then(res => console.log("Response:" + res))
             .then((res) => resolve(res))
@@ -19,15 +20,15 @@ authentication.login = async function (email, password) {
     });
 };
 
-authentication.register = async function (email, password, confirmPassword) {
+authentication.register = async function (email, password, confirmPassword, token) {
     return new Promise((resolve, reject) => {
         if (password !== confirmPassword || password === '' || confirmPassword === '') {
             console.log(email, password, ' from front end');
             reject(new Error('Password fields must match and not be empty.'));
         } else {
-            console.log(email, password, 2);
+            console.log(email, password, token, 2);
             baseService(`${accountsURL}/register`, contentTypeFormUrlencoded)
-                .post(email, password, confirmPassword)
+                .post({ email, password, confirmPassword, token })
                 .then((res) => resolve(res))
                 .catch((reason) => reject(reason)); //to catch the firebase throw, otherwise "Uncaught error"!!!!!
         }

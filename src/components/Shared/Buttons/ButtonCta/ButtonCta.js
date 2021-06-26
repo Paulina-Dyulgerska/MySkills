@@ -1,5 +1,4 @@
 import '../Button.css'
-import './ButtonCta.css';
 
 import CustomLink from '../../CustomLink/CustomLink';
 

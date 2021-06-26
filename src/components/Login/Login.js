@@ -5,13 +5,15 @@ import './Login.css';
 
 import InputError from '../Shared/InputError/InputError';
 import accountsService from '../../services/accountsService.js';
-
+import globalConstants from '../../globalConstants/globalConstants';
 import AuthContext from '../../contexts/AuthContext';
 
-import InputField from '../Shared/InputFiield/InputField';
+import InputField from '../Shared/InputField/InputField';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
+import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
-import InputFieldWithLabel from '../Shared/InputFiield/InputFieldWIthLabel';
+import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
+import CustomLink from '../Shared/CustomLink/CustomLink';
 
 const Login = () => {
     const { user, setUser } = useContext(AuthContext);
@@ -26,15 +28,42 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        accountsService.login({ email, password })
-            .then(userCredential => {
-                setUser(userCredential);
-                localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
-                localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
-                history.push('/');
-            })
-            .catch(err => console.log(err));
+        try {
+            await window.grecaptcha.ready(() => {
+                window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
+                    { action: 'submit' })
+                    .then(token => accountsService.login(email, password, token))
+                    .then(userCredential => {
+                        setUser(userCredential);
+                        localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
+                        localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
+                        history.push('/');
+                    })
+                    .catch(err => console.log(err));
+            });
+            // history.push('/');
+        } catch (ex) {
+            var errorCode = ex.code;
+            var errorMessage = ex.message;
+            setErrorMessage(errorMessage);
+            console.log(errorCode, errorMessage);
+        }
     }
+
+    // const onLoginFormSubmitHandler = async (e) => {
+    //     e.preventDefault();
+
+    //     const email = e.target.email.value;
+    //     const password = e.target.password.value;
+    //     accountsService.login({ email, password })
+    //         .then(userCredential => {
+    //             setUser(userCredential);
+    //             localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
+    //             localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
+    //             history.push('/');
+    //         })
+    //         .catch(err => console.log(err));
+    // }
 
     const onclickPasswordShowButton = (e) => {
         e.preventDefault();
@@ -46,19 +75,18 @@ const Login = () => {
             <section className="login-area-container">
                 <TextBlockContent
                     title="Sign In"
-                    primary={["Login and add comments and articles in the blog"]}
+                    primary={["Login and add your comments to the blog"]}
                     secondary={["Don't have an account?"]}
                 >
                 </TextBlockContent>
-                <Link to="/register">
-                    Create now
-                </Link>
+                <ButtonCta to="/register">
+                    Register
+                </ButtonCta>
             </section>
 
             <section className="login-area-form fadeInRight">
                 <form className="login-area-form" onSubmit={onLoginFormSubmitHandler}>
-                    <InputError>{errorMessage}</InputError>
-                    <div className="field">
+                    <article className="field">
                         <InputFieldWithLabel
                             type="text"
                             name="email"
@@ -67,9 +95,11 @@ const Login = () => {
                         >
                             Email
                         </InputFieldWithLabel>
+                        <InputError>{errorMessage}</InputError>
+
                         <span className="inputError">Please enter a valid email.</span>
-                    </div>
-                    <div className="field">
+                    </article>
+                    <article className="field">
                         <InputFieldWithLabel
                             type={passwordShow ? 'text' : 'password'}
                             id="password"
@@ -78,27 +108,43 @@ const Login = () => {
                         >
                             Password
                         </InputFieldWithLabel>
-                        <button type="button" className="passwordToggle" onClick={onclickPasswordShowButton}>
+                        {/* <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
                             {passwordShow ? 'SHOW' : 'HIDE'}
-                        </button>
+                        </button> */}
                         <span className="inputError">Your password must contain between 4 and 60 characters.</span>
-                    </div>
+                    </article>
                     <InputField
+                        wrapperClassName="rememberMe"
                         htmlFor="checkBox"
                         labelText="Remember me"
                         type="checkBox"
                         id="checkBox"
                         name="checkBox"
-                        className="form-control"
+                        inputClassName="form-control"
                         value={rememberMe}
                     />
-                    <Link to={"/" || "/login/forgot-password"}>
+                    <ButtonSubmit
+                        className="btn btn-submit g-recaptcha"
+                        data-action="loginSubmit"
+                        value="Login" />
+                    <Link className="forgotPassword" to={"/" || "/login/forgot-password"}>
                         Forgot password?
                     </Link>
-                    <ButtonSubmit   >
-                        Login
-                    </ButtonSubmit>
+                    <Link className="registerLink" to="/register">
+                        New here? Register now!
+                    </Link>
+
                 </form>
+                {/* <div className="recaptcha-terms-of-use" data-uia="recaptcha-terms-of-use">
+                    <p>
+                        <span>This page is protected by Google reCAPTCHA to ensure you're not a bot.</span>
+                        &nbsp;
+                        <button className="recaptcha-terms-of-use--link-button" >
+                            Learn more.
+                        </button>
+                    </p>
+                    <div className="recaptcha-terms-of-use--disclosure" data-uia="recaptcha-disclosure"><span id="" data-uia="recaptcha-disclosure-text">The information collected by Google reCAPTCHA is subject to the Google <a href="https://policies.google.com/privacy" id="recaptcha-privacy-link" data-uia="recaptcha-privacy-link" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" id="recaptcha-tos-link" data-uia="recaptcha-tos-link" target="_blank">Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</span></div>
+                </div> */}
             </section>
 
             {/* <div class="login-content login-form hybrid-login-form hybrid-login-form-signup" data-uia="login-page-container">
