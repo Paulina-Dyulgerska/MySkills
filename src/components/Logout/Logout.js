@@ -7,6 +7,7 @@ import AuthContext from '../../contexts/AuthContext';
 
 const Logout = () => {
     const { user, setUser } = useContext(AuthContext);
+    const { rememberMe } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
 
     useEffect(() => async (e) => {

@@ -7,15 +7,23 @@
 @media screen and (max-width: 900px) {
     .login-area-wrapper {
         flex-direction: column;
-
         padding:10px;
-        align-items: center;
+    }
+    .login-area-container {
+        flex-basis: 100%;
     }
   }
 
 .login-area-container {
     flex-basis: 30%;
 }
+
+@media screen and (max-width: 600px){
+    .login-area-wrapper{
+
+    }
+}
+
 .login-area-form {
     display: flex;
     flex-direction: column;

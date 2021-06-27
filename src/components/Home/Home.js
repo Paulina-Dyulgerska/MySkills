@@ -28,7 +28,7 @@ const Home = () => {
                     >
                     </TextBlockContent>
                     <ButtonCta
-                        to={`#`}
+                        to={`/contact`}
                     >
                         HIRE ME
                     </ButtonCta>

@@ -7,10 +7,12 @@
 @media screen and (max-width: 900px) {
     .contact-area-wrapper {
         flex-direction: column;
-
         padding:10px;
         align-items: center;
     }
+    /* .contact-area-container {
+        flex-basis: 1;
+    } */
   }
 
 .contact-area-container {
@@ -31,6 +33,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    /* align-content: space-between; */
 }
 
 .fadeInRight {

@@ -1,34 +1,37 @@
 import { useEffect, useState, useContext } from 'react';
 import { useHistory, Redirect, Link } from 'react-router-dom';
 
-import './Login.css';
-
-import InputError from '../Shared/InputError/InputError';
-import accountsService from '../../services/accountsService.js';
-import globalConstants from '../../globalConstants/globalConstants';
 import AuthContext from '../../contexts/AuthContext';
 
-import InputField from '../Shared/InputField/InputField';
+import './Login.css';
+
+import globalConstants from '../../globalConstants/globalConstants';
+
+import accountsService from '../../services/accountsService.js';
+
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
+import InputCheckbox from '../Shared/InputField/InputCheckbox';
 import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
+import InputError from '../Shared/InputError/InputError';
 import CustomLink from '../Shared/CustomLink/CustomLink';
 
 const Login = () => {
     const { user, setUser } = useContext(AuthContext);
+    const { rememberMe, setRememberMe } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
     const [passwordShow, setPasswordShow] = useState(false);
-    const [rememberMe, setRememberMe] = useState(true);
+    // const [rememberMe, setRememberMe] = useState(true);
     const history = useHistory();
 
     const onLoginFormSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-
         try {
+            const email = e.target.email?.value;
+            const password = e.target.password?.value;
+
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
                     { action: 'loginSubmit' })
@@ -37,6 +40,7 @@ const Login = () => {
                         setUser(userCredential);
                         localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
                         localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
+                        localStorage.setItem('rememberMe', rememberMe);
                         history.push('/');
                     })
                     .catch(err => console.log(err));
@@ -69,6 +73,16 @@ const Login = () => {
         setPasswordShow(!passwordShow)
     }
 
+    const onChangeCheckbox = async (e) => {
+        await setRememberMe(e);
+        // if (e) {
+        //     localStorage.setItem('rememberMe', e);
+        // } else {
+        //     localStorage.clear();
+        // }
+    }
+
+    console.log(rememberMe + ' is the value of rememberMe in Login')
     return (
         <section className="login-area-wrapper">
             <section className="login-area-container">
@@ -87,6 +101,7 @@ const Login = () => {
                 <form className="login-area-form" onSubmit={onLoginFormSubmitHandler}>
                     <article className="field">
                         <InputFieldWithLabel
+                            wrapperClassName="input"
                             type="text"
                             name="email"
                             id="email"
@@ -100,6 +115,7 @@ const Login = () => {
                     </article>
                     <article className="field">
                         <InputFieldWithLabel
+                            wrapperClassName="input"
                             type={passwordShow ? 'text' : 'password'}
                             id="password"
                             name="password"
@@ -112,15 +128,16 @@ const Login = () => {
                         </button>
                         <span className="inputError">Your password must contain between 4 and 60 characters.</span>
                     </article>
-                    <InputField
-                        wrapperClassName="rememberMe"
-                        htmlFor="checkBox"
+                    <InputCheckbox
+                        wrapperClassName="input rememberMe"
+                        htmlFor="rememberMe"
                         labelText="Remember me"
                         type="checkBox"
-                        id="checkBox"
-                        name="checkBox"
+                        id="rememberMe"
+                        name="rememberMe"
                         inputClassName="form-control"
-                        value={rememberMe}
+                        checked={rememberMe}
+                        onChangeCheckbox={onChangeCheckbox}
                     />
                     <ButtonSubmit
                         className="btn btn-submit g-recaptcha"

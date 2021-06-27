@@ -27,11 +27,16 @@ blockquote {
   box-shadow: 0px 0px 20px 0px #6da4ff45;
   padding: 30px;
 }
-
+@media screen and (max-width: 900px) {
+  .content-wrapper {
+    justify-content: center;
+  }
+}
 @media screen and (max-width: 600px) {
   .content-wrapper {
       flex-direction: column;
       padding:10px;
+      justify-content: center;
       /* align-items: center; */
   }
 }

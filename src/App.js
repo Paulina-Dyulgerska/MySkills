@@ -30,6 +30,7 @@ function App() {
     userRoles: [],
     expiresIn: localStorage.getItem('userCredentialJWTExpiresIn'),
   });
+  const [rememberMe, setRememberMe] = useState(true);
   // const history = useHistory();
 
   useEffect(() => {
@@ -54,6 +55,18 @@ function App() {
     //     history.push('/login')
     //   }
     // }
+
+    // const syncLogout = (e) => {
+    //   if (!rememberMe) {
+    //     window.onunload = function () {
+    //       // window.localStorage.isMySessionActive = "false";
+    //       window.localStorage.clear();
+    //     }
+    //     return undefined;
+    //   }
+    // };
+    // window.addEventListener('onbeforeunload', syncLogout)
+
   }, []);
 
   useEffect(() => {
@@ -83,7 +96,7 @@ function App() {
 
   return (
     <>
-      <AuthContext.Provider value={{ user, setUser }}>
+      <AuthContext.Provider value={{ user, setUser, rememberMe, setRememberMe }}>
         {/* <Header isUserLoggedIn={true} user={user}></Header> */}
         <Header></Header>
         <Main></Main>

@@ -5,6 +5,7 @@
 .input {
     position: relative;
     flex-basis: 45%;
+    margin:10px 0;
 }
 
 @media screen and (max-width: 900px) {
@@ -30,7 +31,7 @@
     color: #8c8c8c;
     top: 20px;
     left: 20px;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
 }
 
 .form-control:focus {

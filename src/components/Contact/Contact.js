@@ -1,10 +1,12 @@
 import './Contact.css';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 
+import AuthContext from '../../contexts/AuthContext';
 import InputError from '../Shared/InputError/InputError';
 import globalConstants from '../../globalConstants/globalConstants';
 import contactsService from '../../services/contactsService';
+import contactFormMessagesService from '../../services/contactFormMessagesService';
 
 import MediaItem from './MediaItem/MediaItem';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
@@ -14,6 +16,7 @@ import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
 // TODO - to store the collection in the Context
 
 const Contact = () => {
+    const { user } = useContext(AuthContext);
     const [contacts, setContacts] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
 
@@ -26,18 +29,17 @@ const Contact = () => {
     const onContactFormSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const subject = e.target.subject.value;
-        const phone = e.target.phone.value;
-                    
-        console.log(name, email, subject, phone);
-        
         try {
+            const name = e.target.name?.value;
+            const email = e.target.email?.value;
+            const subject = e.target.subject?.value;
+            const phone = e.target.phone?.value;
+            const message = e.target.message?.value;
+
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
                     { action: 'contactSubmit' })
-                    .then(token => contactsService.post(name, email, subject, phone, token))
+                    .then(token => contactFormMessagesService.post({name, email, subject, phone, message, token}))
                     .then(userCredential => {
                         // setUser(userCredential);
                         // localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
@@ -88,6 +90,7 @@ const Contact = () => {
                 <form className="contact-area-form" onSubmit={onContactFormSubmitHandler}>
                     <article className="input-fields">
                         <InputFieldWithLabel
+                            wrapperClassName="input"
                             type="text"
                             id="name"
                             name="name"
@@ -96,22 +99,25 @@ const Contact = () => {
                             Your Name*
                         </InputFieldWithLabel>
                         <InputFieldWithLabel
+                            wrapperClassName="input"
                             type="email"
                             id="email"
                             name="email"
                             className="form-control error"
                         >
-                            Your Email*
-                        </InputFieldWithLabel>                        
+                           Your Email*
+                        </InputFieldWithLabel>
                         <InputFieldWithLabel
+                            wrapperClassName="input"
                             type="text"
                             id="subject"
                             name="subject"
                             className="form-control error"
                         >
                             Subject*
-                        </InputFieldWithLabel>                       
+                        </InputFieldWithLabel>
                         <InputFieldWithLabel
+                            wrapperClassName="input"
                             type="text"
                             id="phone"
                             name="phone"

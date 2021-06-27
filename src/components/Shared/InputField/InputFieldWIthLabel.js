@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './InputField.css';
 
 const InputFieldWithLabel = ({
+    wrapperClassName,
     type,
     id,
     name,
@@ -25,7 +26,7 @@ const InputFieldWithLabel = ({
     }
 
     return (
-        <article className="input">
+        <article className={wrapperClassName}>
             <input type={type} id={id} name={name} className={className} autoComplete={autoComplete}
                 onChange={minimiseInputInternalLabel}
                 onFocus={minimiseInputInternalLabel}

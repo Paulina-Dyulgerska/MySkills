@@ -14,11 +14,10 @@ const Register = () => {
     const onRegisterFormSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        const confirmPassword = e.target.confirmPassword.value;
-
         try {
+            const email = e.target.email.value;
+            const password = e.target.password.value;
+            const confirmPassword = e.target.confirmPassword.value;
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
                     { action: 'registerSubmit' })
