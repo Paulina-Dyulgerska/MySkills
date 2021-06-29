@@ -38,9 +38,16 @@ const Login = () => {
                     .then(token => accountsService.login(email, password, token))
                     .then(userCredential => {
                         setUser(userCredential);
-                        localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
-                        localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
-                        localStorage.setItem('rememberMe', rememberMe);
+                        if (rememberMe) {
+                            localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
+                            localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
+                            localStorage.setItem('rememberMe', rememberMe);
+                        } else {
+                            sessionStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
+                            sessionStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
+                            sessionStorage.setItem('rememberMe', rememberMe);
+                        }
+
                         history.push('/');
                     })
                     .catch(err => console.log(err));

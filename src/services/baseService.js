@@ -13,7 +13,7 @@ const baseService = (baseURL, contentType, params) => {
             // credentials: "include",
         }
 
-        const authorizationToken = localStorage.getItem('userCredentialAccessTokenJWT');
+        const authorizationToken = localStorage.getItem('userCredentialAccessTokenJWT') || sessionStorage.getItem('userCredentialAccessTokenJWT');
         if (authorizationToken) {
             requestOptions.headers.Authorization = `Bearer ${authorizationToken}`;
         }

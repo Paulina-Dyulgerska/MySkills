@@ -26,9 +26,9 @@ import Main from './components/Main/Main';
 function App() {
   const [user, setUser] = useState({
     userEmail: '',
-    accessToken: localStorage.getItem('userCredentialAccessTokenJWT'),
+    accessToken: localStorage.getItem('userCredentialAccessTokenJWT') || sessionStorage.getItem('userCredentialAccessTokenJWT') ,
     userRoles: [],
-    expiresIn: localStorage.getItem('userCredentialJWTExpiresIn'),
+    expiresIn: localStorage.getItem('userCredentialJWTExpiresIn') || sessionStorage.getItem('userCredentialJWTExpiresIn'),
   });
   const [rememberMe, setRememberMe] = useState(true);
   // const history = useHistory();
@@ -55,18 +55,6 @@ function App() {
     //     history.push('/login')
     //   }
     // }
-
-    // const syncLogout = (e) => {
-    //   if (!rememberMe) {
-    //     window.onunload = function () {
-    //       // window.localStorage.isMySessionActive = "false";
-    //       window.localStorage.clear();
-    //     }
-    //     return undefined;
-    //   }
-    // };
-    // window.addEventListener('onbeforeunload', syncLogout)
-
   }, []);
 
   useEffect(() => {

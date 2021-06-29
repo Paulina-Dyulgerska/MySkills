@@ -15,6 +15,7 @@ const Logout = () => {
             await accountsService.logout();
             setUser({});
             localStorage.clear();
+            sessionStorage.clear();
         } catch (ex) {
             var errorCode = ex.code;
             var errorMessage = ex.message;
