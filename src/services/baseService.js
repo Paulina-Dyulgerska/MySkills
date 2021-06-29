@@ -50,7 +50,8 @@ const baseService = (baseURL, contentType, params) => {
 
     function handleError(e) {
         if (!e.ok) {
-            throw new Error(e.statusText);
+            // throw new Error(e.statusText);
+            throw e;
         }
         return e;
     }

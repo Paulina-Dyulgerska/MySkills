@@ -1,3 +1,5 @@
+import './InputError.css';
+
 const InputError = ({ 
     children,
  }) => {

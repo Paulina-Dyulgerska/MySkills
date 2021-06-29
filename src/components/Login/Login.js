@@ -8,6 +8,7 @@ import './Login.css';
 import globalConstants from '../../globalConstants/globalConstants';
 
 import accountsService from '../../services/accountsService.js';
+import validationService from '../../services/validationService.js';
 
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
@@ -35,7 +36,8 @@ const Login = () => {
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
                     { action: 'loginSubmit' })
-                    .then(token => accountsService.login(email, password, token))
+                    .then(token => accountsService.login(email, password, token)) 
+                    //if this Promise is rejected -> it goes to the catch directly, not to the next then!)                    
                     .then(userCredential => {
                         setUser(userCredential);
                         if (rememberMe) {
@@ -47,15 +49,19 @@ const Login = () => {
                             sessionStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
                             sessionStorage.setItem('rememberMe', rememberMe);
                         }
-
                         history.push('/');
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => {
+                        if (err.status >= 400) {
+                            setErrorMessage('Invalid username or password.');
+                        }
+                    });
             });
         } catch (ex) {
             var errorCode = ex.code;
             var errorMessage = ex.message;
             setErrorMessage(errorMessage);
+            console.log("Hi from catch(ex) from try-catch in login");
             console.log(errorCode, errorMessage);
         }
     }
@@ -82,11 +88,6 @@ const Login = () => {
 
     const onChangeCheckbox = async (e) => {
         await setRememberMe(e);
-        // if (e) {
-        //     localStorage.setItem('rememberMe', e);
-        // } else {
-        //     localStorage.clear();
-        // }
     }
 
     console.log(rememberMe + ' is the value of rememberMe in Login')
@@ -113,12 +114,11 @@ const Login = () => {
                             name="email"
                             id="email"
                             className="form-control error"
+                            validateFieldFunction={validationService.emailValidator}
+                            errorMessage="Please enter a valid email."
                         >
                             Email
                         </InputFieldWithLabel>
-                        <InputError>{errorMessage}</InputError>
-
-                        <span className="inputError">Please enter a valid email.</span>
                     </article>
                     <article className="field">
                         <InputFieldWithLabel
@@ -127,14 +127,16 @@ const Login = () => {
                             id="password"
                             name="password"
                             className="form-control error"
+                            validateFieldFunction={validationService.passwordValidator}
+                            errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
                         >
                             Password
                         </InputFieldWithLabel>
                         <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
                             {passwordShow ? 'HIDE' : 'SHOW'}
                         </button>
-                        <span className="inputError">Your password must contain between 4 and 60 characters.</span>
                     </article>
+                    <InputError>{errorMessage}</InputError>
                     <InputCheckbox
                         wrapperClassName="input rememberMe"
                         htmlFor="rememberMe"

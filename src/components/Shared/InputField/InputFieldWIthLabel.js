@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import './InputField.css';
 
+import InputError from '../InputError/InputError';
+
 const InputFieldWithLabel = ({
     wrapperClassName,
     type,
@@ -10,9 +12,12 @@ const InputFieldWithLabel = ({
     className,
     autoComplete,
     children,
+    validateFieldFunction,
+    errorMessage,
 }) => {
 
     const [minimise, setMinimise] = useState('');
+    const [hasError, setHasError] = useState(false);
 
     const minimiseInputInternalLabel = () => {
         setMinimise('minimise');
@@ -22,6 +27,15 @@ const InputFieldWithLabel = ({
         const userCurrentInputString = e.target.value;
         if (userCurrentInputString === '') {
             setMinimise('');
+        }
+
+        if (userCurrentInputString) {
+            const isInputValid = validateFieldFunction(userCurrentInputString);
+            if (!isInputValid) {
+                setHasError(errorMessage);
+            } else {
+                setHasError('');
+            }
         }
     }
 
@@ -37,6 +51,7 @@ const InputFieldWithLabel = ({
             <label htmlFor={id} className={`placeLabel ${minimise}`}>
                 {children}
             </label>
+            {hasError ? <InputError>{errorMessage}</InputError> : null}
         </article>
     )
 }
