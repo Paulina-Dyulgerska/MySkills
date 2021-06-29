@@ -60,9 +60,9 @@
     }
 }
 
-textarea {
+/* textarea {
     resize: none;
-}
+} */
 
 .passwordToggler {
     position: absolute;

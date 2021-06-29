@@ -4,7 +4,10 @@ import { useHistory } from 'react-router-dom';
 // import authentication from '../../utils/firebase';
 import InputError from '../Shared/InputError/InputError';
 import accountsService from '../../services/accountsService.js';
+import validationService from '../../services/validationService.js';
 import globalConstants from '../../globalConstants/globalConstants';
+import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
+import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 
 const Register = () => {
 
@@ -39,39 +42,58 @@ const Register = () => {
     return (
         <section className="register">
             <form onSubmit={onRegisterFormSubmitHandler}>
-                <fieldset>
-                    <legend>Register</legend>
-                    <InputError>{errorMessage}</InputError>
-                    <p className="field">
+                <article className="field">
+                    <InputFieldWithLabel
+                        wrapperClassName="input"
+                        type="text"
+                        name="email"
+                        id="email"
+                        className="form-control error"
+                        validateFieldFunction={validationService.emailValidator}
+                        errorMessage="Please enter a valid email."
+                    >
+                        Email
+                    </InputFieldWithLabel>
+                </article>
+                {/* <p className="field">
                         <label htmlFor="email">Email</label>
                         <span className="input">
                             <input type="text" name="email" id="email" placeholder="Email" />
                             <span className="actions"></span>
                             <i className="fas fa-user"></i>
                         </span>
-                    </p>
-                    <p className="field">
-                        <label htmlFor="password">Password</label>
-                        <span className="input">
-                            <input type="password" name="password" id="password" placeholder="Password" />
-                            <span className="actions"></span>
-                            <i className="fas fa-key"></i>
-                        </span>
-                    </p>
-                    <p className="field">
-                        <label htmlFor="confirmPassword">Repeat password</label>
-                        <span className="input">
-                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" />
-                            <span className="actions"></span>
-                            <i className="fas fa-key"></i>
-                        </span>
-                    </p>
-                    <input
-                        className="button submit g-recaptcha"
-                        type="submit"
-                        data-action="registerSubmit"
-                        value="Register" />
-                </fieldset>
+                    </p> */}
+                <article className="field">
+                    <InputFieldWithLabel
+                        wrapperClassName="input"
+                        type="password"
+                        id="password"
+                        name="password"
+                        className="form-control error"
+                        validateFieldFunction={validationService.passwordValidator}
+                        errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
+                    >
+                        Password
+                    </InputFieldWithLabel>
+                </article>
+                <article className="field">
+                    <InputFieldWithLabel
+                        wrapperClassName="input"
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        className="form-control error"
+                        validateFieldFunction={validationService.passwordValidator}
+                        errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
+                    >
+                        Confirm password
+                    </InputFieldWithLabel>
+                </article>
+                <InputError>{errorMessage}</InputError>
+                <ButtonSubmit
+                    className="btn btn-submit g-recaptcha"
+                    data-action="registerSubmit"
+                    value="Register" />
             </form>
         </section>
     )

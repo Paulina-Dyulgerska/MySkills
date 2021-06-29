@@ -36,7 +36,7 @@ const Login = () => {
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
                     { action: 'loginSubmit' })
-                    .then(token => accountsService.login(email, password, token)) 
+                    .then(token => accountsService.login(email, password, token))
                     //if this Promise is rejected -> it goes to the catch directly, not to the next then!)                    
                     .then(userCredential => {
                         setUser(userCredential);
