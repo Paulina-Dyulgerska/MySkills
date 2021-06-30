@@ -19,6 +19,7 @@ import Logout from '../Logout/Logout';
 import Register from '../Register/Register';
 import ScrollTop from '../Shared/ScrollTop/ScrollTop';
 import Bubbles from '../Shared/Bubbles/Bubbles';
+import ThankYouRegister from '../Shared/ThankYou/ThankYouRegister.js';
 
 const Main = () => {
     const [width, setWidth] = useState(0);
@@ -63,11 +64,12 @@ const Main = () => {
                 </aside>
 
                 <Switch>
-                    <Route path="/logout" component={Logout} />
+                    <Route path="/thank-you-register" exact component={ThankYouRegister} />
+                    <Route path="/logout" exact component={Logout} />
                     <Route path="/register" exact component={Register}></Route>
                     <Route path="/login" exact component={Login}></Route>
                     <Route path="/home" exact component={Home}></Route>
-                    <Route path="/about" component={About}></Route>
+                    <Route path="/about" exact component={About}></Route>
                     <Route path="/education" component={Education}></Route>
                     <Route path="/experience" component={Experience}></Route>
                     <Route path="/contact" component={Contact}></Route>

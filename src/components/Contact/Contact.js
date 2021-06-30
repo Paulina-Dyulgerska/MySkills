@@ -80,7 +80,7 @@ const Contact = () => {
                 }
             </section>
 
-            <section className="contact-area-form fadeInRight">
+            <section className="contact-area-form-container fadeInRight">
                 <TextBlockContent
                     title="Let Me Know"
                     primary={["Contact me"]}

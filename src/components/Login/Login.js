@@ -1,5 +1,5 @@
-import { useEffect, useState, useContext } from 'react';
-import { useHistory, Redirect, Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 
 import AuthContext from '../../contexts/AuthContext';
 
@@ -16,14 +16,13 @@ import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import InputCheckbox from '../Shared/InputField/InputCheckbox';
 import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
 import InputError from '../Shared/InputError/InputError';
-import CustomLink from '../Shared/CustomLink/CustomLink';
 
 const Login = () => {
     const { user, setUser } = useContext(AuthContext);
     const { rememberMe, setRememberMe } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
     const [passwordShow, setPasswordShow] = useState(false);
-    // const [rememberMe, setRememberMe] = useState(true);
+    const [showPasswordToggler, setShowPasswordToggler] = useState(false);
     const history = useHistory();
 
     const onLoginFormSubmitHandler = async (e) => {
@@ -68,7 +67,6 @@ const Login = () => {
 
     // const onLoginFormSubmitHandler = async (e) => {
     //     e.preventDefault();
-
     //     const email = e.target.email.value;
     //     const password = e.target.password.value;
     //     accountsService.login({ email, password })
@@ -80,6 +78,15 @@ const Login = () => {
     //         })
     //         .catch(err => console.log(err));
     // }
+
+    const onChangeShowPasswordToggler = (inputValue) => {
+        if (inputValue === '') {
+            setShowPasswordToggler(false);
+        }
+        else {
+            setShowPasswordToggler(true);
+        }
+    }
 
     const onclickPasswordShowButton = (e) => {
         e.preventDefault();
@@ -105,7 +112,7 @@ const Login = () => {
                 </ButtonCta>
             </section>
 
-            <section className="login-area-form fadeInRight">
+            <section className="login-area-form-container fadeInRight">
                 <form className="login-area-form" onSubmit={onLoginFormSubmitHandler}>
                     <article className="field">
                         <InputFieldWithLabel
@@ -127,14 +134,18 @@ const Login = () => {
                             id="password"
                             name="password"
                             className="form-control error"
+                            onChangeShowPasswordToggler={onChangeShowPasswordToggler}
                             validateFieldFunction={validationService.passwordValidator}
                             errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
                         >
                             Password
                         </InputFieldWithLabel>
-                        <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
-                            {passwordShow ? 'HIDE' : 'SHOW'}
-                        </button>
+                        {
+                            showPasswordToggler &&
+                            <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
+                                {passwordShow ? 'HIDE' : 'SHOW'}
+                            </button>
+                        }
                     </article>
                     <InputError>{errorMessage}</InputError>
                     <InputCheckbox
@@ -151,7 +162,7 @@ const Login = () => {
                     <ButtonSubmit
                         className="btn btn-submit g-recaptcha"
                         data-action="loginSubmit"
-                        value="Login" />
+                        value="Sign in" />
                     <Link className="forgotPassword" to={"/" || "/login/forgot-password"}>
                         Forgot password?
                     </Link>

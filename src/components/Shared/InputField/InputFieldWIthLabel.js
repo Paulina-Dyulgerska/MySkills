@@ -14,12 +14,16 @@ const InputFieldWithLabel = ({
     children,
     validateFieldFunction,
     errorMessage,
+    onChangeShowPasswordToggler,
 }) => {
 
     const [minimise, setMinimise] = useState('');
     const [hasError, setHasError] = useState(false);
 
-    const minimiseInputInternalLabel = () => {
+    const minimiseInputInternalLabel = (e) => {
+        if (e.target.name === 'password' || e.target.name === 'confirmPassword') {
+            onChangeShowPasswordToggler(e.target.value);
+        }
         setMinimise('minimise');
     }
 
