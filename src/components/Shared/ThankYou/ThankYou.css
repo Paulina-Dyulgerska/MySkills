@@ -1,0 +1,27 @@
+.img-success {
+    max-width: 150px;
+    margin: 20px 0;
+}
+
+.thank-you-register-area-wrapper {
+    display: flex;
+    /* flex-wrap: nowrap; */
+    /* justify-items: center; */
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.thank-you-area-form .text-block-content-title {
+    align-self: center;
+}
+
+.thank-you-area-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.text-block-content-description .secondary {
+    text-align: center;
+}
