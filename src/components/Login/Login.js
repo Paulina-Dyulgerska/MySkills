@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useState, useContext, useEffect } from 'react';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 
 import AuthContext from '../../contexts/AuthContext';
 
@@ -16,14 +16,26 @@ import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import InputCheckbox from '../Shared/InputField/InputCheckbox';
 import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
 import InputError from '../Shared/InputError/InputError';
+import ReCaptchaInfo from '../Shared/ReCaptchaInfo/ReCaptchaInfo';
 
 const Login = () => {
     const { user, setUser } = useContext(AuthContext);
     const { rememberMe, setRememberMe } = useContext(AuthContext);
-    const [errorMessage, setErrorMessage] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
     const [passwordShow, setPasswordShow] = useState(false);
     const [showPasswordToggler, setShowPasswordToggler] = useState(false);
     const history = useHistory();
+    const [validationErrors, setValidationErrors] = useState({
+        email: '',
+        password: '',
+    })
+
+    if (user.accessToken) {
+        return (
+            <Redirect to='/' />
+        )
+    }
+
 
     const onLoginFormSubmitHandler = async (e) => {
         e.preventDefault();
@@ -32,28 +44,40 @@ const Login = () => {
             const email = e.target.email?.value;
             const password = e.target.password?.value;
 
+            if (!validationService.stringIsNullOrEmpty(email) ||
+                !validationService.stringIsNullOrEmpty(password)) {
+                throw new Error('All fields are required.')
+            }
+            console.log(validationErrors);
+            console.log('Hi from error message.');
+            if (!validationService.validateForm(validationErrors)) {
+                throw new Error('Please fill the required (*) fields according the requirements.')
+            } else {
+                setErrorMessage('');
+            }
+
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
                     { action: 'loginSubmit' })
                     .then(token => accountsService.login(email, password, token))
-                    //if this Promise is rejected -> it goes to the catch directly, not to the next then!)                    
+                    // if this Promise is rejected -> it goes to the catch directly because I throw in the fetch, 
+                    // the Promise will not go to the following then:                    
                     .then(userCredential => {
                         setUser(userCredential);
                         if (rememberMe) {
-                            localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
-                            localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
-                            localStorage.setItem('rememberMe', rememberMe);
+                            localStorage.setItem(globalConstants.userCredentialAccessTokenJWT, userCredential.accessToken);
+                            localStorage.setItem(globalConstants.userCredentialJWTExpiresIn, userCredential.expiresIn);
+                            localStorage.setItem(globalConstants.rememberMe, rememberMe);
                         } else {
-                            sessionStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
-                            sessionStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
-                            sessionStorage.setItem('rememberMe', rememberMe);
+                            sessionStorage.setItem(globalConstants.userCredentialAccessTokenJWT, userCredential.accessToken);
+                            sessionStorage.setItem(globalConstants.userCredentialJWTExpiresIn, userCredential.expiresIn);
+                            sessionStorage.setItem(globalConstants.rememberMe, rememberMe);
                         }
                         history.push('/');
                     })
                     .catch(err => {
-                        if (err.status >= 400) {
-                            setErrorMessage('Invalid username or password.');
-                        }
+                        console.log('hi from login err in catch');
+                        setErrorMessage(err.description);
                     });
             });
         } catch (ex) {
@@ -72,7 +96,7 @@ const Login = () => {
     //     accountsService.login({ email, password })
     //         .then(userCredential => {
     //             setUser(userCredential);
-    //             localStorage.setItem('userCredentialAccessTokenJWT', userCredential.accessToken);
+    //             localStorage.setItem(globalConstants.userCredentialAccessTokenJWT, userCredential.accessToken);
     //             localStorage.setItem('userCredentialJWTExpiresIn', userCredential.expiresIn);
     //             history.push('/');
     //         })
@@ -97,7 +121,8 @@ const Login = () => {
         await setRememberMe(e);
     }
 
-    console.log(rememberMe + ' is the value of rememberMe in Login')
+    // console.log(rememberMe + ' is the value of rememberMe in Login')
+
     return (
         <section className="login-area-wrapper">
             <section className="login-area-container">
@@ -123,8 +148,9 @@ const Login = () => {
                             className="form-control error"
                             validateFieldFunction={validationService.emailValidator}
                             errorMessage="Please enter a valid email."
+                            setValidationErrors={setValidationErrors}
                         >
-                            Email
+                            Email *
                         </InputFieldWithLabel>
                     </article>
                     <article className="field">
@@ -137,8 +163,9 @@ const Login = () => {
                             onChangeShowPasswordToggler={onChangeShowPasswordToggler}
                             validateFieldFunction={validationService.passwordValidator}
                             errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
+                            setValidationErrors={setValidationErrors}
                         >
-                            Password
+                            Password *
                         </InputFieldWithLabel>
                         {
                             showPasswordToggler &&
@@ -171,16 +198,9 @@ const Login = () => {
                     </Link>
 
                 </form>
-                {/* <div className="recaptcha-terms-of-use" data-uia="recaptcha-terms-of-use">
-                    <p>
-                        <span>This page is protected by Google reCAPTCHA to ensure you're not a bot.</span>
-                        &nbsp;
-                        <button className="recaptcha-terms-of-use--link-button" >
-                            Learn more.
-                        </button>
-                    </p>
-                    <div className="recaptcha-terms-of-use--disclosure" data-uia="recaptcha-disclosure"><span id="" data-uia="recaptcha-disclosure-text">The information collected by Google reCAPTCHA is subject to the Google <a href="https://policies.google.com/privacy" id="recaptcha-privacy-link" data-uia="recaptcha-privacy-link" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" id="recaptcha-tos-link" data-uia="recaptcha-tos-link" target="_blank">Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</span></div>
-                </div> */}
+                <ReCaptchaInfo
+
+                />
             </section>
 
             {/* <div class="login-content login-form hybrid-login-form hybrid-login-form-signup" data-uia="login-page-container">

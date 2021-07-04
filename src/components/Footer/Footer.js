@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import './Footer.css';
+
 import ExternalNavigationItem from '../Header/NavigationItem/ExternalNavigationItem';
 
 const Footer = () => {

@@ -1,4 +1,5 @@
-import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+// import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
 import './ScrollTop.css';
 
@@ -68,7 +69,7 @@ const ScrollTop = ({
         return () => {
             window.removeEventListener('scroll', handleShow);
         };
-    }, []);
+    }, [parentDiv]);
 
     const backToTop = () => {
         window.scroll({ top: 0, behavior: 'smooth' });

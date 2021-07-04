@@ -1,6 +1,6 @@
 
-import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
+import { useState, useEffect, useLayoutEffect } from 'react';
+// import { useHistory } from 'react-router';
 
 import './App.css';
 
@@ -26,9 +26,11 @@ import Main from './components/Main/Main';
 function App() {
   const [user, setUser] = useState({
     userEmail: '',
-    accessToken: localStorage.getItem('userCredentialAccessTokenJWT') || sessionStorage.getItem('userCredentialAccessTokenJWT') ,
+    accessToken: localStorage.getItem(globalConstants.userCredentialAccessTokenJWT)
+      || sessionStorage.getItem(globalConstants.userCredentialAccessTokenJWT),
     userRoles: [],
-    expiresIn: localStorage.getItem('userCredentialJWTExpiresIn') || sessionStorage.getItem('userCredentialJWTExpiresIn'),
+    expiresIn: localStorage.getItem(globalConstants.userCredentialJWTExpiresIn)
+      || sessionStorage.getItem(globalConstants.userCredentialJWTExpiresIn),
   });
   const [rememberMe, setRememberMe] = useState(true);
   // const history = useHistory();
@@ -38,24 +40,35 @@ function App() {
     // firebase.auth().onAuthStateChanged(setUser);
 
     // accountsService.onUserAuthStateChanged(user, setUser);
-    accountsService.getUser()
-      .then(res => setUser(currentState => ({
-        ...currentState,
-        userEmail: res.userEmail,
-        userRoles: res.userRoles
-      })))
-      .then(console.log(user))
-      .catch(err => console.log(err));
+    if (!user.userEmail) {
+      accountsService.getUser()
+        .then(res => {
+          // console.log('hi from app.js current user');
+          // console.log(user)
 
-    // window.addEventListener('storage', syncLogout)
+          setUser(currentState => ({
+            ...currentState,
+            userEmail: res.userEmail,
+            userRoles: res.userRoles,
+          }))
 
-    // const syncLogout = (e) => {
-    //   if (e.key === 'logout') {
-    //     console.log('logged out from storage!')
-    //     history.push('/login')
-    //   }
-    // }
-  }, []);
+          return res;
+        })
+        .then((res) => {
+          // console.log('hi from app.js user');
+          // console.log(user)
+          // console.log('hi from app.js res');
+          // console.log(res)
+        })
+        // TODO - create an error page
+        .catch(err => console.log(err));
+      }
+    
+    // console.log('hi from app.js user');
+    // console.log(user)
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   useEffect(() => {
     const loadScriptByURL = (id, url, callback) => {
@@ -74,12 +87,21 @@ function App() {
 
       if (isScriptExist && callback) callback();
     }
+
     // load the script by passing the URL
     loadScriptByURL("recaptcha-key",
       `https://www.google.com/recaptcha/api.js?render=${globalConstants.reCaptchaSiteKey}`,
       function () {
-        console.log("Script reCaptcha loaded!");
+        // console.log("Script reCaptcha loaded!");
       });
+    // window.addEventListener('storage', syncLogout)
+
+    // const syncLogout = (e) => {
+    //   if (e.key === 'logout') {
+    //     console.log('logged out from storage!')
+    //     history.push('/login')
+    //   }
+    // }
   }, []);
 
   return (

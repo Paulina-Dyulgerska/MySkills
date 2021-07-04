@@ -1,9 +1,12 @@
-import { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useState, useContext } from "react";
+import { useHistory, Redirect } from 'react-router-dom';
+
+import AuthContext from '../../contexts/AuthContext';
 
 import './Register.css';
 // import firebase, { auth } from '../../utils/firebase';
 // import authentication from '../../utils/firebase';
+
 import InputError from '../Shared/InputError/InputError';
 import accountsService from '../../services/accountsService.js';
 import validationService from '../../services/validationService.js';
@@ -14,34 +17,75 @@ import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 
 const Register = () => {
-
+    const { user } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState(null);
     const history = useHistory();
     const [showPasswordToggler, setShowPasswordToggler] = useState(false);
     const [passwordShow, setPasswordShow] = useState(false);
+    const [validationErrors, setValidationErrors] = useState({
+        email: '',
+        password: '',
+        confirmPassword: '',
+    })
+
+    if (user.accessToken) {
+        return (
+            <Redirect to='/' />
+        )
+    }
 
     const onRegisterFormSubmitHandler = async (e) => {
         e.preventDefault();
 
         try {
-            const email = e.target.email.value;
-            const password = e.target.password.value;
-            const confirmPassword = e.target.confirmPassword.value;
+            const email = e.target.email?.value;
+            const password = e.target.password?.value;
+            const confirmPassword = e.target.confirmPassword?.value;
+            if (!validationService.stringIsNullOrEmpty(email) ||
+                !validationService.stringIsNullOrEmpty(password) ||
+                !validationService.stringIsNullOrEmpty(confirmPassword)) {
+                    throw new Error('All fields are required.')
+            }
+
+            if (!validationService.passwordComparer(password, confirmPassword)) {
+                throw new Error('Password fields must match and not be empty.')
+            }
+
+            console.log(validationErrors);
+            console.log('Hi from error message.');
+            if (!validationService.validateForm(validationErrors)) {
+                throw new Error('Please fill the required (*) fields according the requirements.')
+            } else {
+                setErrorMessage('');
+            }
+
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
                     { action: 'registerSubmit' })
+                    .then(token => {
+                        console.log(token);
+                        return token;
+                    })
                     .then(token => accountsService.register(email, password, confirmPassword, token))
-                    .catch(err => console.log(err));
+                    // if this Promise is rejected -> it goes to the catch directly because I throw in the fetch, 
+                    // the Promise will not go to the following then: 
+                    .then(res => {
+                        // console.log(res.id+ ' hi from then');
+                        history.push('/thank-you-register');
+                    })
+                    .catch(err => {
+                        setErrorMessage(err.description);
+                    });
             });
 
-            // var userCredential = await accountsService.register(email, password, confirmPassword, currentToken);
-            // console.log(userCredential);
-            history.push('/thank-you-register');
+            // var userId = accountsService.register(email, password, confirmPassword, token);
+            // console.log(userId);
         } catch (ex) {
             var errorCode = ex.code;
             var errorMessage = ex.message;
             setErrorMessage(errorMessage);
-            console.log(errorCode, errorMessage);
+            console.log(ex + ' hi from ex');
+            console.log(errorCode + ' hi from ex.code');
         }
     }
 
@@ -84,8 +128,10 @@ const Register = () => {
                             className="form-control error"
                             validateFieldFunction={validationService.emailValidator}
                             errorMessage="Please enter a valid email."
+                            setValidationErrors={setValidationErrors}
+
                         >
-                            Email
+                            Email *
                         </InputFieldWithLabel>
                     </article>
                     <article className="field">
@@ -98,8 +144,9 @@ const Register = () => {
                             onChangeShowPasswordToggler={onChangeShowPasswordToggler}
                             validateFieldFunction={validationService.passwordValidator}
                             errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
+                            setValidationErrors={setValidationErrors}
                         >
-                            Password
+                            Password *
                         </InputFieldWithLabel>
                         {
                             showPasswordToggler &&
@@ -118,8 +165,9 @@ const Register = () => {
                             onChangeShowPasswordToggler={onChangeShowPasswordToggler}
                             validateFieldFunction={validationService.passwordValidator}
                             errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
+                            setValidationErrors={setValidationErrors}
                         >
-                            Confirm password
+                            Confirm password *
                         </InputFieldWithLabel>
                         {
                             showPasswordToggler &&

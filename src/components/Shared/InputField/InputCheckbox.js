@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import './InputField.css';
 
 const InputCheckbox = ({
@@ -13,7 +11,7 @@ const InputCheckbox = ({
     onChangeCheckbox,
 }) => {
 
-    console.log(checked + ' is the value of rememberMe in InputCheckbox');
+    // console.log(checked + ' is the value of rememberMe in InputCheckbox');
 
     // const [isChecked, setIsChecked] = useState(checked);
     // const onCheckedCheckBox = () => {

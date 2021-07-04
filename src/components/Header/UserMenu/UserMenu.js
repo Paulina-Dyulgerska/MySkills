@@ -1,6 +1,6 @@
 import './UserMenu.css';
 
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import AuthContext from '../../../contexts/AuthContext';
 import NavigationItem from '../NavigationItem/NavigationItem';
@@ -25,7 +25,7 @@ const UserMenu = (props) => {
                     )
                 }
             </ul>
-            
+
             {!user.userEmail &&
                 (
                     <ul className="nav-list nav-right">

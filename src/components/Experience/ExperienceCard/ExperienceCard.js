@@ -1,6 +1,6 @@
 import './ExperienceCard.css';
 
-import LogoNavigationItem from '../../Header/NavigationItem/LogoNavigationItem';
+// import LogoNavigationItem from '../../Header/NavigationItem/LogoNavigationItem';
 import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
 import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
 

@@ -1,11 +1,23 @@
+import { useContext } from 'react';
+import { Redirect } from 'react-router';
+
 import './ThankYou.css';
 import imgSuccess from "../../../img/success-transparent.png";
+
+import AuthContext from '../../../contexts/AuthContext';
 
 import ButtonCta from '../Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../TextBlockContent/TextBlockContent';
 
-const ThankYouRegister = ({
-}) => {
+const ThankYouRegister = () => {
+    const { user } = useContext(AuthContext);
+
+    if (user.email) {
+        return (
+            <Redirect to='/' />
+        )
+    }
+
     return (
         <section className="thank-you-register-area-wrapper">
 

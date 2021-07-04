@@ -1,5 +1,4 @@
-// import { Link } from 'react-router-dom';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import logo from "../../img/logo.png";
 import "./Header.css";
 
