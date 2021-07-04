@@ -13,7 +13,8 @@ const baseService = (baseURL, contentType, params) => {
             // credentials: "include",
         }
 
-        const authorizationToken = localStorage.getItem('userCredentialAccessTokenJWT') || sessionStorage.getItem('userCredentialAccessTokenJWT');
+        const authorizationToken = localStorage.getItem(globalConstants.userCredentialAccessTokenJWT) 
+                                || sessionStorage.getItem(globalConstants.userCredentialAccessTokenJWT);
         if (authorizationToken) {
             requestOptions.headers.Authorization = `Bearer ${authorizationToken}`;
         }
@@ -48,22 +49,33 @@ const baseService = (baseURL, contentType, params) => {
         return requestOptions;
     }
 
-    function handleError(e) {
-        if (!e.ok) {
-            // throw new Error(e.statusText);
-            throw e;
+    async function handleError(response) {
+        let error;
+        if (response.status === 401) {
+            error = await response.text();
+            throw error;
         }
-        return e;
+        if (!response.ok) {
+            //if the response error text is in a json object
+            error = await response.json();
+            // if the response error text is in the body as plain text, not json object:
+            // error = await response.text(); 
+            throw error;
+        }
+        return response;
     }
 
-    function serializeData(x) {
-        return x.json();
+    async function serializeData(response) {
+        return await response.json();
+        // unlocks the Body Stream for more than one json():
+        // return x.clone().json();
     }
 
     async function fetchData(url, requestOptions) {
-        const e = await fetch(url, requestOptions);
-        const x = await handleError(e);
-        return serializeData(x);
+        const promiseReturned = await fetch(url, requestOptions);
+        const response = await handleError(promiseReturned);
+        const jsonResponse = await serializeData(response);
+        return jsonResponse;
     }
 
     const get = (id) => {
@@ -133,7 +145,7 @@ export default baseService;
 //             // credentials: "include",
 //         }
 
-//         const authorizationToken = localStorage.getItem('userCredentialAccessTokenJWT');
+//         const authorizationToken = localStorage.getItem(globalConstants.userCredentialAccessTokenJWT);
 //         if (authorizationToken) {
 //             requestOptions.headers.Authorization = `Bearer ${authorizationToken}`;
 //         }
