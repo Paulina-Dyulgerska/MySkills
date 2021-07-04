@@ -1,0 +1,18 @@
+.recaptcha-terms-of-use-link-button {
+    background-color: transparent;
+    border: none;
+    color: #0071eb;
+    cursor: pointer;
+    display: inline;
+    padding: 0;
+    font-weight: 600;
+}
+
+.recaptcha-terms-of-use-disclosure {
+    /* font-size: 0.8rem; */
+}
+
+.recaptcha-terms-of-use a {
+    display: inline;
+    text-decoration: underline;
+}
