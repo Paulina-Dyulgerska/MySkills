@@ -47,7 +47,7 @@
 
 .header-content .nav-list .list-item {
     background: #e5effd;
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 5px 5px;
     margin: 5px;
     /* -webkit-transition: all .3s linear;
@@ -132,8 +132,7 @@
     top: 50%;
     right: 50%;
     transform: translate(55%, -50%);
-    color: #051441;
-
+    color: #2b495d;
 }
 
 @media screen and (max-width: 600px) {

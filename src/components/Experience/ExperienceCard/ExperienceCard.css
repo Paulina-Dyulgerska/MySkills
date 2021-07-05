@@ -10,7 +10,7 @@
   -webkit-transition: all .3s linear;
   transition: all .3s line;
   position: relative;
-  border-radius: 10px;
+  border-radius: 5px;
   animation-fill-mode: both;
   animation-duration: 1000ms;
   animation-delay: 0ms;
@@ -40,7 +40,7 @@
 }
 
 .expriance-item .media-left {
-  padding-right: 10px;
+  padding-right: 25px;
   text-align: center;
   flex-basis: 30%;
 }

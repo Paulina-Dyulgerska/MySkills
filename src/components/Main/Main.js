@@ -2,8 +2,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import ValidationContext from '../../contexts/ValidationContext';
-
 import educationsService from '../../services/educationsService.js';
 import experiencesService from '../../services/experiencesService.js';
 import contactsService from '../../services/contactsService.js';
@@ -25,7 +23,6 @@ import Bubbles from '../Shared/Bubbles/Bubbles';
 import ThankYouRegister from '../Shared/ThankYou/ThankYouRegister';
 
 const Main = () => {
-    const [validationError, setValidationError] = useState('');
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const parentDivRef = useRef(null);
@@ -59,33 +56,32 @@ const Main = () => {
     // console.log(parentDivRef.clientWidth + " parentDivRef outer width")
 
     return (
-        <ValidationContext.Provider value={{ validationError, setValidationError }}>
-            <main className="main-wrapper">
-                <Bubbles></Bubbles>
+        <main className="main-wrapper">
+            <Bubbles></Bubbles>
 
-                <section className="content-wrapper" ref={parentDivRef}>
-                    <ScrollTop parentDiv={parentDivRef}></ScrollTop>
+            <section className="content-wrapper" ref={parentDivRef}>
+                <ScrollTop parentDiv={parentDivRef}></ScrollTop>
 
-                    <aside className="sidebar">
-                        ASIDE is not shown at the moment
-                    </aside>
+                <aside className="sidebar">
+                    ASIDE is not shown at the moment
+                </aside>
 
-                    <Switch>
-                        <Route path="/thank-you-register" exact component={ThankYouRegister} />
-                        <Route path="/logout" exact component={Logout} />
-                        <Route path="/register" exact component={Register}></Route>
-                        <Route path="/login" exact component={Login}></Route>
-                        <Route path="/home" exact component={Home}></Route>
-                        <Route path="/about" exact component={About}></Route>
-                        <Route path="/education" component={Education}></Route>
-                        <Route path="/experience" component={Experience}></Route>
-                        <Route path="/contact" component={Contact}></Route>
-                        <Route path="/blog" component={Blog}></Route>
-                        <Route path="/" exact component={Home}></Route>
+                <Switch>
+                    <Route path="/thank-you-register" exact component={ThankYouRegister} />
+                    <Route path="/logout" exact component={Logout} />
+                    <Route path="/register" exact component={Register}></Route>
+                    <Route path="/login" exact component={Login}></Route>
+                    <Route path="/home" exact component={Home}></Route>
+                    <Route path="/about" exact component={About}></Route>
+                    <Route path="/education" component={Education}></Route>
+                    <Route path="/experience" component={Experience}></Route>
+                    <Route path="/contact" component={Contact}></Route>
+                    <Route path="/blog" component={Blog}></Route>
+                    <Route path="/" exact component={Home}></Route>
 
-                        {/* TODO <Route path="/" component={NotFound}></Route> */}
+                    {/* TODO <Route path="/" component={NotFound}></Route> */}
 
-                        {/* <Route path="/dashboard" component={Dashboard}></Route>
+                    {/* <Route path="/dashboard" component={Dashboard}></Route>
                         <Route path="/pets/create" component={PetCreate}></Route>
                         <Route path="/pets/details/:id" component={PetDetails}></Route>
                         <Route path="/pets/edit/:id" component={PetEdit}></Route>
@@ -101,11 +97,10 @@ const Main = () => {
                             <br />
                             <DemoFormUncontrolled></DemoFormUncontrolled>
                         </Route> */}
-                    </Switch>
+                </Switch>
 
-                </section>
-            </main>
-        </ValidationContext.Provider>
+            </section>
+        </main>
     )
 }
 

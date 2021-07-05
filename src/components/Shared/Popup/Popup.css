@@ -20,7 +20,7 @@
     right: 0%;
     transform: translate(0%, -50%);
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     border: 1px solid #999;
     overflow-y: auto;
@@ -61,7 +61,7 @@
     width: 35px;
     height: 35px;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     line-height: 20px;
     text-align: center;
     font-size: 20px;

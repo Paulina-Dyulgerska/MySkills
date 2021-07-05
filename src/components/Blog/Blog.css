@@ -1,20 +1,18 @@
-/* .icon-wrapper {
-    position: relative;
-    color:#1DBFAF;
+.blog-content {
+    padding: 30px 50px 0px 50px;
 }
 
-.icon-down {
-    background-position: -198px -33px;
-    cursor: pointer;
-    z-index: 999999999;
-    position: absolute;
-    top: -2px;
-    width: 33px;
-    height: 33px;
-    background-size: 231px 132px;
-    background-image: url('core_icons.png');
+.blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: stretch; */
+    /* justify-items: stretch; */
+    padding: 20px 30px;
 }
 
-.icon-down:hover {
-    background-position: -165px -33px;
-} */
+@media screen and (max-width: 600px) {
+    .blog-posts {
+        padding: 10px;
+    }
+}

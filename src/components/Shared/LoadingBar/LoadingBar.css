@@ -13,7 +13,7 @@
     overflow: hidden;
     position: relative;
     width: 12rem;
-    border-radius: 7px;
+    border-radius: 5px;
     animation: scaleUp 2s infinite alternate;
 }
 

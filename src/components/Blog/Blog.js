@@ -1,5 +1,11 @@
-import './Blog.css';
 import { useState } from 'react';
+
+import './Blog.css';
+
+import imagePng from '../../img/Blog/article-1.png';
+
+import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
+import BlogCard from './BlogCard/BlogCard';
 
 
 const Blog = () => {
@@ -24,76 +30,105 @@ const Blog = () => {
     }
 
     return (
-        // <div classNameName="icon-wrapper">
-        //     <a>Career Blog </a>
-        //     <span classNameName="icon-sprite icon-down"></span>
-        // </div>
-
         //TODO - vote, rank and propose articles, sort atricles by newest ones and the highest ranking ones!!!!!
-        <>
-            <div className="demo">
-                <h1>Voting</h1>
-                <label htmlFor="step">Score</label>
-                <select name="step" id="step" onChange={onStepChangeHandler}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                </select>
-                <div>{demoState.count * demoState.step}</div>
-                <button onClick={onCounterButtonClickHandler}>Vote</button>
-            </div>
+        // <div className="demo">
+        //         <h1>Voting</h1>
+        //         <label htmlFor="step">Score</label>
+        //         <select name="step" id="step" onChange={onStepChangeHandler}>
+        //             <option value="1">1</option>
+        //             <option value="2">2</option>
+        //             <option value="3">3</option>
+        //             <option value="4">4</option>
+        //             <option value="5">5</option>
+        //             <option value="6">6</option>
+        //         </select>
+        //         <div>{demoState.count * demoState.step}</div>
+        //         <button onClick={onCounterButtonClickHandler}>Vote</button>
+        //     </div> 
 
-            <nav id="header-extra-layer">
-                <a href="https://novoresume.com?noRedirect=true" className="holder-logo"> <span className="logo"></span> <span className="logo-text"></span> </a>
-                <div id="novo-nav-menu">
-                    <div id="novo-nav-hd">
-                        <ul id="nav-top">
-                            {/* <li id="nav-btn-signup"> <a className="btn-trigger-mp btnv-1" mp-type="mode-signup">Register</a> </li>
-                            <li id="nv-hd-signin"> <a className="btn-trigger-mp btnv-3" mp-type="mode-signin">Sign In</a> </li> */}
-                        </ul>
-                        <ul id="nav-mid">
-                            {/* <li> <a href="https://novoresume.com/resume-templates" className="btn-nvt-gm" data-nvt-action="cta_resume_templates">Resume Templates</a> </li>
-                            <li> <a href="https://novoresume.com/cv-templates" className="btn-nvt-gm" data-nvt-action="cta_cv_templates">CV Templates</a> </li>
-                            <li> <a href="https://novoresume.com/cover-letter-templates" className="btn-nvt-gm" data-nvt-action="cta_cover_letter_templates">Cover Letters</a> </li>
-                            <li className="holder-quick-nav-submenu cblog">
-                                <a>Career Blog </a> <span className="icon-sprite icon-down"></span>
-                                <div className="container-quick-nav-submenu">
-                                    <div className="quick-nav-submenu">
-                                        <div className="quick-nav-submenu-links clearfix-after">
-                                            <a href="https://novoresume.com/career-blog">All Articles</a>
-                                            <a href="https://novoresume.com/career-blog/write-resume-cv">Resume &amp; CV Writing</a>
-                                            <a href="https://novoresume.com/career-blog/create-cover-letter">Cover Letter Writing</a>
-                                            <a href="https://novoresume.com/career-blog/examples">Examples</a>
-                                            <a href="https://novoresume.com/career-blog/personal-development-advice">Personal Development</a>
-                                            <a href="https://novoresume.com/career-blog/inspiring-motivational-stories">Inspiring Stories</a>
-                                            <a href="https://novoresume.com/career-blog/find-a-job">Interviews &amp; Find A Job</a> </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li className="holder-pricing"> <a href="https://novoresume.com/page/pricing" className="btn-nvt-gm" data-nvt-action="cta_pricing">Pricing</a> </li>
-                            <li className="holder-quick-nav-submenu mlang">
-                                <span className="icon-sprite icon-lang"></span> <a>EN US</a> <span className="icon-sprite icon-down"></span>
-                                <div className="container-quick-nav-submenu">
-                                    <div className="quick-nav-submenu">
-                                        <div className="quick-nav-submenu-links clearfix-after"> <a data-nlangcode="da">Dansk <span className="m-lang-beta">BETA</span></a> <a data-nlangcode="de">Deutsch <span className="m-lang-beta">BETA</span></a> <a data-nlangcode="en-US" className="selected">English US</a> <a data-nlangcode="en-GB">English UK</a> <a data-nlangcode="es">Español <span className="m-lang-beta">BETA</span></a> </div>
-                                    </div>
-                                </div>
-                            </li> */}
-                        </ul>
-                        <ul id="nav-misc">
-                            {/* <li> <a href="https://novoresume.com/about-us">About Us</a> </li> */}
-                        </ul>
-                        {/* <div id="nav-ft"> <a className="icon-sprite in" href="https://www.linkedin.com/company/novor%C3%A9sum%C3%A9" target="_blank" rel="noreferrer"></a> <a className="icon-sprite fb" href="https://www.facebook.com/novoresume" target="_blank"></a> <a className="icon-sprite tw" href="https://twitter.com/Novoresume/" target="_blank"></a> <a className="icon-sprite is" href="https://www.instagram.com/novoresumecreative" target="_blank"></a> <a href="mailto:contact@novoresume.com" className="contact-email">contact@novoresume.com</a> </div> */}
-                    </div>
-                </div>
-                <div id="holder-btn-nav">
-                    <div id="btn-nav"> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
-                </div>
-            </nav>
-        </>
+        < section className="blog-wrapper" >
+            <section className="blog-container">
+                <article className="blog-content">
+                    {/* <img src={imgPolygon} alt="" className="polygon" /> */}
+                    <TextBlockContent
+                        title="My blog"
+                        primary={["Every great success is based on great many trainings"]}
+                        secondary={["It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+                            "Therefore I have done my best to collect here part of the sources that give me the oportunity to create this layout."]}
+                    >
+                    </TextBlockContent>
+                    <span class="bottom_line"></span>
+                </article>
+                <article class="blog-posts">
+                    <BlogCard
+                        author="Microsoft"
+                        imageSrc={imagePng}
+                        title="Create a web API with ASP.NET Core"
+                        date="05 Jul 2021"
+                        details="This tutorial teaches the basics of building a web API with ASP.NET Core"
+                        comments="4"
+                        likes="10"
+                        url="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio"
+                    // onClickTogglePopup={}
+                    />
+                    <BlogCard
+                        author="Microsoft"
+                        imageSrc={imagePng}
+                        title="Create a web API with ASP.NET Core"
+                        date="05 Jul 2021"
+                        details="This tutorial teaches the basics of building a web API with ASP.NET Core"
+                        comments="4"
+                        likes="10"
+                        url="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio"
+                    // onClickTogglePopup={}
+                    />
+                    <BlogCard
+                        author="Microsoft"
+                        imageSrc={imagePng}
+                        title="Create a web API with ASP.NET Core"
+                        date="05 Jul 2021"
+                        details="This tutorial teaches the basics of building a web API with ASP.NET Core"
+                        comments="4"
+                        likes="10"
+                        url="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio"
+                    // onClickTogglePopup={}
+                    />
+                    <BlogCard
+                        author="Microsoft"
+                        imageSrc={imagePng}
+                        title="Create a web API with ASP.NET Core"
+                        date="05 Jul 2021"
+                        details="This tutorial teaches the basics of building a web API with ASP.NET Core"
+                        comments="4"
+                        likes="10"
+                        url="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio"
+                    // onClickTogglePopup={}
+                    />
+                    <BlogCard
+                        author="Microsoft"
+                        imageSrc={imagePng}
+                        title="Create a web API with ASP.NET Core"
+                        date="05 Jul 2021"
+                        details="This tutorial teaches the basics of building a web API with ASP.NET Core"
+                        comments="4"
+                        likes="10"
+                        url="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio"
+                    // onClickTogglePopup={}
+                    />
+                    <BlogCard
+                        author="Microsoft"
+                        imageSrc={imagePng}
+                        title="Create a web API with ASP.NET Core"
+                        date="05 Jul 2021"
+                        details="This tutorial teaches the basics of building a web API with ASP.NET Core"
+                        comments="4"
+                        likes="10"
+                        url="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio"
+                    // onClickTogglePopup={}
+                    />
+                </article>
+            </section>
+        </section >
     )
 }
 
