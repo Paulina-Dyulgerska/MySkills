@@ -1,13 +1,18 @@
+import { useState } from 'react';
+
 import './BlogCard.css';
 
 import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
-import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
+import blogPostsService from '../../../services/blogPostsService';
+import blogPostsService2 from '../../../services/blogPostsService2';
 
 const BlogCard = ({
+    id,
     author,
     imageSrc,
     title,
-    date,
+    publishDate,
+    modifiedDate,
     details,
     comments,
     likes,
@@ -15,8 +20,28 @@ const BlogCard = ({
     url,
 }) => {
 
-    date = formatDate(date);
-    // const dateString = `${date} - ....`;
+    // publishDate = formatDate(publishDate);
+    // modifiedDate = formatDate(modifiedDate);
+    // const publishDateString = `${publishDate} - ....`;
+
+    const [currentLikes, setCurrentLikes] = useState(likes);
+
+    const onLikeClickHandler = () => {
+        const newLikes = parseInt(currentLikes) + 1;
+        console.log(id)
+
+        // blogPostsService2.patchLikes( { id, likes: newLikes })
+        //     .then((res) => {
+        //         setCurrentLikes(res);
+        //     })
+        //     .catch(err => console.error(err));
+
+            blogPostsService.patch( { id, likes: newLikes })
+            .then((res) => {
+                setCurrentLikes(res);
+            })
+            .catch(err => console.error(err));
+    }
 
     return (
         <article className="blog-post-item" >
@@ -24,25 +49,23 @@ const BlogCard = ({
                 <img
                     className="image-fluid"
                     src={imageSrc}
-                    alt="Blog post item logo"
+                    alt="Blog post item image"
                 />
-                <span className="date"> {date}</span>
+                <span className="date"> {modifiedDate !== null ? publishDate : modifiedDate}</span>
             </article>
             <article className="media-content" onClick={onClickTogglePopup}>
                 <article className="meta">
                     <p className="author">Author: {author}</p>
                     <p className="reactions">
-                        <span className="comments"> {comments} comments <i class="fas fa-comment-alt"></i></span>
-                        <span className="likeslt"> {likes} likes <i class="fas fa-thumbs-up"></i></span>
+                        <span className="comments"> {comments} comments <i className="fas fa-comment-alt"></i></span>
+                        <span className="likeslt" onClick={onLikeClickHandler}> {currentLikes} likes <i className="fas fa-thumbs-up"></i></span>
                     </p>
                 </article>
-                <a href="/#"><h2 className="title">{title}</h2></a>
+                <h2 className="title">{title}</h2>
                 <p className="details">{shortenText(details)}</p>
-                <ButtonCta
-                    to={'#'} // path
-                >
-                    Read More <i class="arrow_right fas fa-long-arrow-alt-right"></i>
-                </ButtonCta>
+                <ExternalNavigationItem className="link btn btn-cta" path={url}>
+                    Read More <i className="arrow_right fas fa-long-arrow-alt-right"></i>
+                </ExternalNavigationItem>
             </article>
         </article>
     )

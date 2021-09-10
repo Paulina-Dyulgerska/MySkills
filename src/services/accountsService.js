@@ -10,7 +10,7 @@ const contentTypeFormUrlencoded = 'application/x-www-form-urlencoded';
 const authentication = function () { };
 
 authentication.login = async function (email, password, token) {
-    const result = baseService(`${accountsURL}/login`, contentTypeFormUrlencoded)
+    const result = await baseService(`${accountsURL}/login`, contentTypeFormUrlencoded)
         .post({ email, password, token })
     // .then(res => console.log("ResponseHeaders:" + res.headers))
     // .then(res => console.log("Response:" + res))
@@ -59,7 +59,7 @@ authentication.logout = async function () {
 };
 
 authentication.getUser = async function () {
-    const result = baseService(`${accountsURL}`).get()
+    const result = await baseService(`${accountsURL}`).get()
     return result;
 };
 
