@@ -4,7 +4,6 @@ import './BlogCard.css';
 
 import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
 import blogPostsService from '../../../services/blogPostsService';
-import blogPostsService2 from '../../../services/blogPostsService2';
 
 const BlogCard = ({
     id,
@@ -20,8 +19,8 @@ const BlogCard = ({
     url,
 }) => {
 
-    // publishDate = formatDate(publishDate);
-    // modifiedDate = formatDate(modifiedDate);
+    publishDate = formatDate(publishDate);
+    modifiedDate = formatDate(modifiedDate);
     // const publishDateString = `${publishDate} - ....`;
 
     const [currentLikes, setCurrentLikes] = useState(likes);
@@ -30,13 +29,7 @@ const BlogCard = ({
         const newLikes = parseInt(currentLikes) + 1;
         console.log(id)
 
-        // blogPostsService2.patchLikes( { id, likes: newLikes })
-        //     .then((res) => {
-        //         setCurrentLikes(res);
-        //     })
-        //     .catch(err => console.error(err));
-
-            blogPostsService.patch( { id, likes: newLikes })
+        blogPostsService.patchLikes({ id, likes: newLikes })
             .then((res) => {
                 setCurrentLikes(res);
             })
@@ -54,13 +47,11 @@ const BlogCard = ({
                 <span className="date"> {modifiedDate !== null ? publishDate : modifiedDate}</span>
             </article>
             <article className="media-content" onClick={onClickTogglePopup}>
-                <article className="meta">
-                    <p className="author">Author: {author}</p>
-                    <p className="reactions">
-                        <span className="comments"> {comments} comments <i className="fas fa-comment-alt"></i></span>
-                        <span className="likeslt" onClick={onLikeClickHandler}> {currentLikes} likes <i className="fas fa-thumbs-up"></i></span>
-                    </p>
-                </article>
+                <p className="author">Author: {author}</p>
+                <p className="reactions">
+                    <span className="comments"> {comments} comments <i className="fas fa-comment-alt"></i></span>
+                    <span className="likes" onClick={onLikeClickHandler}> {currentLikes} likes <i className="fas fa-thumbs-up"></i></span>
+                </p>
                 <h2 className="title">{title}</h2>
                 <p className="details">{shortenText(details)}</p>
                 <ExternalNavigationItem className="link btn btn-cta" path={url}>

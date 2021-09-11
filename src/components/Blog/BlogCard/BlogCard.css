@@ -95,6 +95,7 @@
 .blog-post-item .author {
   font-size: 1.2rem;
   font-weight: 500;
+  margin: 10px 0;
 }
 
 .blog-post-item .actions {
@@ -104,4 +105,10 @@
 .blog-post-item .title {
   font-size: 1.3rem;
   margin: 10px 0;
+}
+
+.blog-post-item .reactions {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }

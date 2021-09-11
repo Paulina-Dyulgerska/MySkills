@@ -19,3 +19,7 @@
 .icon-down:hover {
     background-position: -165px -33px;
 }
+
+.nav-list .nav-right {
+    display: flex;
+}

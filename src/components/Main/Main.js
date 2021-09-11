@@ -2,10 +2,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import educationsService from '../../services/educationsService.js';
-import experiencesService from '../../services/experiencesService.js';
-import contactsService from '../../services/contactsService.js';
-import accountsService from '../../services/accountsService.js';
+import educationsService from '../../services/educationsService';
+import experiencesService from '../../services/experiencesService';
+import contactsService from '../../services/contactsService';
+import accountsService from '../../services/accountsService';
 
 import './Main.css';
 
@@ -18,6 +18,7 @@ import Blog from '../Blog/Blog';
 import Login from '../Login/Login';
 import Logout from '../Logout/Logout';
 import Register from '../Register/Register';
+import Admin from '../Admin/Admin';
 import ScrollTop from '../Shared/ScrollTop/ScrollTop';
 import Bubbles from '../Shared/Bubbles/Bubbles';
 import ThankYouRegister from '../Shared/ThankYou/ThankYouRegister';
@@ -77,6 +78,7 @@ const Main = () => {
                     <Route path="/experience" component={Experience}></Route>
                     <Route path="/contact" component={Contact}></Route>
                     <Route path="/blog" component={Blog}></Route>
+                    <Route path="/admin" component={Admin}></Route>
                     <Route path="/" exact component={Home}></Route>
 
                     {/* TODO <Route path="/" component={NotFound}></Route> */}

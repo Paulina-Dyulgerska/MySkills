@@ -7,8 +7,8 @@ import './Login.css';
 
 import globalConstants from '../../globalConstants/globalConstants';
 
-import accountsService from '../../services/accountsService.js';
-import validationService from '../../services/validationService.js';
+import accountsService from '../../services/accountsService';
+import validationService from '../../services/validationService';
 
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
@@ -203,49 +203,49 @@ const Login = () => {
                 />
             </section>
 
-            {/* <div class="login-content login-form hybrid-login-form hybrid-login-form-signup" data-uia="login-page-container">
-                <div class="hybrid-login-form-main">
+            {/* <div className="login-content login-form hybrid-login-form hybrid-login-form-signup" data-uia="login-page-container">
+                <div className="hybrid-login-form-main">
                     <h1 data-uia="login-page-title">Sign In</h1>
-                    <form method="post" class="login-form" action="">
-                        <div data-uia="login-field+container" class="nfInput nfEmailPhoneInput nfEmailPhoneInError login-input login-input-email">
-                            <div class="nfInputPlacement">
-                                <div class="nfEmailPhoneControls">
-                                    <label class="input_id">
-                                        <input type="text" data-uia="login-field" name="userLoginId" class="nfTextField error" id="id_userLoginId" value="" tabindex="0" autocomplete="email" dir="" />
-                                        <label for="id_userLoginId" class="placeLabel">Email or phone number</label>
+                    <form method="post" className="login-form" action="">
+                        <div data-uia="login-field+container" className="nfInput nfEmailPhoneInput nfEmailPhoneInError login-input login-input-email">
+                            <div className="nfInputPlacement">
+                                <div className="nfEmailPhoneControls">
+                                    <label className="input_id">
+                                        <input type="text" data-uia="login-field" name="userLoginId" className="nfTextField error" id="id_userLoginId" value="" tabindex="0" autocomplete="email" dir="" />
+                                        <label for="id_userLoginId" className="placeLabel">Email or phone number</label>
                                     </label>
                                 </div>
-                                <div id="" class="inputError" data-uia="login-field+error">Please enter a valid email or phone number.</div>
+                                <div id="" className="inputError" data-uia="login-field+error">Please enter a valid email or phone number.</div>
                             </div>
-                            <div data-uia="password-field+container" class="nfInput nfPasswordInput nfPasswordInError login-input login-input-password">
-                                <div class="nfInputPlacement">
-                                    <div class="nfPasswordControls">
-                                        <label class="input_id">
-                                            <input type="password" data-uia="password-field" name="password" class="nfTextField error" id="id_password" value="" tabindex="0" autocomplete="password" dir="" />
-                                            <label for="id_password" class="placeLabel">
+                            <div data-uia="password-field+container" className="nfInput nfPasswordInput nfPasswordInError login-input login-input-password">
+                                <div className="nfInputPlacement">
+                                    <div className="nfPasswordControls">
+                                        <label className="input_id">
+                                            <input type="password" data-uia="password-field" name="password" className="nfTextField error" id="id_password" value="" tabindex="0" autocomplete="password" dir="" />
+                                            <label for="id_password" className="placeLabel">
                                                 Password
                                             </label>
                                         </label>
-                                        <button data-uia="password-visibility-toggle" id="id_password_toggle" type="button" class="nfPasswordToggle" title="Show Password">
+                                        <button data-uia="password-visibility-toggle" id="id_password_toggle" type="button" className="nfPasswordToggle" title="Show Password">
                                             SHOW
                                         </button>
                                     </div>
                                 </div>
-                                <div id="" class="inputError" data-uia="password-field+error">Your password must contain between 4 and 60 characters.</div>
+                                <div id="" className="inputError" data-uia="password-field+error">Your password must contain between 4 and 60 characters.</div>
                             </div>
-                            <button class="btn login-button btn-submit btn-small" type="submit" autocomplete="off" tabindex="0" data-uia="login-submit-button">Sign In</button>
-                            <div class="hybrid-login-form-help">
-                                <div class="ui-binary-input login-remember-me">
-                                    <input type="checkbox" class="" name="rememberMe" id="bxid_rememberMe_true" value="true" tabindex="0" data-uia="rememberMe" checked="" />
+                            <button className="btn login-button btn-submit btn-small" type="submit" autocomplete="off" tabindex="0" data-uia="login-submit-button">Sign In</button>
+                            <div className="hybrid-login-form-help">
+                                <div className="ui-binary-input login-remember-me">
+                                    <input type="checkbox" className="" name="rememberMe" id="bxid_rememberMe_true" value="true" tabindex="0" data-uia="rememberMe" checked="" />
                                     <label for="bxid_rememberMe_true" data-uia="label+rememberMe">
-                                        <span class="login-remember-me-label-text">
+                                        <span className="login-remember-me-label-text">
                                             Remember me
                                         </span>
                                     </label>
-                                    <div class="helper">
+                                    <div className="helper">
                                     </div>
                                 </div>
-                                <a class="link login-help-link" target="_self" data-uia="login-help-link">Need help?</a>
+                                <a className="link login-help-link" target="_self" data-uia="login-help-link">Need help?</a>
                             </div>
                             <input type="hidden" name="flow" value="websiteSignUp" />
                             <input type="hidden" name="mode" value="login" />
@@ -258,14 +258,14 @@ const Login = () => {
                             <input type="hidden" name="countryIsoCode" value="BG" />
                         </div>
                     </form>
-                    <div class="hybrid-login-form-other">
-                        <form method="post" class="login-form" action="">
-                            <div class="facebookForm regOption">
-                                <div class="fb-minimal">
+                    <div className="hybrid-login-form-other">
+                        <form method="post" className="login-form" action="">
+                            <div className="facebookForm regOption">
+                                <div className="fb-minimal">
                                     <hr />
-                                    <button class="btn minimal-login btn-submit btn-small" type="submit" autocomplete="off" tabindex="0" data-uia="">
-                                        <div class="fb-login" data-uia="fb-login"><img class="icon-facebook" src="https://assets.nflxext.com/ffe/siteui/login/images/FB-f-Logo__blue_57.png" />
-                                            <span class="fbBtnText">Login with Facebook</span>
+                                    <button className="btn minimal-login btn-submit btn-small" type="submit" autocomplete="off" tabindex="0" data-uia="">
+                                        <div className="fb-login" data-uia="fb-login"><img className="icon-facebook" src="https://assets.nflxext.com/ffe/siteui/login/images/FB-f-Logo__blue_57.png" />
+                                            <span className="fbBtnText">Login with Facebook</span>
                                         </div>
                                     </button>
                                 </div>
@@ -281,10 +281,10 @@ const Login = () => {
                             <input type="hidden" name="countryIsoCode" value="BG" />
                             <input type="hidden" name="accessToken" value="" />
                         </form>
-                        <div class="login-signup-now" data-uia="login-signup-now">New to Netflix? <a class=" " target="_self" href="/">Sign up now</a>.</div>
-                        <div class="recaptcha-terms-of-use" data-uia="recaptcha-terms-of-use">
-                            <p><span>This page is protected by Google reCAPTCHA to ensure you're not a bot.</span>&nbsp;<button class="recaptcha-terms-of-use--link-button" data-uia="recaptcha-learn-more-button">Learn more.</button></p>
-                            <div class="recaptcha-terms-of-use--disclosure" data-uia="recaptcha-disclosure"><span id="" data-uia="recaptcha-disclosure-text">The information collected by Google reCAPTCHA is subject to the Google <a href="https://policies.google.com/privacy" id="recaptcha-privacy-link" data-uia="recaptcha-privacy-link" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" id="recaptcha-tos-link" data-uia="recaptcha-tos-link" target="_blank">Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</span></div>
+                        <div className="login-signup-now" data-uia="login-signup-now">New to Netflix? <a className=" " target="_self" href="/">Sign up now</a>.</div>
+                        <div className="recaptcha-terms-of-use" data-uia="recaptcha-terms-of-use">
+                            <p><span>This page is protected by Google reCAPTCHA to ensure you're not a bot.</span>&nbsp;<button className="recaptcha-terms-of-use--link-button" data-uia="recaptcha-learn-more-button">Learn more.</button></p>
+                            <div className="recaptcha-terms-of-use--disclosure" data-uia="recaptcha-disclosure"><span id="" data-uia="recaptcha-disclosure-text">The information collected by Google reCAPTCHA is subject to the Google <a href="https://policies.google.com/privacy" id="recaptcha-privacy-link" data-uia="recaptcha-privacy-link" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" id="recaptcha-tos-link" data-uia="recaptcha-tos-link" target="_blank">Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</span></div>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import './Blog.css';
-import blogPostsService from '../../services/blogPostsService.js';
+import blogPostsService from '../../services/blogPostsService';
 
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import BlogCard from './BlogCard/BlogCard';
@@ -40,26 +40,6 @@ const Blog = () => {
         //TODO - vote, rank and propose articles, sort atricles by newest ones and the highest ranking ones!!!!!
         < section className="blog-wrapper" >
             <section className="blog-container">
-            <form method="post" asp-action="UploadImage" enctype="multipart/form-data">
-    <input type="file" placeholder="Add file" asp-for="@Model.ImageFile" />
-    <input type="submit" value="Upload file" />
-</form>
-
-            <div className="demo">
-                <h1>Voting</h1>
-                <label htmlFor="step">Score</label>
-                <select name="step" id="step" onChange={onStepChangeHandler}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                </select>
-                <div>{demoState.count * demoState.step}</div>
-                <button onClick={onCounterButtonClickHandler}>Vote</button>
-            </div> 
-
                 <article className="blog-content">
                     <TextBlockContent
                         title="My blog"
@@ -70,6 +50,7 @@ const Blog = () => {
                     </TextBlockContent>
                     <span className="bottom_line"></span>
                 </article>
+                
                 <article className="blog-posts">
                      {blogPosts.length === 0 ? <LoadingBar></LoadingBar> :
                             blogPosts.map((e) => {

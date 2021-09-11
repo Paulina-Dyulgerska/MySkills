@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import AuthContext from '../../contexts/AuthContext';
 
-import accountsService from '../../services/accountsService.js';
+import accountsService from '../../services/accountsService';
 
 // import InputError from '../Shared/InputError/InputError';
 

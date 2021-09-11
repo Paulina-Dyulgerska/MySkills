@@ -8,8 +8,8 @@ import './Register.css';
 // import authentication from '../../utils/firebase';
 
 import InputError from '../Shared/InputError/InputError';
-import accountsService from '../../services/accountsService.js';
-import validationService from '../../services/validationService.js';
+import accountsService from '../../services/accountsService';
+import validationService from '../../services/validationService';
 import globalConstants from '../../globalConstants/globalConstants';
 import InputFieldWithLabel from '../Shared/InputField/InputFieldWIthLabel';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';

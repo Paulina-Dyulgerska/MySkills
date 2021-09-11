@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext } from 'react';
 
 import './Education.css';
-import educationsService from '../../services/educationsService.js';
+import educationsService from '../../services/educationsService';
 
 import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';

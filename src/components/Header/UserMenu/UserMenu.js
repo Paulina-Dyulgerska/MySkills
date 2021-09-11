@@ -7,8 +7,12 @@ import NavigationItem from '../NavigationItem/NavigationItem';
 
 const UserMenu = (props) => {
     const { user } = useContext(AuthContext);
-
-    console.log(user, ' from userMenu');
+    var hasAdminUser = false
+    if (user.userRoles) {
+        hasAdminUser = Object.values(user.userRoles).includes("Administrator")
+    }
+    // console.log(user, ' from userMenu');
+    // console.log("Is user admin: " + hasAdminUser);
 
     return (
         <>
@@ -21,6 +25,13 @@ const UserMenu = (props) => {
                     (
                         <NavigationItem path="/logout" className="logout">
                             <i className="fas fa-sign-out-alt"></i> Logout
+                        </NavigationItem>
+                    )
+                }
+                {hasAdminUser && 
+                    (
+                        <NavigationItem path="/admin" className="admin">
+                            <i className="fas fa-user-cog"></i> Admin
                         </NavigationItem>
                     )
                 }
