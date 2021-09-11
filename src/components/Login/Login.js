@@ -198,9 +198,7 @@ const Login = () => {
                     </Link>
 
                 </form>
-                <ReCaptchaInfo
-
-                />
+                <ReCaptchaInfo />
             </section>
 
             {/* <div className="login-content login-form hybrid-login-form hybrid-login-form-signup" data-uia="login-page-container">

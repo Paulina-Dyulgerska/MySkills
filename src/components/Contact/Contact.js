@@ -201,7 +201,6 @@ const Contact = () => {
                         validateFieldFunction={validationService.messageValidator}
                         errorMessage="Message should contain at least 15 symbols."
                         setValidationErrors={setValidationErrors}
-
                     />
                     <InputError>{errorMessage}</InputError>
                     <br />

@@ -1,6 +1,5 @@
 import './MediaItem.css';
 
-import NavigationItem from '../../Header/NavigationItem/NavigationItem';
 import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
 
 const MediaItem = ({
