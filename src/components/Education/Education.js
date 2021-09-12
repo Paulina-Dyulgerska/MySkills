@@ -82,7 +82,7 @@ const Education = () => {
                                     <TextBlockContent
                                         title="Courses and main subjects:"
                                         primary={[speciality]}
-                                        secondary={details.split(', ')}
+                                        secondary={details.split('; ')}
                                     >
                                     </TextBlockContent>}
                                 handleClose={() => hidePopup()}

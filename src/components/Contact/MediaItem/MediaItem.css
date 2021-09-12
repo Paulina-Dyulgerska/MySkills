@@ -26,7 +26,8 @@
     font-weight: 400;
 }
 
-.media-item-body a {
+.media-item-body a, 
+.media-item-body p {
     font-size: 1.5rem;
     font-weight: 600;
     color: inherit;

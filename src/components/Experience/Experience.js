@@ -91,7 +91,7 @@ const Experience = () => {
                                         <TextBlockContent
                                             title="Job main description and responsibilities:"
                                             primary={[job]}
-                                            secondary={details.split(', ')}
+                                            secondary={details.split('; ')}
                                         >
                                         </TextBlockContent>}
                                     handleClose={() => hidePopup()}

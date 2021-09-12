@@ -10,7 +10,7 @@ validationService.stringIsNullOrEmpty = (inputString) => {
 
 validationService.emailValidator = (inputString) => {
   const emailRegExPattern =
-    new RegExp('^(?:[a-zA-Z0-9][a-zA-Z0-9_.-]+@(?:[a-zA-Z0-9-_]{2,}[.][a-zA-Z0-9-_]{2,}))(?:.[a-zA-Z0-9-_]{2,})?$', 'gm');
+    new RegExp('^(?:[a-zA-Z0-9][\-a-zA-Z0-9_.]+@(?:[\-a-zA-Z0-9_]{2,}[.][\-a-zA-Z0-9_]{2,}))(?:.[\-a-zA-Z0-9_]{2,})?$', 'gm');
   const hasMatch = emailRegExPattern.test(inputString);
   return hasMatch;
 }
@@ -31,19 +31,19 @@ validationService.passwordComparer = (password, confirmPassword) => {
 }
 
 validationService.nameValidatior = (inputString) => {
-  const nameRegExPattern = new RegExp('^[a-zA-Z0-9-_ ]{3,}$');
+  const nameRegExPattern = new RegExp('^[\-a-zA-Z0-9 _ ]{3,}$');
   const hasMatch = nameRegExPattern.test(inputString);
   return hasMatch;
 }
 
 validationService.subjectValidator = (inputString) => {
-  const subjectRegExPattern = new RegExp('^[a-zA-Z0-9 .!?-_:*()]{5,}$');
+  const subjectRegExPattern = new RegExp('^[\-a-zA-Z0-9 .!?_:*()]{5,}$');
   const hasMatch = subjectRegExPattern.test(inputString);
   return hasMatch;
 }
 
 validationService.messageValidator = (inputString) => {
-  const subjectRegExPattern = new RegExp('^[a-zA-Z0-9. !?-_:*()\\n]{15,}$');
+  const subjectRegExPattern = new RegExp('^[\-a-zA-Z0-9. !?_:*()\\n]{15,}$');
   const hasMatch = subjectRegExPattern.test(inputString);
   return hasMatch;
 }

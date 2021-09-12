@@ -14,9 +14,16 @@ const MediaItem = ({
             <i className={icon}></i>
             <article className="media-item-body">
                 <h6>{title}</h6>
+                {link &&
                     <ExternalNavigationItem className="link" path={link}>
                         {linkText}
                     </ExternalNavigationItem>
+                }
+                {!link &&
+                    <p>
+                        {linkText}
+                    </p>
+                }
             </article>
         </article>
     )

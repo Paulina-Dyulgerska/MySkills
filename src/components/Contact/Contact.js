@@ -20,7 +20,7 @@ import InputTextArea from '../Shared/InputField/InputTextArea';
 
 // TODO - to store the collection in the Context
 
-const Contact = () => {
+const Contact = (params) => {
     const { user } = useContext(AuthContext);
     const [contacts, setContacts] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -80,6 +80,9 @@ const Contact = () => {
                     .then(() => {
                         setContactMessage(inputObject);
                         // history.push('/');
+                        params.history.push(`/thank-you-contact-message-sent`);
+                        // params.history.goBack();
+                        return null;
                     })
                     .catch(err => {
                         setErrorMessage(err.description);

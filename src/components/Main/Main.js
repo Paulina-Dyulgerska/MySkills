@@ -22,6 +22,7 @@ import Admin from '../Admin/Admin';
 import ScrollTop from '../Shared/ScrollTop/ScrollTop';
 import Bubbles from '../Shared/Bubbles/Bubbles';
 import ThankYouRegister from '../Shared/ThankYou/ThankYouRegister';
+import ThankYouContactMessageSent from '../Shared/ThankYou/ThankYouContactMessageSent';
 
 const Main = () => {
     const [width, setWidth] = useState(0);
@@ -69,6 +70,7 @@ const Main = () => {
 
                 <Switch>
                     <Route path="/thank-you-register" exact component={ThankYouRegister} />
+                    <Route path="/thank-you-contact-message-sent" exact component={ThankYouContactMessageSent} />
                     <Route path="/logout" exact component={Logout} />
                     <Route path="/register" exact component={Register}></Route>
                     <Route path="/login" exact component={Login}></Route>

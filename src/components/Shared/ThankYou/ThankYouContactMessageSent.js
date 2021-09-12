@@ -9,7 +9,7 @@ import AuthContext from '../../../contexts/AuthContext';
 import ButtonCta from '../Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../TextBlockContent/TextBlockContent';
 
-const ThankYouRegister = () => {
+const ThankYouContactMessageSent = () => {
     const { user } = useContext(AuthContext);
 
     if (user.email) {
@@ -22,23 +22,20 @@ const ThankYouRegister = () => {
         <section className="thank-you-area-wrapper">
 
             <section className="thank-you-area-container">
-                <img src={imgSuccess} alt="Successful Registration" className="img-success" />
+                <img src={imgSuccess} alt="Successful message sending" className="img-success" />
             </section>
 
             <section className="thank-you-area-form fadeInRight">
                 <TextBlockContent
-                    title="Thank you"
+                    title="Thank you for contacting us"
                     primary={["I am happy that you are part of our community!"]}
-                    secondary={["You have successfully registered your account.",
-                        "Login to add your comments and stars to the blog content."]}
+                    secondary={["You have successfully sent a message to our admins.",
+                        "We will reply to your email in 24 hours."]}
                 >
                 </TextBlockContent>
-                <ButtonCta to="/login">
-                    Sign in
-                </ButtonCta>
             </section>
         </section>
     )
 }
 
-export default ThankYouRegister;
+export default ThankYouContactMessageSent;
