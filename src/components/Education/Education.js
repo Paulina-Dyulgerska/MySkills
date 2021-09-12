@@ -85,7 +85,7 @@ const Education = () => {
                                         secondary={details.split('; ')}
                                     >
                                     </TextBlockContent>}
-                                handleClose={() => hidePopup()}
+                                handleClose={() => hidePopup()} 
                             />
                         }
                     </article>
