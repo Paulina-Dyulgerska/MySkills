@@ -29,7 +29,7 @@ This website is designed and runs using the main technologies below:
 
 <b>Front-end Framework: </b>
 - REACT
-- 
+
 <b>Back-end Framework: </b>
 -	ASP.NET Core 5
 
@@ -60,7 +60,7 @@ This website is designed and runs using the main technologies below:
 -	Azure Storage - Blob Service used for storing author's personal files
 
 <b>Additional:</b>
-- Create-React-App template
+- Create React App template
 -	Nikolay Kostov’s ASP.NET Core Template - https://github.com/NikolayIT/ASP.NET-Core-Template
 -	AutoMapper
 -	AJAX
