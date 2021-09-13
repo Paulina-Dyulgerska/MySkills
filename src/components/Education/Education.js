@@ -1,13 +1,18 @@
 import { useState, useEffect, createContext } from 'react';
+import globalConstants from '../../globalConstants/globalConstants';
 
 import './Education.css';
 import educationsService from '../../services/educationsService';
+import fileDeliverService from '../../services/fielDeliverService';
 
 import ButtonCta from '../Shared/Buttons/ButtonCta/ButtonCta';
+import CustomLink from '../Shared/CustomLink/CustomLink';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import EducationCard from '../Education/EducationCard/EducationCard';
+import ExternalNavigationItem from '../Header/NavigationItem/ExternalNavigationItem';
 import Popup from '../Shared/Popup/Popup';
 import LoadingBar from '../Shared/LoadingBar/LoadingBar';
+import { Link } from 'react-router-dom';
 
 // import imgPolygon from "../../img/polygon.png";
 // TODO - to store the collection in the Context
@@ -28,6 +33,9 @@ const Education = () => {
 
     const moreDetailsButtonText = 'More Details for this Education';
 
+    var downloadUrl = globalConstants.backendWebApiServerUrl + '/fileDeliver/download/CV_EN.pdf'
+    var showUrl = globalConstants.backendWebApiServerUrl + '/fileDeliver/show/CV_EN.pdf'
+
     const showPopup = (currentDetails, currentSpeciality) => {
         setIsModalOpen(true);
         setDetails(currentDetails);
@@ -36,6 +44,13 @@ const Education = () => {
 
     const hidePopup = () => {
         setIsModalOpen(false);
+    }
+
+    const onClickDownloadCVButton = () => {
+        console.log("hi from onClickDownloadCVButton");
+        fileDeliverService.get("CV_EN.pdf")
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
 
     return (
@@ -51,7 +66,14 @@ const Education = () => {
                                 "The simples answer is: Because I love knowedge and I want to know how the things are working, how the World is running and I could not stay a day without discovering at least one new thing. This is the human nature for me and I try to be a Human."]}
                         >
                         </TextBlockContent>
-                        <ButtonCta>Download CV</ButtonCta>
+                        <li className="btn btn-cta" >
+                            <a href={downloadUrl} rel='noopener noreferrer' download>
+                                Download CV
+                            </a >
+                        </li>
+                        <ExternalNavigationItem className="btn btn-cta" path={showUrl}>
+                            Show CV
+                        </ExternalNavigationItem>
                     </article>
 
                     <article className="education-skills">
@@ -85,7 +107,7 @@ const Education = () => {
                                         secondary={details.split('; ')}
                                     >
                                     </TextBlockContent>}
-                                handleClose={() => hidePopup()} 
+                                handleClose={() => hidePopup()}
                             />
                         }
                     </article>
