@@ -40,7 +40,7 @@
 
 .bubble.b-three {
   background: #7d95fa;
-  top: 85%;
+  top: 95%;
   left: 255px;
   -webkit-animation: spin1 1s infinite alternate;
   animation: spin1 1s infinite alternate;
@@ -56,7 +56,7 @@
 
 .bubble.b-five {
   background: #b9f5fa;
-  top: 70%;
+  top: 80%;
   left: 40%;
   -webkit-animation: spin1 3s infinite alternate;
   animation: spin1 3s infinite alternate;

@@ -21,6 +21,18 @@ const Footer = () => {
                 </ul>
                 <p className="footer-made-by">Made with love by<a href="/">&nbsp;Paulina</a></p>
                 <p className="footer-copyright">&copy; {date.getFullYear()} Paulina Dyulgerska - All Rights Reserved</p>
+
+            </section>
+            <section>
+                <ul className="footer-repos">
+                    <span className="icon-sprite icon-down"></span>
+                    <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/MySkills">
+                        https://github.com/Paulina-Dyulgerska/MySkills
+                    </ExternalNavigationItem>
+                    <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/MySkillsServer">
+                        https://github.com/Paulina-Dyulgerska/MySkillsServer
+                    </ExternalNavigationItem>
+                </ul>
             </section>
         </footer >
     )

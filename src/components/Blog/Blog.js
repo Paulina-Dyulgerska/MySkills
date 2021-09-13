@@ -40,7 +40,7 @@ const Blog = () => {
         //TODO - vote, rank and propose articles, sort atricles by newest ones and the highest ranking ones!!!!!
         < section className="blog-wrapper" >
             <section className="blog-container">
-                <article className="blog-content">
+                <article className="blog-content content">
                     <TextBlockContent
                         title="My blog"
                         primary={["Every great success is based on great many trainings"]}

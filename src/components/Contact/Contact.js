@@ -106,28 +106,30 @@ const Contact = (params) => {
     return (
         <section className="contact-area-wrapper">
             <section className="contact-area-container">
-                <TextBlockContent
-                    title="Talk Or Meet Me"
-                    primary={["Get in touch"]}
-                    secondary={[]}
-                >
-                </TextBlockContent>
-                {
-                    contacts.map((c) => {
-                        return (
-                            < MediaItem
-                                key={c.id}
-                                icon={c.icon}
-                                title={c.title}
-                                link={c.link}
-                                linkText={c.linkText}
-                            />
-                        )
-                    })
-                }
+                <article className="contact-area-content content">
+                    <TextBlockContent
+                        title="Talk Or Meet Me"
+                        primary={["Get in touch"]}
+                        secondary={[]}
+                    >
+                    </TextBlockContent>
+                    {
+                        contacts.map((c) => {
+                            return (
+                                < MediaItem
+                                    key={c.id}
+                                    icon={c.icon}
+                                    title={c.title}
+                                    link={c.link}
+                                    linkText={c.linkText}
+                                />
+                            )
+                        })
+                    }
+                </article>
             </section>
 
-            <section className="contact-area-form-container fadeInRight">
+            <section className="contact-area-form-container fadeInRight content">
                 <TextBlockContent
                     title="Let Me Know"
                     primary={["Contact me"]}

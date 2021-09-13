@@ -11,17 +11,21 @@ const UserMenu = (props) => {
     if (user.userRoles) {
         hasAdminUser = Object.values(user.userRoles).includes("Administrator")
     }
-    // console.log(user, ' from userMenu');
-    // console.log("Is user admin: " + hasAdminUser);
 
     return (
         <>
             <ul className="nav-list nav-right">
-                <NavigationItem path="/user" className="welcome-user icon-wrapper">
+                {/* With dynamic icons from an image file: */}
+                {/* <NavigationItem path="/user" className="welcome-user icon-wrapper">
+                <span className="icon-sprite icon-down"></span>
                     {`Welcome, ${user?.userEmail || "Guest"}!`}
-                    <span className="icon-sprite icon-down"></span>
+                </NavigationItem> */}
+                
+                <NavigationItem path="/user" className="welcome-user">
+                    {`Welcome, ${user?.userEmail || "Guest"}!`}
                 </NavigationItem>
-                {user.userEmail &&
+                
+                 {user.userEmail &&
                     (
                         <NavigationItem path="/logout" className="logout">
                             <i className="fas fa-sign-out-alt"></i> Logout
@@ -36,7 +40,6 @@ const UserMenu = (props) => {
                     )
                 }
             </ul>
-
             {!user.userEmail &&
                 (
                     <ul className="nav-list nav-right">

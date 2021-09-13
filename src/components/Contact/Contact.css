@@ -18,6 +18,7 @@
 .contact-area-container {
     flex-basis: 30%;
 }
+
 .contact-area-form-container {
     display: flex;
     flex-direction: column;

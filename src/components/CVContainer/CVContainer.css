@@ -1,0 +1,11 @@
+.link-buttons-container {
+    width: 75%;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 5px;
+    background-color:#D5E5FD;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

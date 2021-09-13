@@ -1,7 +1,3 @@
-.education-content {
-    padding: 30px 50px 0px 50px;
-}
-
 .education-skills {
     display: flex;
     flex-wrap: wrap;
@@ -16,4 +12,3 @@
         padding: 10px;
     }
 }
-

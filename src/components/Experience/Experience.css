@@ -2,11 +2,6 @@
     position: relative;
 }
 
-
-.experience-content {
-    padding: 30px 50px 0px 50px;
-}
-
 .experience-items {
     display: flex;
     flex-direction: column;

@@ -25,7 +25,6 @@ const Header = (props) => {
     return (
         <header className="header-wrapper" >
             <section className="content-wrapper header-content">
-
                 <input onChange={onChangeMenuTogglerCheckedStatus}
                     ref={menuToggler} checked={isMenuTogglerChecked}
                     className="nav-toggler" type="checkbox" name="toggle-nav" id="toggle-nav" />
