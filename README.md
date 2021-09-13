@@ -1,70 +1,180 @@
-# Getting Started with Create React App
+# REACT Web Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<b>MySkills is a project that presents the results from my REACT training and summarizes the content of my professional and education life.</b>
 
-## Available Scripts
+Conformity Check is dedicated to manage legal conformity requirements that different product types must comply with. 
 
-In the project directory, you can run:
+In this <b>complicated regulatory world</b>, we have many <b>different product legislations, regulations, country laws and customer requirements that have to be confirmed</b>.
 
-### `npm start`
+<b>The main goal of the project is to act as a document and regulatory management system</b>.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Very common and typical case in the companies that produce <b>single or complex articles/products</b>, is to have <b>articles that need several different confirmations</b>. At the same time, these articles could have more than one supplier and the **management of the documents provided by each supplier for each article for each specific conformity type** is a **huge burden** even for the biggest companies in the World. 
+In addition to the fact that **articles could be delivered for more than one source, we have separate requirements valid for different countries or clients**. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This poses the need of a web tool, that could **manage the documents, create records, relationships, generate reports, send requests and update the information provided by the suppliers**. 
+Even in the current state of the art with all available software tools on the market, **the need of a system that could do all those things together and be fit to the production specifics of the today’s supply management is still high**. 
+The **companies are facing more and more issues collecting, managing, evaluating and analysing the information**, subsequently – **delivering this information on request by clients, customs or control authorities around the World**. 
 
-### `npm test`
+When we add the **inevitable fact that regulations and requirements in all the countries are changing very frequently**, that the **specific restrictions are different in different countries** and the **raising awareness in human society for the environmental and people protection needs, laws and requirements**, it is **absolutely mandatory all companies to be able to manage the conformity topic with a tool that fits exactly to their needs**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<b>I hope you will like it and now you want to contact me!</b>
 
-### `npm run build`
+<b>MySkills is deployed online and could be found here:</b>
+-	https://myskills.dotnetweb.net
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<b>More about the tools that MySkills provides and how they are realised</b>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This website is designed and runs using the main technologies below:
 
-### `npm run eject`
+<b>Front-end Framework: </b>
+- REACT
+- 
+<b>Back-end Framework: </b>
+-	ASP.NET Core 5
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<b>Programming Languages:</b>
+-	Front-end: JavaScript
+-	Back-end: C#
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<b>IDE:</b> 
+-	Visual Studio Enterprise 2019
+-	Visual Studio Code
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<b>Database:</b>
+-	MS SQL Server 2019
+-	MS SQL Server Management Studio 18
+-	Firebase Authentication Service
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<b>ORM:</b>
+-	Entity Framework Core 5
 
-## Learn More
+<b>Markup Languages:</b>
+-	HTML5 /no external theme is used; custom pages html/
+-	CSS /all CSS styles are custom made; no external libraries are used/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<b>External APIs:</b>
+-	SendGrid API
+-	Google ReCaptcha v. 3 – for login, register and contact forms
+-	Facebook authentication
+-	Azure Storage - Blob Service used for storing author's personal files
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<b>Additional:</b>
+- Create-React-App template
+-	Nikolay Kostov’s ASP.NET Core Template - https://github.com/NikolayIT/ASP.NET-Core-Template
+-	AutoMapper
+-	AJAX
+-	jQuery
+- StyleCop Analyzers
+-	Font Awesome
+-	Json
+-	Information for contact messages to admin and to contacted user - sending e-mails to both of them
+-	Validation attributes + Custom validation attributes
+-	Local Storage
+-	Session Storage
+-	Repository Pattern
+-	Dependency Injection
+-	Automatic data seeding on first application’s run
+-	Code first model approach
+-	Log in file - wwwroot/log/MySkills.log
+-	Distributed Memory Cache - SQL Server:
+o	The logic is that the general view with report returned for all major entity types is generated by the order - last created one. In the cache we store with relative expiration time of 5 minutes all the records from the first page (12 records by default paging view model settings). If the user creates a new record, it will not be seen immediately, but this record will be findable be the search option available and by other sorting options except the default one! Conformity types are cached for 1 year because they are very few and rarely modified. Because the user expects to see immediately the new created ones, we update the cache after create, edit or delete of a conformity type. In the distributed cache we hold the Home/Index general counts collection for 5 minutes. In the Views we cache all view components for the general entities: all are kept for 2 minutes, just the conformity types are kept for 20 minutes since they are rarely modified. Time is relatively set.
 
-### Code Splitting
+<b>Database diagrams:</b>
+-	Full diagram:
+ 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-	All tables related to conformities:
+ 
 
-### Analyzing the Bundle Size
+-	Detailed views:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+<b>Pages screenshots:</b>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<b>Home Page:</b>
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+<b>Register Page:</b>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+<b>Login Page:</b>
+
+
+
+
+
+<b>User Pages:</b>
+
+
+
+
+
+<b>Articles Pages:</b>
+
+
+
+
+
+
+<b>Suppliers Pages:</b>
+
+
+
+
+
+
+<b>Conformity Types Pages:</b>
+
+
+
+
+
+
+
+<b>Conformity Pages:</b>
+
+
+
+
+
+<b>Contact Us Pages:</b>
+
+
+
+
+<b>Error Page:</b>
+
+
+
+
+<b>Emails:</b>
+
+
+<b>Confirmation email for registration:</b>
+
+
+
+
+<b>Thank you email to contacting person from site admin:</b>
+
+
+
+
+<b>Email to site admin with contact message information:</b>
+
+
+
+  
+<b>Email to supplier for confirmation request:</b>
+
+
+
+
+<b>I hope you will like it and now you want to contact me!</b>
