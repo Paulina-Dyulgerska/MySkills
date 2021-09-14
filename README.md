@@ -8,7 +8,7 @@ The site offers a register and login forms. By register the user data is evaluat
 
 The goal of my work on this project was to create a **REACT** front-end application, that uses external authentication services from **Firebase** and the power of **ASP.NET Core Web AP**I as a back-end technology with the external service like **SendGrid, ReCaptcha, Azure Storage, Azure App Services, Azure Database Services**. The REACT front-end application is **hosted by Firebase**. The back-end application is **hosted by Azure**.
 
-Site has all of its styles and functions created by me with the simple aim to practice the things learned in the **HTML & CSS** courses. This is the reason I have tried to create it as max responsive as a back-end beginner developer could do. I dare to have the done the structure of html and all the css done. Pictures are from free internet sites and are not my creation.
+Site has all of its styles and functions created by me with the simple aim to practice the things learned in the **HTML & CSS** courses. This is the reason I have tried to create it as max responsive as a back-end beginner developer could do. I dare to do the structure of the html and all css styling. Pictures are from free internet sites, not used for commertial purpose, not my creation.
 
 The applications are using **JWT** to communicate user state, authentication and authorisation. JWT is stored in Local Storage and Session Storage depending of the user preferences (remember me or not).
 The JWT is validated with a **custom Middleware** in the back-end Web API.
