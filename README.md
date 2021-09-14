@@ -16,15 +16,12 @@ The JWT is validated with a **custom Middleware** in the back-end Web API.
 The Blog section is with articles from blogs in Internet. There is a functionality for voting with likes. 
 The comments, categories and admin area are not implemented for the moment.
 
-<b>I hope you will like it and now you want to contact me. </b>
-
-<b>Thank you for your time and interest! </b>
-
 <b>MySkills is deployed online and could be found here:</b>
 -	https://myskills.dotnetweb.net
 
+<b>I hope you will like it and at the end - you will want to contact me! </b>
 
-<b>More about the tools that MySkills provides and how they are realised</b>
+<b>More about the tools that MySkills provides and how they are realised:</b>
 
 This website is designed and runs using the main technologies below:
 
@@ -86,17 +83,17 @@ This website is designed and runs using the main technologies below:
 
 <b>Database diagrams:</b>
 -	Full diagram:
--	
- <img width="308" alt="FullDBDiagram" src="https://user-images.githubusercontent.com/54845614/133264423-68d2c1e1-c8af-41ab-8c9c-00487adc5222.png">
+
+<img width="308" alt="FullDBDiagram" src="https://user-images.githubusercontent.com/54845614/133264423-68d2c1e1-c8af-41ab-8c9c-00487adc5222.png">
 
 
 -	All tables related to basic entities:
--	
- <img width="360" alt="DBDiagramConcret" src="https://user-images.githubusercontent.com/54845614/133264524-c6315d65-f0a2-4bdd-a566-0a6556d903f6.png">
+
+<img width="360" alt="DBDiagramConcret" src="https://user-images.githubusercontent.com/54845614/133264524-c6315d65-f0a2-4bdd-a566-0a6556d903f6.png">
  
 
 -	Detailed views:
--	
+
 <img width="595" alt="DBDiagramDeatils1" src="https://user-images.githubusercontent.com/54845614/133264567-3631722c-d8a3-4872-8873-a2d8c89340bb.png">
 
 <img width="597" alt="DBDiagramDeatils2" src="https://user-images.githubusercontent.com/54845614/133264587-7f31cbbd-2a4e-46f9-93ec-8803b109803b.png">
@@ -143,11 +140,12 @@ This website is designed and runs using the main technologies below:
 <img width="812" alt="ExperiencesDetails" src="https://user-images.githubusercontent.com/54845614/133281706-2cc6230a-0d94-4ece-93c0-0efa1d91fc35.png">
 
 
-<b>Download CV and Show CV Page:</>
+<b>Download CV and Show CV Page:</b>
  
 <img width="902" alt="DownloadCV" src="https://user-images.githubusercontent.com/54845614/133282027-c2f4aca8-f1a2-4ce7-8c73-c9636e308a06.png">
 
 <img width="901" alt="ShowCV" src="https://user-images.githubusercontent.com/54845614/133282078-22700d7b-3fd0-4843-ace5-28b2dccebc8c.png">
+ 
  
 
 <b>Contacts Page:</b>
@@ -196,4 +194,7 @@ TODO
 <img width="516" alt="EmailAdmin1" src="https://user-images.githubusercontent.com/54845614/133284973-39368457-a526-43b3-8eb2-61008282a105.png">
 
 
-<b>I hope you will like it and now you want to contact me!</b>
+
+<b>I hope you like it and now you want to contact me. </b>
+
+<b>Thank you for your time and interest! </b>
