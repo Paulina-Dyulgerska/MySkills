@@ -25,7 +25,7 @@ const ThankYouRegister = () => {
                 <img src={imgSuccess} alt="Successful Registration" className="img-success" />
             </section>
 
-            <section className="thank-you-area-form fadeInRight">
+            <section className="thank-you-area-form fadeInRight content">
                 <TextBlockContent
                     title="Thank you"
                     primary={["I am happy that you are part of our community!"]}

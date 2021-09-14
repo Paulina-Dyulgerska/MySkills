@@ -44,7 +44,7 @@ const Register = () => {
             if (!validationService.stringIsNullOrEmpty(email) ||
                 !validationService.stringIsNullOrEmpty(password) ||
                 !validationService.stringIsNullOrEmpty(confirmPassword)) {
-                    throw new Error('All fields are required.')
+                throw new Error('All fields are required.')
             }
 
             if (!validationService.passwordComparer(password, confirmPassword)) {
@@ -106,82 +106,84 @@ const Register = () => {
     return (
         <section className="register-area-wrapper">
             <section className="register-area-container">
-                <TextBlockContent
-                    title="Register"
-                    primary={["Register and add your comments to the blog"]}
-                    secondary={["Already have an account?"]}
-                >
-                </TextBlockContent>
-                <ButtonCta to="/login">
-                    Sign in
-                </ButtonCta>
+                <article className="register-area-content content">
+                    <TextBlockContent
+                        title="Register"
+                        primary={["Register and add your comments to the blog"]}
+                        secondary={["Already have an account?"]}
+                    >
+                    </TextBlockContent>
+                    <ButtonCta to="/login">
+                        Sign in
+                    </ButtonCta>
+                </article>
             </section>
-
             <section className="register-area-form-container fadeInRight">
-                <form className="register-area-form" onSubmit={onRegisterFormSubmitHandler}>
-                    <article className="field">
-                        <InputFieldWithLabel
-                            wrapperClassName="input"
-                            type="text"
-                            name="email"
-                            id="email"
-                            className="form-control error"
-                            validateFieldFunction={validationService.emailValidator}
-                            errorMessage="Please enter a valid email."
-                            setValidationErrors={setValidationErrors}
-
-                        >
-                            Email *
-                        </InputFieldWithLabel>
-                    </article>
-                    <article className="field">
-                        <InputFieldWithLabel
-                            wrapperClassName="input"
-                            type={passwordShow ? 'text' : 'password'}
-                            id="password"
-                            name="password"
-                            className="form-control error"
-                            onChangeShowPasswordToggler={onChangeShowPasswordToggler}
-                            validateFieldFunction={validationService.passwordValidator}
-                            errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
-                            setValidationErrors={setValidationErrors}
-                        >
-                            Password *
-                        </InputFieldWithLabel>
-                        {
-                            showPasswordToggler &&
-                            <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
-                                {passwordShow ? 'HIDE' : 'SHOW'}
-                            </button>
-                        }
-                    </article>
-                    <article className="field">
-                        <InputFieldWithLabel
-                            wrapperClassName="input"
-                            type={passwordShow ? 'text' : 'password'}
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            className="form-control error"
-                            onChangeShowPasswordToggler={onChangeShowPasswordToggler}
-                            validateFieldFunction={validationService.passwordValidator}
-                            errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
-                            setValidationErrors={setValidationErrors}
-                        >
-                            Confirm password *
-                        </InputFieldWithLabel>
-                        {
-                            showPasswordToggler &&
-                            <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
-                                {passwordShow ? 'HIDE' : 'SHOW'}
-                            </button>
-                        }
-                    </article>
-                    <InputError>{errorMessage}</InputError>
-                    <ButtonSubmit
-                        className="btn btn-submit g-recaptcha"
-                        data-action="registerSubmit"
-                        value="Register" />
-                </form>
+                <article className="register-area-content content">
+                    <form className="register-area-form" onSubmit={onRegisterFormSubmitHandler}>
+                        <article className="field">
+                            <InputFieldWithLabel
+                                wrapperClassName="input"
+                                type="text"
+                                name="email"
+                                id="email"
+                                className="form-control error"
+                                validateFieldFunction={validationService.emailValidator}
+                                errorMessage="Please enter a valid email."
+                                setValidationErrors={setValidationErrors}
+                            >
+                                Email *
+                            </InputFieldWithLabel>
+                        </article>
+                        <article className="field">
+                            <InputFieldWithLabel
+                                wrapperClassName="input"
+                                type={passwordShow ? 'text' : 'password'}
+                                id="password"
+                                name="password"
+                                className="form-control error"
+                                onChangeShowPasswordToggler={onChangeShowPasswordToggler}
+                                validateFieldFunction={validationService.passwordValidator}
+                                errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
+                                setValidationErrors={setValidationErrors}
+                            >
+                                Password *
+                            </InputFieldWithLabel>
+                            {
+                                showPasswordToggler &&
+                                <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
+                                    {passwordShow ? 'HIDE' : 'SHOW'}
+                                </button>
+                            }
+                        </article>
+                        <article className="field">
+                            <InputFieldWithLabel
+                                wrapperClassName="input"
+                                type={passwordShow ? 'text' : 'password'}
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                className="form-control error"
+                                onChangeShowPasswordToggler={onChangeShowPasswordToggler}
+                                validateFieldFunction={validationService.passwordValidator}
+                                errorMessage="Your password must be at least 6 characters long and contains only letters and numbers."
+                                setValidationErrors={setValidationErrors}
+                            >
+                                Confirm password *
+                            </InputFieldWithLabel>
+                            {
+                                showPasswordToggler &&
+                                <button type="button" className="passwordToggler" onClick={onclickPasswordShowButton}>
+                                    {passwordShow ? 'HIDE' : 'SHOW'}
+                                </button>
+                            }
+                        </article>
+                        <InputError>{errorMessage}</InputError>
+                        <ButtonSubmit
+                            className="btn btn-submit g-recaptcha"
+                            data-action="registerSubmit"
+                            value="Register" />
+                    </form>
+                </article>
             </section>
         </section>
     )

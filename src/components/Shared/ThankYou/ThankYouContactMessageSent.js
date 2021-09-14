@@ -25,7 +25,7 @@ const ThankYouContactMessageSent = () => {
                 <img src={imgSuccess} alt="Successful message sending" className="img-success" />
             </section>
 
-            <section className="thank-you-area-form fadeInRight">
+            <section className="thank-you-area-form content fadeInRight">
                 <TextBlockContent
                     title="Thank you for contacting us"
                     primary={["I am happy that you are part of our community!"]}

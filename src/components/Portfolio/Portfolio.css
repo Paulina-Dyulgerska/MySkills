@@ -1,98 +1,60 @@
-.sticky-inner-wrapper {
-    position: relative;
-    z-index: 9999;
-    transform: translate3d(0px, 0px, 0px);
+/* Slideshow */
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+  /* max-width: 85%; */
 }
 
-.frelencer_banner_area.developer_banner_area {
-    background: linear-gradient(1.14deg, rgb(244, 247, 252) 0%, rgb(255, 255, 255) 100%);
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
 }
 
-.react-reveal.fadeInUp,
-.react-reveal.fadeInRight,
-.react-reveal.fadeInDown {
-    animation-duration: 500ms;
-    animation-delay: 0ms;
-    animation-iteration-count: 1;
-    opacity: 1;
+.slide {
+  display: inline-block;
+  background-color: #d5e5fd;
+  height: 350px;
+  /* width: 600px; */
+  width: 100%;
+  border-radius: 4px;
+  position: relative;
 }
 
-.fadeInUp.row {
-    animation-duration: 1000ms;
+.slide img {
+  max-width: 550px;
+  width: 100%;
+  margin: auto;
+  object-fit: contain;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.t_color:nth-child(1) {
-    animation-duration: 700ms;
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
 }
 
-.t_color:nth-child(2) {
-    animation-duration: 900ms;
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+  background-color: #fff;
 }
 
-.chat_btn {
-    animation-duration: 1000ms;
+.slideshowDot.active {
+  background-color: #358f62;
 }
 
-.f_img_one {
-    animation-duration: 1400ms;
-}
-
-.f_img_two {
-    animation-duration: 1200ms;
-}
-
-.f_img_seven,
-.f_img_four {
-    animation-duration: 1600ms;
-}
-
-.f_img_five {
-    animation-duration: 2000ms;
-}
-
-.f_img_six {
-    animation-duration: 2200ms;
-}
-
-.f_img_eight {
-    animation-duration: 1200ms;
-}
-
-.fadeInRight.input_form {
-    animation-duration: 800ms;
-}
-
-
-.row.grid {
-    position: relative;
-    height: 1286.67px;
-}
-
-.slick-track {
-    width: 7070px;
-    opacity: 1;
-    transform: translate3d(-4040px, 0px, 0px);
-    transition: -webkit-transform 500ms ease 0s;
-}
-
-.slick-cloned {
-    width: 1010px;
-}
-
-.item {
-    width: 100%;
-    display: inline-block;
-}
-
-.slick-slide {
-    outline: none;
-    width: 1010px;
-}
-
-.slick-dots {
-    display: block;
-}
-
-.grid-item{
-    position: absolute;
+@media screen and (max-width: 600px) {
+  .slideshow {
+    /* padding: 10px; */
+  }
 }

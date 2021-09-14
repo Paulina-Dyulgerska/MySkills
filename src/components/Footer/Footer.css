@@ -71,7 +71,7 @@
     align-items: center; */
 }
 
-.footer-content p:last-child {
+.footer-content .footer-copyright {
     color: #0e2979;
 }
 

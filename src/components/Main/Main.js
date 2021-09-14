@@ -19,6 +19,7 @@ import Login from '../Login/Login';
 import Logout from '../Logout/Logout';
 import Register from '../Register/Register';
 import Admin from '../Admin/Admin';
+import Portfolio from '../Portfolio/Portfolio';
 import ScrollTop from '../Shared/ScrollTop/ScrollTop';
 import Bubbles from '../Shared/Bubbles/Bubbles';
 import ThankYouRegister from '../Shared/ThankYou/ThankYouRegister';
@@ -80,6 +81,7 @@ const Main = () => {
                     <Route path="/experience" component={Experience}></Route>
                     <Route path="/contact" component={Contact}></Route>
                     <Route path="/blog" component={Blog}></Route>
+                    <Route path="/portfolio" component={Portfolio}></Route>
                     <Route path="/admin" component={Admin}></Route>
                     <Route path="/" exact component={Home}></Route>
 
