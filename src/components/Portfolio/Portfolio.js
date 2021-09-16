@@ -6,13 +6,21 @@ import projectsService from '../../services/projectsService';
 import PortfolioCard from './PortfolioCard/PortfolioCard';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 
-import homeMySkills from "../../img/Portfolio/HomeMySkills.png";
 import homeConformityCheck from "../../img/Portfolio/HomeConformityCheck.png";
+import conformitiesConformityCheck from "../../img/Portfolio/Conformities.png";
+import createConformityConformityCheck from "../../img/Portfolio/CreateConformity.png";
+import articleEditSupplilersConformityCheck from "../../img/Portfolio/ArticleEditSupplilers.png";
+import editConformityConformityCheck from "../../img/Portfolio/EditConformity.png";
 
 const Portfolio = () => {
 
-    const projects = [homeMySkills, homeConformityCheck, homeMySkills, homeConformityCheck, homeMySkills];
-    const delay = 3000;
+    const projects = [homeConformityCheck, 
+        conformitiesConformityCheck, 
+        createConformityConformityCheck, 
+        articleEditSupplilersConformityCheck, 
+        editConformityConformityCheck];
+        
+    const delay = 4000;
     const [index, setIndex] = useState(0);
     const timeoutRef = useRef(null);
 
@@ -36,8 +44,8 @@ const Portfolio = () => {
             resetTimeout();
         };
     }, [index]);
-    const title = 'Title';
-    const details = 'Details';
+    const title = 'Conformity Check';
+    const details = 'Conformities Management System';
     const url = 'https://conformitycheck.dotnetweb.net';
 
     return (
@@ -55,8 +63,7 @@ const Portfolio = () => {
                     <span className="bottom_line"></span>
                 </article>
                 <article className="slideshow">
-                    <article
-                        className="slideshowSlider"
+                    <article className="slideshowSlider"
                         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
                     >
                         {projects.map((imageSrc, index) => (

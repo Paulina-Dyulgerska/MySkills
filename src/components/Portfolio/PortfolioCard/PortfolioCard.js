@@ -6,24 +6,28 @@ const PortfolioCard = ({
     imageSrc,
     title,
     details,
-    url,
+    url
 }) => {
 
+    const onClickHandler = () => {
+        window.open(url, "_blank");
+    }
+
     return (
-        <article className="portfolio-item slide" >
-            <article className="media-top">
-                <img
-                    className="image-fluid"
-                    src={imageSrc}
-                    alt="Portfolio item image"
-                />
-            </article>
-            <article className="media-content">
-                <h2 className="title">{title}</h2>
-                <p className="details">{details}</p>
-                <ExternalNavigationItem className="link btn btn-cta" path={url}>
-                    Open in new tab <i className="arrow_right fas fa-long-arrow-alt-right"></i>
-                </ExternalNavigationItem>
+        <article className="portfolio-item slide">
+            <article className="portfolio-item-content">
+                <article className="media-top">
+                    <img
+                        className="image-fluid external-link"
+                        src={imageSrc}
+                        alt="Portfolio item image"
+                        onClick={onClickHandler}
+                    />
+                </article>
+                <article className="media-content">
+                    <h2 className="title external-link" onClick={onClickHandler}>{title}</h2>
+                    <p className="details">{details}</p>
+                </article>
             </article>
         </article>
     )

@@ -17,6 +17,7 @@ import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import InputFieldWIthLabel from '../Shared/InputField/InputFieldWIthLabel';
 import InputFieldWIthLabelControlled from '../Shared/InputField/InputFieldWIthLabelControlled';
 import InputTextArea from '../Shared/InputField/InputTextArea';
+import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
 // TODO - to store the collection in the Context
 
@@ -113,7 +114,7 @@ const Contact = (params) => {
                         secondary={[]}
                     >
                     </TextBlockContent>
-                    {
+                    {contacts.length === 0 ? <LoadingBar></LoadingBar> :
                         contacts.map((c) => {
                             return (
                                 < MediaItem
@@ -150,7 +151,6 @@ const Contact = (params) => {
                         >
                             Your Name *
                         </InputFieldWIthLabel>
-
                         <InputFieldWIthLabelControlled
                             wrapperClassName="input"
                             type="text"
@@ -166,8 +166,6 @@ const Contact = (params) => {
                         >
                             Your Email *
                         </InputFieldWIthLabelControlled>
-
-
                         <InputFieldWIthLabel
                             wrapperClassName="input"
                             type="text"
@@ -181,7 +179,6 @@ const Contact = (params) => {
                         >
                             Subject *
                         </InputFieldWIthLabel>
-
                         <InputFieldWIthLabel
                             wrapperClassName="input"
                             type="text"

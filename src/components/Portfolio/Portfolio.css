@@ -3,7 +3,7 @@
 .slideshow {
   margin: 0 auto;
   overflow: hidden;
-  width: 100%;
+  width: 75%;
   /* max-width: 85%; */
 }
 
@@ -13,24 +13,24 @@
 }
 
 .slide {
-  display: inline-block;
-  background-color: #d5e5fd;
-  height: 350px;
-  /* width: 600px; */
+  display: inline-flex;
+  background-color: #eff9f7;
+  align-items: flex-end;
+  height: 650px;
   width: 100%;
   border-radius: 4px;
   position: relative;
 }
 
 .slide img {
-  max-width: 550px;
+  max-width: 750px;
   width: 100%;
   margin: auto;
   object-fit: contain;
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 /* Buttons */

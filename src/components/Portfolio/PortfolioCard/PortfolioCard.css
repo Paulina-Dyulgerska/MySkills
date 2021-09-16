@@ -1,0 +1,16 @@
+.portfolio-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  justify-items: auto;
+}
+
+.portfolio-item-content .media-top,
+    .portfolio-item-content .media-content {
+        margin:20px auto;
+}
+
+.external-link {
+    cursor: pointer;
+}
