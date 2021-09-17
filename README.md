@@ -4,7 +4,7 @@
 
 **MySkills** is dedicated to show **all my educations, experiences, projects, certificates, contacts, some interesting articles, a summary of my current knowledge and achievements**. 
 
-The site offers a register and login forms. By register the user data is evaluated, stored and validated by the Firebase Authentication service. Only the first user created – the Admin – is seeded by an Admin Users Seeder. The file for this seeding is not available in the public back-end Web API repository.
+The site offers a register and login forms. Only the first user created – the Admin – is seeded by an Admin Users Seeder. The file for this seeding is not available in the public back-end Web API repository.
 
 The goal of my work on this project was to create a **REACT** front-end application, that uses external authentication services from **Firebase** and the power of **ASP.NET Core Web AP**I as a back-end technology with the external service like **SendGrid, ReCaptcha, Azure Storage, Azure App Services, Azure Database Services**. The REACT front-end application is **hosted by Firebase**. The back-end application is **hosted by Azure**.
 
@@ -43,7 +43,6 @@ This website is designed and runs using the main technologies below:
 -	Azure SQL DB - production DB
 -	MS SQL Server 2019 - development DB
 -	MS SQL Server Management Studio 18
--	Firebase Authentication Service
 
 <b>ORM:</b>
 -	Entity Framework Core 5
@@ -57,7 +56,6 @@ This website is designed and runs using the main technologies below:
 -	Google ReCaptcha v. 3 – for login, register and contact forms
 
 <b>Cloud services:</b>
--	Facebook authentication
 -	Azure App Service - hosting for the back-end Web API
 -	Azure SQL Database - prodcution back-end DB
 -	Azure Storage - Blob Service used for storing author's personal files
