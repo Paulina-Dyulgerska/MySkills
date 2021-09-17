@@ -1,11 +1,7 @@
-// import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import educationsService from '../../services/educationsService';
-import experiencesService from '../../services/experiencesService';
 import contactsService from '../../services/contactsService';
-import accountsService from '../../services/accountsService';
 
 import './Main.css';
 
@@ -34,14 +30,6 @@ const Main = () => {
 
     //to wake up backend server:
     useEffect(() => {
-        accountsService.getUser()
-            .catch(err => console.log(err));
-        educationsService.get(1)
-            .catch(err => console.log(err));
-        educationsService.get()
-            .catch(err => console.log(err));
-        experiencesService.get()
-            .catch(err => console.log(err));
         contactsService.get()
             .catch(err => console.log(err));
     }, []);
@@ -86,23 +74,6 @@ const Main = () => {
                     <Route path="/" exact component={Home}></Route>
 
                     {/* TODO <Route path="/" component={NotFound}></Route> */}
-
-                    {/* <Route path="/dashboard" component={Dashboard}></Route>
-                        <Route path="/pets/create" component={PetCreate}></Route>
-                        <Route path="/pets/details/:id" component={PetDetails}></Route>
-                        <Route path="/pets/edit/:id" component={PetEdit}></Route>
-                        <Route path="/portfolio" component={Portfolio}></Route>
-                        <Route path="/pets/delete/:id" component={PetDelete}></Route>
-
-                        <Route path="/demo">
-                            <DemoFormControlled></DemoFormControlled>
-                            <br />
-                            <DemoFormControlledRef></DemoFormControlledRef>
-                            <br />
-                            <DemoFormControlledFunc></DemoFormControlledFunc>
-                            <br />
-                            <DemoFormUncontrolled></DemoFormUncontrolled>
-                        </Route> */}
                 </Switch>
 
             </section>

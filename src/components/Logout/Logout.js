@@ -24,7 +24,6 @@ const Logout = () => {
             setErrorMessage(errorMessage);
             console.log(errorCode, errorMessage);
         }
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

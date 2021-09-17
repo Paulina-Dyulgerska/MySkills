@@ -1,7 +1,5 @@
 import './PortfolioCard.css';
 
-import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
-
 const PortfolioCard = ({
     imageSrc,
     title,
@@ -20,7 +18,7 @@ const PortfolioCard = ({
                     <img
                         className="image-fluid external-link"
                         src={imageSrc}
-                        alt="Portfolio item image"
+                        alt="Portfolio item"
                         onClick={onClickHandler}
                     />
                 </article>

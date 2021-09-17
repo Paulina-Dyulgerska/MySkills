@@ -17,10 +17,10 @@ const Header = (props) => {
 
     const onClickNavItem = () => {
         setIsMenuTogglerChecked(false);
-        console.log('Old isMenuChecked is ' + isMenuTogglerChecked);
+        // console.log('Old isMenuChecked is ' + isMenuTogglerChecked);
     }
 
-    console.log('Now isMenuChecked is ' + isMenuTogglerChecked);
+    // console.log('Now isMenuChecked is ' + isMenuTogglerChecked);
 
     return (
         <header className="header-wrapper" >
@@ -28,12 +28,6 @@ const Header = (props) => {
                 <input onChange={onChangeMenuTogglerCheckedStatus}
                     ref={menuToggler} checked={isMenuTogglerChecked}
                     className="nav-toggler" type="checkbox" name="toggle-nav" id="toggle-nav" />
-
-                {/* <div className="sticky-outer-wrapper">
-                <div className="sticky-inner-wrapper">
-
-                </div>
-                 </div> */}
                 <article className="site-title">
                     <LogoNavigationItem
                         path="/"

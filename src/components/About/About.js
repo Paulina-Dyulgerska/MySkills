@@ -1,6 +1,7 @@
 import "./About.css";
 
 import TextBlockContent from "../Shared/TextBlockContent/TextBlockContent";
+import ExternalNavigationItem from "../Header/NavigationItem/ExternalNavigationItem";
 
 const About = () => {
     return (
@@ -10,7 +11,7 @@ const About = () => {
                     <TextBlockContent
                         title="INTRODUCE"
                         primary={["Passion Heart & Soul"]}
-                        secondary={["Every great PATH begin with an even better story",
+                        secondary={["Every great PATH begin with an even better story.",
                             "My name is Paulina and I am glad that I have the opportunity to write here today and make you part of my web developer journey!"]}
                     >
                     </TextBlockContent>
@@ -78,33 +79,33 @@ const About = () => {
                     <p><b>+359 887 684868 / paulina.dyulgerska @gmail.com</b></p>
                     <article className="projects">
                         <p><b>My projects: </b></p>
-                        <ol >
-                            <li className="list-item">
+                        <ul >
+                            <li className="list-item number">
                                 <p><b>Conformity Check</b> - a conformities management system: </p>
-                                <a href="https://github.com/Paulina-Dyulgerska/CSharp_ASP.NET_Core">
+                                <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/CSharp_ASP.NET_Core">
                                     <b>https://github.com/Paulina-Dyulgerska/CSharp_ASP.NET_Core</b>
-                                </a>
+                                </ExternalNavigationItem>
                                 <p>The project is deployed here:
-                                    <a href="https://conformitycheck.dotnetweb.net/">
-                                        <b>https://conformitycheck.dotnetweb.net/</b>
-                                    </a>
+                                    <ExternalNavigationItem path="https://conformitycheck.dotnetweb.net">
+                                        <b>https://conformitycheck.dotnetweb.net</b>
+                                    </ExternalNavigationItem>
                                 </p>
                             </li>
-                            <li className="list-item">
+                            <li className="list-item number">
                                 <p><b>MySkills</b> - a professional skills presenting system: </p>
-                                <a href="https://github.com/Paulina-Dyulgerska/MySkills">
+                                <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/MySkills">
                                     <b>https://github.com/Paulina-Dyulgerska/MySkills - front-end</b>
-                                </a>
-                                <a href="https://github.com/Paulina-Dyulgerska/MySkillsServer">
+                                </ExternalNavigationItem>
+                                <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/MySkillsServer">
                                     <b>https://github.com/Paulina-Dyulgerska/MySkillsServer - back-end</b>
-                                </a>
+                                </ExternalNavigationItem>
                                 <p>The project is deployed here:
-                                    <a href="https://myskills.dotnetweb.net/">
-                                        <b> https://myskills.dotnetweb.net/</b>
-                                    </a>
+                                    <ExternalNavigationItem path="https://myskills.dotnetweb.net">
+                                        <b>https://myskills.dotnetweb.net</b>
+                                    </ExternalNavigationItem>
                                 </p>
                             </li>
-                        </ol>
+                        </ul>
                     </article>
                 </article>
             </section>

@@ -2,7 +2,6 @@ import { useState, useEffect, createContext } from 'react';
 
 import './Education.css';
 import educationsService from '../../services/educationsService';
-import fileDeliverService from '../../services/fielDeliverService';
 
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import EducationCard from '../Education/EducationCard/EducationCard';
@@ -13,7 +12,7 @@ import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
 // import imgPolygon from "../../img/polygon.png";
 // TODO - to store the collection in the Context
-// TODO - add the pdfs from the studies and store them in a file storage (in Firebase)
+// TODO - add the pdfs from the studies and store them in a file storage (Blob)
 export const ModalContext = createContext();
 
 const Education = () => {
@@ -38,13 +37,6 @@ const Education = () => {
 
     const hidePopup = () => {
         setIsModalOpen(false);
-    }
-
-    const onClickDownloadCVButton = () => {
-        console.log("hi from onClickDownloadCVButton");
-        fileDeliverService.get("CV_EN.pdf")
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
     }
 
     return (
@@ -79,7 +71,7 @@ const Education = () => {
                                     buttonText={moreDetailsButtonText}
                                     onClickTogglePopup={() => showPopup(e.details, e.speciality)}
                                 />
-                                ////moje i taka s destruktorirane:
+                                ////could be done with destruktoring too:
                                 // <EducationCard
                                 // key={e.id} {...e}/>
                             })}

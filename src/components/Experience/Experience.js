@@ -50,10 +50,6 @@ const Experience = () => {
                     <article className="experience-content content">
                         {/* <img src={imgPolygon} alt="" className="polygon" /> */}
                         <TextBlockContent
-                            // title="This is my Life, Path &amp; Work"
-                            // primary={["Every ..."]}
-                            // secondary={["I am....",
-                            //     "....."]}
                             title="This is my Passion, Heart &amp; Soul"
                             primary={["Every great success is based on great many trainings"]}
                             secondary={["I have studied all my life. Some people are asking me why?!",
@@ -81,9 +77,6 @@ const Experience = () => {
                                         buttonText={moreDetailsButtonText}
                                         onClickTogglePopup={() => showPopup(e.details, e.job)}
                                     />
-                                    ////moje i taka s destruktorirane:
-                                    // <ExperienceCard
-                                    // key={e.id} {...e}/>
                                 )
                             })}
 

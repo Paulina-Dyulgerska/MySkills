@@ -25,37 +25,26 @@ function App() {
   // const history = useHistory();
 
   useEffect(() => {
-    //zakacham tozi event na cheliq app i taka mi e validen navsqkyde vyv vsekq componenta po-nadolu!!!!
-    // firebase.auth().onAuthStateChanged(setUser);
-
-    // accountsService.onUserAuthStateChanged(user, setUser);
     if (!user.userEmail) {
       accountsService.getUser()
         .then(res => {
-          // console.log('hi from app.js current user');
-          // console.log(user)
-
           setUser(currentState => ({
             ...currentState,
             userEmail: res.userEmail,
             userRoles: res.userRoles,
           }))
-
           return res;
         })
-        .then((res) => {
-          // console.log('hi from app.js user');
-          // console.log(user)
-          // console.log('hi from app.js res');
-          // console.log(res)
-        })
-        // TODO - create an error page
+        // .then((res) => {
+        //   console.log('hi from app.js user');
+        //   console.log(user)
+        //   console.log('hi from app.js res');
+        //   console.log(res)
+        // })
         .catch(err => console.log(err));
-      }
-    
+    }
     // console.log('hi from app.js user');
     // console.log(user)
-    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
@@ -84,13 +73,6 @@ function App() {
         // console.log("Script reCaptcha loaded!");
       });
     // window.addEventListener('storage', syncLogout)
-
-    // const syncLogout = (e) => {
-    //   if (e.key === 'logout') {
-    //     console.log('logged out from storage!')
-    //     history.push('/login')
-    //   }
-    // }
   }, []);
 
   return (

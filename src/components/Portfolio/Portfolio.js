@@ -2,7 +2,6 @@ import { useEffect, useState, useRef } from 'react';
 
 import './Portfolio.css';
 
-import projectsService from '../../services/projectsService';
 import PortfolioCard from './PortfolioCard/PortfolioCard';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 
@@ -14,12 +13,12 @@ import editConformityConformityCheck from "../../img/Portfolio/EditConformity.pn
 
 const Portfolio = () => {
 
-    const projects = [homeConformityCheck, 
-        conformitiesConformityCheck, 
-        createConformityConformityCheck, 
-        articleEditSupplilersConformityCheck, 
+    const projects = [homeConformityCheck,
+        conformitiesConformityCheck,
+        createConformityConformityCheck,
+        articleEditSupplilersConformityCheck,
         editConformityConformityCheck];
-        
+
     const delay = 4000;
     const [index, setIndex] = useState(0);
     const timeoutRef = useRef(null);
@@ -43,7 +42,8 @@ const Portfolio = () => {
         return () => {
             resetTimeout();
         };
-    }, [index]);
+    }, [index, projects.length]);
+
     const title = 'Conformity Check';
     const details = 'Conformities Management System';
     const url = 'https://conformitycheck.dotnetweb.net';

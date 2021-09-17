@@ -6,7 +6,6 @@ import imgSuccess from "../../../img/success-transparent.png";
 
 import AuthContext from '../../../contexts/AuthContext';
 
-import ButtonCta from '../Buttons/ButtonCta/ButtonCta';
 import TextBlockContent from '../TextBlockContent/TextBlockContent';
 
 const ThankYouContactMessageSent = () => {

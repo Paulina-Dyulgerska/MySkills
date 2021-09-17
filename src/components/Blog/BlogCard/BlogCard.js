@@ -21,7 +21,6 @@ const BlogCard = ({
 
     publishDate = formatDate(publishDate);
     modifiedDate = formatDate(modifiedDate);
-    // const publishDateString = `${publishDate} - ....`;
 
     const [currentLikes, setCurrentLikes] = useState(likes);
 
@@ -42,7 +41,7 @@ const BlogCard = ({
                 <img
                     className="image-fluid"
                     src={imageSrc}
-                    alt="Blog post item image"
+                    alt="Blog post item"
                 />
                 <span className="date"> {modifiedDate !== null ? publishDate : modifiedDate}</span>
             </article>

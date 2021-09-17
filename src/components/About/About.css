@@ -13,12 +13,9 @@
 }
 
 .projects {
-    margin-top: 40px;
-  list-style-position: inside;
+  margin-top: 40px;
 }
 
 .projects .list-item {
   margin: 30px;
-  display: list-item;
-  list-style: auto;
 }

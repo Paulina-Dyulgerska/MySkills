@@ -9,7 +9,6 @@ const ButtonCta = ({ to, children, onClick }) => {
         // </button>
         <CustomLink
             tag='button'
-            // to={`/pets/edit/${pet.id}`} // path
             to={to || '/'} 
             className='btn btn-cta'
             type='button'

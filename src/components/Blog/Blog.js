@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import './Blog.css';
+
 import blogPostsService from '../../services/blogPostsService';
 
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
@@ -9,26 +10,7 @@ import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
 
 const Blog = () => {
-    const [demoState, setDemoState] = useState({
-        count: 111,
-        step: 1,
-    });
     const [blogPosts, setBlogPosts] = useState([]);
-
-    const onCounterButtonClickHandler = () => {
-        console.log('IncreaseB' + demoState.count);
-        // setDemoState(currentState => ({ step: currentState.step, count: currentState.count + 1 })); //towa e === na towa:
-        setDemoState(currentState => ({ ...currentState, count: currentState.count + 1 })); //iskam da 
-        //vzemesh vsichko ot currentState i da mu prezapishe stojnostta na count s currentState.count + 1!!!!
-        console.log('IncreaseA' + demoState.count);
-    }
-
-    const onStepChangeHandler = (e) => {
-        const stepValue = Number(e.target.value);
-        // setDemoState(currentState => ({ step: stepValue, count: currentState.count })); //towa e === na towa:
-        setDemoState(currentState => ({ ...currentState, step: stepValue })); //iskam da vzemesh vsichko ot 
-        //currentState i da mu prezapishe stojnostta na step s stepValue!!!!!!
-    }
 
     useEffect(() => {
         blogPostsService.get()
