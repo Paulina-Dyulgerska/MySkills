@@ -46,6 +46,7 @@ const Header = (props) => {
                         <NavigationItem path="/home">Home</NavigationItem>
                         <NavigationItem path="/about">About</NavigationItem>
                         <NavigationItem path="/education">Education</NavigationItem>
+                        <NavigationItem path="/certificates">Certificates</NavigationItem>
                         <NavigationItem path="/experience">Experience</NavigationItem>
                         <NavigationItem path="/portfolio">Portfolio</NavigationItem>
                         <NavigationItem path="/blog">Blog</NavigationItem>

@@ -1,0 +1,14 @@
+.certificates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: stretch; */
+    /* justify-items: stretch; */
+    padding: 20px 30px;
+}
+
+@media screen and (max-width: 600px) {
+    .certificates {
+        padding: 10px;
+    }
+}

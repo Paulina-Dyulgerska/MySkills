@@ -8,6 +8,7 @@ import './Main.css';
 import Home from '../Home/Home';
 import About from '../About/About';
 import Education from '../Education/Education';
+import Certificates from '../Certificates/Certificates';
 import Experience from '../Experience/Experience';
 import Contact from '../Contact/Contact';
 import Blog from '../Blog/Blog';
@@ -66,6 +67,7 @@ const Main = () => {
                     <Route path="/home" exact component={Home}></Route>
                     <Route path="/about" exact component={About}></Route>
                     <Route path="/education" component={Education}></Route>
+                    <Route path="/certificates" component={Certificates}></Route>
                     <Route path="/experience" component={Experience}></Route>
                     <Route path="/contact" component={Contact}></Route>
                     <Route path="/blog" component={Blog}></Route>
