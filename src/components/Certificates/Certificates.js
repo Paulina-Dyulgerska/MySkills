@@ -17,24 +17,17 @@ const Certificates = () => {
             .then(res => {
                 let reducedRes = res.reduce((accumulator, element) => {
                     var elementAdded = accumulator.find(x => x.fileName === element.fileName);
-                    if (elementAdded) {
-                        if (element.remoteFileUrl.endsWith('pdf')) {
-                            elementAdded.remoteFileUrl = element.remoteFileUrl;
-                        }
-                        if (element.remoteFileUrl.endsWith('jpeg')) {
-                            elementAdded.imageRemoteFileUrl = element.remoteFileUrl;
-                        }
-                    } else {
-                        var newElement = {};
-                        newElement.fileName = element.fileName;
-                        newElement.id = element.id;
-                        if (element.remoteFileUrl.endsWith('pdf')) {
-                            newElement.remoteFileUrl = element.remoteFileUrl;
-                        }
-                        if (element.remoteFileUrl.endsWith('jpeg')) {
-                            newElement.imageRemoteFileUrl = element.remoteFileUrl;
-                        }
-                        accumulator.push(newElement);
+                    if (!elementAdded) {
+                        elementAdded = {};
+                        accumulator.push(elementAdded);
+                    }
+                    elementAdded.fileName = element.fileName;
+                    elementAdded.id = element.id;
+                    if (element.remoteFileUrl.endsWith('pdf')) {
+                        elementAdded.remoteFileUrl = element.remoteFileUrl;
+                    }
+                    if (element.remoteFileUrl.endsWith('jpeg')) {
+                        elementAdded.imageRemoteFileUrl = element.remoteFileUrl;
                     }
                     return accumulator;
                 }, []);
