@@ -6,8 +6,8 @@ import ExternalNavigationItem from '../Header/NavigationItem/ExternalNavigationI
 import ExternalNavigationItemFileDownload from '../Header/NavigationItem/ExternalNavigationItemFileDownload';
 
 const CVContainer = () => {
-    var downloadUrl = globalConstants.backendWebApiServerUrl + '/fileDeliver/download/CV_EN.pdf'
-    var showUrl = globalConstants.backendWebApiServerUrl + '/fileDeliver/show/CV_EN.pdf'
+    const downloadUrl = globalConstants.backendWebApiServerUrl + '/fileDeliver/download/' + globalConstants.resumeFileName;
+    const showUrl = globalConstants.backendWebApiServerUrl + '/fileDeliver/show/' + globalConstants.resumeFileName;
 
     return (
         <article className="link-buttons-container">

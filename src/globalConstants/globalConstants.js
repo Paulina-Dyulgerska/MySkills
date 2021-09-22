@@ -10,6 +10,7 @@ const token = 'token';
 const userCredentialAccessTokenJWT = 'userCredentialAccessTokenJWT';
 const userCredentialJWTExpiresIn = 'userCredentialJWTExpiresIn';
 const rememberMe = 'rememberMe';
+const resumeFileName = "Paulina_Resume.pdf";
 
 const globalConstants = {
     backendWebApiServerUrl,
@@ -21,5 +22,6 @@ const globalConstants = {
     userCredentialAccessTokenJWT,
     userCredentialJWTExpiresIn,
     rememberMe,
+    resumeFileName,
 }
 export default globalConstants;
