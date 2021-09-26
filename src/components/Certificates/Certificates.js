@@ -37,7 +37,7 @@ const Certificates = () => {
     }, []);
 
     return (
-        < section className="certificate-wrapper" >
+        < section className="certificate-wrapper wrapper" >
             <section className="certificate-container">
                 <article className="certificate-content content">
                     <TextBlockContent

@@ -18,7 +18,7 @@ const ThankYouContactMessageSent = () => {
     }
 
     return (
-        <section className="thank-you-area-wrapper">
+        <section className="thank-you-area-wrapper wrapper">
 
             <section className="thank-you-area-container">
                 <img src={imgSuccess} alt="Successful message sending" className="img-success" />

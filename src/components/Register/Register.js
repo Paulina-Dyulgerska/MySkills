@@ -104,7 +104,7 @@ const Register = () => {
     }
 
     return (
-        <section className="register-area-wrapper">
+        <section className="register-area-wrapper wrapper">
             <section className="register-area-container">
                 <article className="register-area-content content">
                     <TextBlockContent

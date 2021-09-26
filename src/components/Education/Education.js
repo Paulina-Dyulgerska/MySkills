@@ -40,7 +40,7 @@ const Education = () => {
     }
 
     return (
-        <section className="education-wrapper">
+        <section className="education-wrapper wrapper">
             <section className="education-container">
                 <ModalContext.Provider value={setIsModalOpen}>
                     <article className="education-content content">

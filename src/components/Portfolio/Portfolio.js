@@ -5,19 +5,21 @@ import './Portfolio.css';
 import PortfolioCard from './PortfolioCard/PortfolioCard';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 
-import homeConformityCheck from "../../img/Portfolio/HomeConformityCheck.png";
-import conformitiesConformityCheck from "../../img/Portfolio/Conformities.png";
-import createConformityConformityCheck from "../../img/Portfolio/CreateConformity.png";
-import articleEditSupplilersConformityCheck from "../../img/Portfolio/ArticleEditSupplilers.png";
-import editConformityConformityCheck from "../../img/Portfolio/EditConformity.png";
+import articlesAll from "../../img/Portfolio/ArticlesAll.png";
+import addConformityToArtcile from "../../img/Portfolio/AddConformityToArtcile.png";
+import login from "../../img/Portfolio/Login.png";
+import createConformity from "../../img/Portfolio/CreateConformity.png";
+import conformitiesAll from "../../img/Portfolio/ConformitiesAll.png";
 
 const Portfolio = () => {
 
-    const projects = [homeConformityCheck,
-        conformitiesConformityCheck,
-        createConformityConformityCheck,
-        articleEditSupplilersConformityCheck,
-        editConformityConformityCheck];
+    const projects = [articlesAll,
+        addConformityToArtcile,
+        login,
+        createConformity,
+        conformitiesAll,
+    ];
+
 
     const delay = 4000;
     const [index, setIndex] = useState(0);
@@ -49,7 +51,7 @@ const Portfolio = () => {
     const url = 'https://conformitycheck.dotnetweb.net';
 
     return (
-        < section className="portfolio-wrapper" >
+        < section className="portfolio-wrapper wrapper" >
             <section className="portfolio-container">
                 <article className="portfolio-content content">
                     <TextBlockContent

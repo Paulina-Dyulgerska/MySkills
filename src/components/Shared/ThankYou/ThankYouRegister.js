@@ -19,7 +19,7 @@ const ThankYouRegister = () => {
     }
 
     return (
-        <section className="thank-you-area-wrapper">
+        <section className="thank-you-area-wrapper wrapper">
 
             <section className="thank-you-area-container">
                 <img src={imgSuccess} alt="Successful Registration" className="img-success" />

@@ -123,7 +123,7 @@ const Login = () => {
     // console.log(rememberMe + ' is the value of rememberMe in Login')
 
     return (
-        <section className="login-area-wrapper">
+        <section className="login-area-wrapper wrapper">
             <section className="login-area-container">
                 <article className="login-area-content content">
                     <TextBlockContent

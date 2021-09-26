@@ -6,7 +6,7 @@ const Footer = () => {
     const date = new Date();
 
     return (
-        <footer className="footer-wrapper">
+        <footer className="footer-wrapper wrapper">
             <section className="footer-content content-wrapper">
                 <ul className="footer-content-social">
                     <ExternalNavigationItem path="https://www.linkedin.com/in/dyulgerska-paulina-28271583" >

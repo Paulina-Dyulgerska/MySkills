@@ -23,7 +23,7 @@ const Header = (props) => {
     // console.log('Now isMenuChecked is ' + isMenuTogglerChecked);
 
     return (
-        <header className="header-wrapper" >
+        <header className="header-wrapper wrapper" >
             <section className="content-wrapper header-content">
                 <input onChange={onChangeMenuTogglerCheckedStatus}
                     ref={menuToggler} checked={isMenuTogglerChecked}

@@ -5,7 +5,7 @@ import ExternalNavigationItem from "../Header/NavigationItem/ExternalNavigationI
 
 const About = () => {
     return (
-        <section className="about-wrapper">
+        <section className="about-wrapper wrapper">
             <section className="about-container">
                 <article className="about-content content">
                     <TextBlockContent

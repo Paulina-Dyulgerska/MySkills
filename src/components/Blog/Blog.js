@@ -20,7 +20,7 @@ const Blog = () => {
 
     return (
         //TODO - vote, rank and propose articles, sort atricles by newest ones and the highest ranking ones!!!!!
-        < section className="blog-wrapper" >
+        < section className="blog-wrapper wrapper" >
             <section className="blog-container">
                 <article className="blog-content content">
                     <TextBlockContent

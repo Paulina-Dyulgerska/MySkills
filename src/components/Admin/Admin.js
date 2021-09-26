@@ -27,7 +27,7 @@ const Admin = () => {
 
     return (
         //TODO - vote, rank and propose articles, sort atricles by newest ones and the highest ranking ones!!!!!
-        < section className="admin-wrapper" >
+        < section className="admin-wrapper wrapper" >
             <section className="admin-container">
                 <TextBlockContent
                     title="Admin area"

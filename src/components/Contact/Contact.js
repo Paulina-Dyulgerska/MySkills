@@ -104,7 +104,7 @@ const Contact = (params) => {
     // }
 
     return (
-        <section className="contact-area-wrapper">
+        <section className="contact-area-wrapper wrapper">
             <section className="contact-area-container">
                 <article className="contact-area-content content">
                     <TextBlockContent
