@@ -3,7 +3,10 @@ import { useState } from 'react';
 import './BlogCard.css';
 
 import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
+import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
+import { Link } from 'react-router-dom';
 import blogPostsService from '../../../services/blogPostsService';
+
 
 const BlogCard = ({
     id,
@@ -18,11 +21,13 @@ const BlogCard = ({
     onClickTogglePopup,
     url,
 }) => {
+    console.log('Hi from blog post id: ' + id);
 
     publishDate = formatDate(publishDate);
     modifiedDate = formatDate(modifiedDate);
 
     const [currentLikes, setCurrentLikes] = useState(likes);
+    const [currentComments, setCurrentComments] = useState(comments);
 
     const onLikeClickHandler = () => {
         const newLikes = parseInt(currentLikes) + 1;
@@ -48,7 +53,11 @@ const BlogCard = ({
             <article className="media-content" onClick={onClickTogglePopup}>
                 <p className="author">Author: {author}</p>
                 <p className="reactions">
-                    <span className="comments"> {comments} comments <i className="fas fa-comment-alt"></i></span>
+                    <span className="comments" >
+                        <ButtonCta to={`/blogposts/${id}`} className="button">
+                            {currentComments} comments <i className="fas fa-comment-alt"></i>
+                        </ButtonCta>
+                    </span>
                     <span className="likes" onClick={onLikeClickHandler}> {currentLikes} likes <i className="fas fa-thumbs-up"></i></span>
                 </p>
                 <h2 className="title">{title}</h2>

@@ -8,7 +8,6 @@ import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import BlogCard from './BlogCard/BlogCard';
 import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
-
 const Blog = () => {
     const [blogPosts, setBlogPosts] = useState([]);
 
