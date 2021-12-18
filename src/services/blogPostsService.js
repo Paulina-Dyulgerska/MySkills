@@ -39,4 +39,10 @@ blogPostsService.patchComments = async function (data) {
     return result;
 };
 
+blogPostsService.addComment = async function (data) {
+    const result = await baseService(`${blogPostsURL}/comments/add/${data.blogPostId}`, contentTypeFormUrlencoded)
+        .post(data);
+    return result;
+};
+
 export default  blogPostsService;

@@ -24,7 +24,7 @@ const BlogPostAddComment = ({
     onAddCommentFormSubmitHandler,
 }) => {
     // const { user } = useContext(AuthContext);
-    const [blogPost, setBlogPost] = useState([]);
+    const [blogPost, setBlogPost] = useState({});
     const [errorMessage, setErrorMessage] = useState(null);
     const [contactMessage, setContactMessage] = useState({
         // email: user.userEmail,

@@ -14,7 +14,6 @@ const BlogPostCommentCard = ({
     author,
     likes,
 }) => {
-    console.log(createdOn);
     createdOn = formatDate(createdOn);
 
     const [currentLikes, setCurrentLikes] = useState(likes);
