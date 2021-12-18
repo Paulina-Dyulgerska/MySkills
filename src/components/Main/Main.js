@@ -13,6 +13,7 @@ import Experience from '../Experience/Experience';
 import Contact from '../Contact/Contact';
 import Blog from '../Blog/Blog';
 import BlogPostComments from '../Blog/BlogPostComments/BlogPostComments';
+import BlogPostAddComment from '../Blog/BlogPostAddComment/BlogPostAddComment';
 import Login from '../Login/Login';
 import Logout from '../Logout/Logout';
 import Register from '../Register/Register';
@@ -72,7 +73,8 @@ const Main = () => {
                     <Route path="/experience" component={Experience}></Route>
                     <Route path="/contact" component={Contact}></Route>
                     <Route path="/blog" component={Blog}></Route>
-                    <Route path="/blogposts/:id" component={BlogPostComments}></Route>
+                    <Route path="/blogposts/comments/add/:id" component={BlogPostAddComment}></Route>
+                    <Route path="/blogposts/comments/:id" component={BlogPostComments}></Route>
                     <Route path="/portfolio" component={Portfolio}></Route>
                     <Route path="/admin" component={Admin}></Route>
                     <Route path="/" exact component={Home}></Route>

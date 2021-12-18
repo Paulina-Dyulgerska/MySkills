@@ -54,7 +54,7 @@ const BlogCard = ({
                 <p className="author">Author: {author}</p>
                 <p className="reactions">
                     <span className="comments" >
-                        <ButtonCta to={`/blogposts/${id}`} className="button">
+                        <ButtonCta to={`/blogposts/comments/${id}`} className="button">
                             {currentComments} comments <i className="fas fa-comment-alt"></i>
                         </ButtonCta>
                     </span>

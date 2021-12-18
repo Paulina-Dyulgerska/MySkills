@@ -1,23 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
-import './BlogPostComments.css';
+import AuthContext from '../../../contexts/AuthContext';
 
+import validationService from '../../../services/validationService';
 import blogPostsService from '../../../services/blogPostsService';
+
+import globalConstants from '../../../globalConstants/globalConstants';
 
 import BlogPostCommentCard from '../BlogPostCommentCard/BlogPostCommentCard';
 import TextBlockContent from '../../Shared/TextBlockContent/TextBlockContent';
 import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
+import ButtonSubmit from '../../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
 import LoadingBar from '../../Shared/LoadingBar/LoadingBar';
 import CustomLink from '../../Shared/CustomLink/CustomLink';
+import InputFieldWIthLabel from '../../Shared/InputField/InputFieldWIthLabel';
+import InputFieldWIthLabelControlled from '../../Shared/InputField/InputFieldWIthLabelControlled';
+import InputTextArea from '../../Shared/InputField/InputTextArea';
+import InputError from '../../Shared/InputError/InputError';
 
-const BlogPostComments = ({
+const BlogPostAddComment = ({
     match,
+    onAddCommentFormSubmitHandler,
 }) => {
+    // const { user } = useContext(AuthContext);
+    const [blogPost, setBlogPost] = useState([]);
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [contactMessage, setContactMessage] = useState({
+        // email: user.userEmail,
+    })
+    const [validationErrors, setValidationErrors] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        phone: '',
+        message: '',
+    })
+
     const id = match.params.id;
     console.log('Hi from BlogPostComments: ' + id);
 
-    const [blogPost, setBlogPost] = useState([]);
 
     useEffect(() => {
         blogPostsService.get(id)
@@ -45,7 +67,8 @@ const BlogPostComments = ({
                         Read More <i className="arrow_right fas fa-long-arrow-alt-right"></i>
                     </ExternalNavigationItem>
                     <li>
-                        <ButtonCta to={`/blogposts/comments/add/${id}`}
+                        <ButtonCta to={`/blogpost/comments/add/${id}`}
+                            onClick={onAddCommentClickHandler}
                             className='btn btn-cta'>
                             Add comment <i className="fas fa-comment-alt"></i>
                         </ButtonCta>
@@ -70,9 +93,44 @@ const BlogPostComments = ({
                         : <LoadingBar></LoadingBar>
                     }
                 </article>
+
+                <form className="contact-area-form" onSubmit={onAddCommentFormSubmitHandler}>
+                    <article className="input-fields">
+                        <InputFieldWIthLabel
+                            wrapperClassName="input"
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            className="form-control error"
+                            validateFieldFunction={validationService.subjectValidator}
+                            errorMessage="Subject should contain at least 5 letters."
+                            setValidationErrors={setValidationErrors}
+                        >
+                            Content *
+                        </InputFieldWIthLabel>
+                        <InputError>{errorMessage}</InputError>
+                        <br />
+                        <ButtonSubmit
+                            className="btn btn-submit g-recaptcha"
+                            data-action="contactSubmit"
+                            value="Send comment" />
+                    </article>
+                </form>
             </section>
         </section >
     )
 }
 
-export default BlogPostComments;
+export default BlogPostAddComment;
+
+
+
+
+
+
+
+
+
+
+
+
