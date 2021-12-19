@@ -1,10 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './BlogPostCommentCard.css';
 
-import blogPostsService from '../../../services/blogPostsService';
-
-import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
+import formatingService from '../../../services/formatingService';
 
 const BlogPostCommentCard = ({
     id,
@@ -13,24 +11,14 @@ const BlogPostCommentCard = ({
     createdOn,
     author,
     likes,
+    onLikeClickHandler,
 }) => {
-    createdOn = formatDate(createdOn);
+    createdOn = formatingService.formatDate(createdOn);
 
-    const [currentLikes, setCurrentLikes] = useState(likes);
+    const [currentLikesChanged, setCurrentLikesChanged] = useState(false);
 
-    const onLikeClickHandler = () => {
-        const newLikes = parseInt(currentLikes) + 1;
-
-        blogPostsService.patchLikes({ id, likes: newLikes })
-            .then((res) => {
-                setCurrentLikes(res);
-            })
-            .catch(err => console.error(err));
-    }
-
-    const onAddCommentClickHandler = () => {
-
-    }
+    useEffect(()=> {
+    }, [currentLikesChanged]);
 
     return (
         <article className="blog-post-item" >
@@ -41,8 +29,11 @@ const BlogPostCommentCard = ({
                 <p className="author">Author: {author}</p>
                 <p className="details">{content}</p>
                 <p className="reactions">
-                    <span className="likes" onClick={onLikeClickHandler}>
-                        {currentLikes} likes <i className="fas fa-thumbs-up"></i>
+                    <span className="likes" onClick={() => {
+                                                            onLikeClickHandler(); 
+                                                            setCurrentLikesChanged(true);
+                                                    }}>
+                        {likes} likes <i className="fas fa-thumbs-up"></i>
                     </span>
                 </p>
             </article>
@@ -51,18 +42,3 @@ const BlogPostCommentCard = ({
 }
 
 export default BlogPostCommentCard;
-
-function formatDate(userDOB) {
-    const dob = new Date(userDOB);
-
-    const monthNames = [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-        'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ];
-
-    const day = dob.getDate();
-    const monthIndex = dob.getMonth();
-    const year = dob.getFullYear();
-
-    return `${day} ${monthNames[monthIndex]} ${year}`;
-}

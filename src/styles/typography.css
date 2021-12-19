@@ -50,9 +50,9 @@ form,
 input,
 textarea,
 option,
-select {
+select,
+button {
 	font: inherit;
-
 }
 
 h1,

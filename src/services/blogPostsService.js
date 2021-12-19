@@ -7,7 +7,7 @@ const contentTypeFormUrlencoded = 'application/x-www-form-urlencoded';
 
 const blogPostsService = function () { }
 
-blogPostsService.get = async function(id) {
+blogPostsService.get = async function (id) {
     return await baseService(blogPostsURL).get(id);
 };
 
@@ -45,4 +45,10 @@ blogPostsService.addComment = async function (data) {
     return result;
 };
 
-export default  blogPostsService;
+blogPostsService.addCommentLike = async function (data) {
+    const result = await baseService(`${blogPostsURL}/comments/like/${data.blogPostId}`, contentTypeFormUrlencoded)
+        .post(data);
+    return result;
+}
+
+export default blogPostsService;

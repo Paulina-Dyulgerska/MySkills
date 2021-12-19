@@ -5,8 +5,9 @@ import './BlogCard.css';
 import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
 import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
 import { Link } from 'react-router-dom';
-import blogPostsService from '../../../services/blogPostsService';
 
+import blogPostsService from '../../../services/blogPostsService';
+import formatingService from '../../../services/formatingService';
 
 const BlogCard = ({
     id,
@@ -23,8 +24,8 @@ const BlogCard = ({
 }) => {
     console.log('Hi from blog post id: ' + id);
 
-    publishDate = formatDate(publishDate);
-    modifiedDate = formatDate(modifiedDate);
+    publishDate = formatingService.formatDate(publishDate);
+    modifiedDate = formatingService.formatDate(modifiedDate);
 
     const [currentLikes, setCurrentLikes] = useState(likes);
     const [currentComments, setCurrentComments] = useState(comments);
@@ -61,7 +62,7 @@ const BlogCard = ({
                     <span className="likes" onClick={onLikeClickHandler}> {currentLikes} likes <i className="fas fa-thumbs-up"></i></span>
                 </p>
                 <h2 className="title">{title}</h2>
-                <p className="details">{shortenText(details)}</p>
+                <p className="details">{formatingService.shortenText(details)}</p>
                 <ExternalNavigationItem className="link btn btn-cta" path={url}>
                     Read More <i className="arrow_right fas fa-long-arrow-alt-right"></i>
                 </ExternalNavigationItem>
@@ -71,26 +72,3 @@ const BlogCard = ({
 }
 
 export default BlogCard;
-
-function formatDate(userDOB) {
-    const dob = new Date(userDOB);
-
-    const monthNames = [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-        'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ];
-
-    const day = dob.getDate();
-    const monthIndex = dob.getMonth();
-    const year = dob.getFullYear();
-
-    return `${day} ${monthNames[monthIndex]} ${year}`;
-}
-
-
-function shortenText(t) {
-    if (t.length > 150) {
-        t = t.slice(0, 150) + '...';
-    }
-    return t;
-}
