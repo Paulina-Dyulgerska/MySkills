@@ -1,6 +1,6 @@
 import './Footer.css';
 
-import ExternalNavigationItem from '../Header/NavigationItem/ExternalNavigationItem';
+import ExternalNavigationItemAsLi from '../Header/NavigationItem/ExternalNavigationItemAsLi';
 
 const Footer = () => {
     const date = new Date();
@@ -9,26 +9,26 @@ const Footer = () => {
         <footer className="footer-wrapper wrapper">
             <section className="footer-content content-wrapper">
                 <ul className="footer-content-social">
-                    <ExternalNavigationItem path="https://www.linkedin.com/in/dyulgerska-paulina-28271583" >
+                    <ExternalNavigationItemAsLi path="https://www.linkedin.com/in/dyulgerska-paulina-28271583" >
                         <i className="fab fa-linkedin-in"></i>
-                    </ExternalNavigationItem>
-                    <ExternalNavigationItem path="https://www.facebook.com/paulina.dyulgerska" >
+                    </ExternalNavigationItemAsLi>
+                    <ExternalNavigationItemAsLi path="https://www.facebook.com/paulina.dyulgerska" >
                         <i className="fab fa-facebook"></i>
-                    </ExternalNavigationItem>
-                    <ExternalNavigationItem path="https://www.twitter.com/DyulgerskaP" >
+                    </ExternalNavigationItemAsLi>
+                    <ExternalNavigationItemAsLi path="https://www.twitter.com/DyulgerskaP" >
                         <i className="fab fa-twitter"></i>
-                    </ExternalNavigationItem>
+                    </ExternalNavigationItemAsLi>
                 </ul>
                 <p className="footer-made-by">Made with love by<a href="/">&nbsp;Paulina</a></p>
                 <p className="footer-copyright">&copy; {date.getFullYear()} Paulina Dyulgerska - All Rights Reserved</p>
                 <ul className="footer-repos">
                     <span className="icon-sprite icon-down"></span>
-                    <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/MySkills">
+                    <ExternalNavigationItemAsLi path="https://github.com/Paulina-Dyulgerska/MySkills">
                         https://github.com/Paulina-Dyulgerska/MySkills
-                    </ExternalNavigationItem>
-                    <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/MySkillsServer">
+                    </ExternalNavigationItemAsLi>
+                    <ExternalNavigationItemAsLi path="https://github.com/Paulina-Dyulgerska/MySkillsServer">
                         https://github.com/Paulina-Dyulgerska/MySkillsServer
-                    </ExternalNavigationItem>
+                    </ExternalNavigationItemAsLi>
                 </ul>
             </section>
         </footer >

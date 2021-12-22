@@ -2,9 +2,8 @@ import { useState } from 'react';
 
 import './BlogCard.css';
 
-import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
+import ExternalNavigationItemAsSpan from '../../Header/NavigationItem/ExternalNavigationItemAsSpan';
 import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
-import { Link } from 'react-router-dom';
 
 import blogPostsService from '../../../services/blogPostsService';
 import formatingService from '../../../services/formatingService';
@@ -62,9 +61,9 @@ const BlogCard = ({
                 </p>
                 <h2 className="title">{title}</h2>
                 <p className="details">{formatingService.shortenText(details)}</p>
-                <ExternalNavigationItem className="link btn btn-cta" path={url}>
+                <ExternalNavigationItemAsSpan className="link btn btn-cta" path={url}>
                     Read More <i className="arrow_right fas fa-long-arrow-alt-right"></i>
-                </ExternalNavigationItem>
+                </ExternalNavigationItemAsSpan>
             </article>
         </article>
     )

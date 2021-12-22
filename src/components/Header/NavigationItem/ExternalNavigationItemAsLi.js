@@ -1,4 +1,4 @@
-const ExternalNavigationItem = (props) => {
+const ExternalNavigationItemAsLi = (props) => {
     return (
         <li className={props.className || "list-item"} >
             <a href={props.path || '/'}
@@ -10,4 +10,4 @@ const ExternalNavigationItem = (props) => {
     );
 };
 
-export default ExternalNavigationItem;
+export default ExternalNavigationItemAsLi;

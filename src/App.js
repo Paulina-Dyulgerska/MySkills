@@ -1,5 +1,6 @@
 
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
+// import { useLayoutEffect } from 'react';
 // import { useHistory } from 'react-router';
 
 import './App.css';
@@ -22,10 +23,13 @@ function App() {
       || sessionStorage.getItem(globalConstants.userCredentialJWTExpiresIn),
   });
   const [rememberMe, setRememberMe] = useState(true);
+  
+  const hasAccessToken = localStorage.getItem(globalConstants.userCredentialAccessTokenJWT)
+      || sessionStorage.getItem(globalConstants.userCredentialAccessTokenJWT);
   // const history = useHistory();
 
   useEffect(() => {
-    if (!user.userEmail) {
+    if (!user.userEmail && hasAccessToken) {
       accountsService.getUser()
         .then(res => {
           setUser(currentState => ({

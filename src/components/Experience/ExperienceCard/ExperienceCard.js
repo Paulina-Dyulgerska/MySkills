@@ -2,7 +2,7 @@ import './ExperienceCard.css';
 
 import formatingService from '../../../services/formatingService';
 
-import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
+import ExternalNavigationItemAsSpan from '../../Header/NavigationItem/ExternalNavigationItemAsSpan';
 import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
 
 const ExperienceCard = ({
@@ -27,10 +27,10 @@ const ExperienceCard = ({
         <article className="expriance-item" >
             <article className="media-left">
                 {url &&
-                    <ExternalNavigationItem className="link" path={url}>
+                    <ExternalNavigationItemAsSpan className="link" path={url}>
                         <img className="logo" src={logo} alt="Company Logo" />
                         <p className="company">{company}</p>
-                    </ExternalNavigationItem>
+                    </ExternalNavigationItemAsSpan>
                 }
                 {!url &&
                     <p className="company">{company}</p>

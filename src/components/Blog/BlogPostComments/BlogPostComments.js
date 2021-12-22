@@ -11,7 +11,7 @@ import globalConstants from '../../../globalConstants/globalConstants';
 import TextBlockContent from '../../Shared/TextBlockContent/TextBlockContent';
 import ButtonCta from '../../Shared/Buttons/ButtonCta/ButtonCta';
 import ButtonSubmit from '../../Shared/Buttons/ButtonSubmit/ButtonSubmit';
-import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
+import ExternalNavigationItemAsLi from '../../Header/NavigationItem/ExternalNavigationItemAsLi';
 import LoadingBar from '../../Shared/LoadingBar/LoadingBar';
 import BlogPostCommentCard from '../BlogPostCommentCard/BlogPostCommentCard';
 import InputFieldWIthLabel from '../../Shared/InputField/InputFieldWIthLabel';
@@ -40,7 +40,7 @@ const BlogPostComments = ({
                 return res;
             })
             .catch(err => console.log(err));
-    }, []);
+    }, [blogPostId]);
 
 
     const onAddCommentClickHandler = () => {
@@ -122,9 +122,9 @@ const BlogPostComments = ({
                             >
                             </TextBlockContent>
                         </li>
-                        <ExternalNavigationItem className="link btn btn-cta" path={blogPost.externalPostUrl}>
+                        <ExternalNavigationItemAsLi className="link btn btn-cta" path={blogPost.externalPostUrl}>
                             Read More <i className="arrow_right fas fa-long-arrow-alt-right"></i>
-                        </ExternalNavigationItem>
+                        </ExternalNavigationItemAsLi>
                         <li>
                             <ButtonCta onClick={onAddCommentClickHandler} to='#'
                                 className='btn btn-cta'>

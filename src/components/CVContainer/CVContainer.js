@@ -2,8 +2,8 @@ import './CVContainer.css';
 
 import globalConstants from '../../globalConstants/globalConstants';
 
-import ExternalNavigationItem from '../Header/NavigationItem/ExternalNavigationItem';
 import ExternalNavigationItemFileDownload from '../Header/NavigationItem/ExternalNavigationItemFileDownload';
+import ExternalNavigationItemAsSpan from '../Header/NavigationItem/ExternalNavigationItemAsSpan';
 
 const CVContainer = () => {
     const downloadUrl = globalConstants.backendWebApiServerUrl + '/fileDeliver/download/' + globalConstants.resumeFileName;
@@ -16,11 +16,11 @@ const CVContainer = () => {
                 path={downloadUrl}>
                 Download CV
             </ExternalNavigationItemFileDownload>
-            <ExternalNavigationItem
+            <ExternalNavigationItemAsSpan
                 className="btn btn-cta"
                 path={showUrl}>
                 Show CV
-            </ExternalNavigationItem>
+            </ExternalNavigationItemAsSpan>
         </article>
     )
 }

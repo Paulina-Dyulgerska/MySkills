@@ -19,10 +19,10 @@ const Logout = () => {
             localStorage.clear();
             sessionStorage.clear();
         } catch (ex) {
-            var errorCode = ex.code;
-            var errorMessage = ex.message;
-            setErrorMessage(errorMessage);
-            console.log(errorCode, errorMessage);
+            var currentErrorCode = ex.code;
+            var currentErrorMessage = ex.message;
+            setErrorMessage(currentErrorMessage);
+            console.log(currentErrorMessage, currentErrorCode);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

@@ -10,7 +10,6 @@ const CertificatesCard = ({
     imageRemoteFileUrl,
     onClickTogglePopup,
 }) => {
-    var imageSrc = '';
 
     return (
         <article className="certificate-item" >

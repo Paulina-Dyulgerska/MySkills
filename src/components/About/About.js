@@ -1,7 +1,7 @@
 import "./About.css";
 
 import TextBlockContent from "../Shared/TextBlockContent/TextBlockContent";
-import ExternalNavigationItem from "../Header/NavigationItem/ExternalNavigationItem";
+import ExternalNavigationItemAsSpan from "../Header/NavigationItem/ExternalNavigationItemAsSpan";
 
 const About = () => {
     return (
@@ -82,27 +82,27 @@ const About = () => {
                         <ul >
                             <li className="list-item number">
                                 <p><b>Conformity Check</b> - a conformities management system: </p>
-                                <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/CSharp_ASP.NET_Core">
+                                <ExternalNavigationItemAsSpan path="https://github.com/Paulina-Dyulgerska/CSharp_ASP.NET_Core">
                                     <b>https://github.com/Paulina-Dyulgerska/CSharp_ASP.NET_Core</b>
-                                </ExternalNavigationItem>
+                                </ExternalNavigationItemAsSpan>
                                 <p>The project is deployed here:
-                                    <ExternalNavigationItem path="https://conformitycheck.dotnetweb.net">
+                                    <ExternalNavigationItemAsSpan path="https://conformitycheck.dotnetweb.net">
                                         <b>https://conformitycheck.dotnetweb.net</b>
-                                    </ExternalNavigationItem>
+                                    </ExternalNavigationItemAsSpan>
                                 </p>
                             </li>
                             <li className="list-item number">
                                 <p><b>MySkills</b> - a professional skills presenting system: </p>
-                                <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/MySkills">
+                                <ExternalNavigationItemAsSpan path="https://github.com/Paulina-Dyulgerska/MySkills">
                                     <b>https://github.com/Paulina-Dyulgerska/MySkills - front-end</b>
-                                </ExternalNavigationItem>
-                                <ExternalNavigationItem path="https://github.com/Paulina-Dyulgerska/MySkillsServer">
+                                </ExternalNavigationItemAsSpan>
+                                <ExternalNavigationItemAsSpan path="https://github.com/Paulina-Dyulgerska/MySkillsServer">
                                     <b>https://github.com/Paulina-Dyulgerska/MySkillsServer - back-end</b>
-                                </ExternalNavigationItem>
+                                </ExternalNavigationItemAsSpan>
                                 <p>The project is deployed here:
-                                    <ExternalNavigationItem path="https://myskills.dotnetweb.net">
+                                    <ExternalNavigationItemAsSpan path="https://myskills.dotnetweb.net">
                                         <b>https://myskills.dotnetweb.net</b>
-                                    </ExternalNavigationItem>
+                                    </ExternalNavigationItemAsSpan>
                                 </p>
                             </li>
                         </ul>

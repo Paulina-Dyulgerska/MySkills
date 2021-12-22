@@ -1,6 +1,6 @@
 import './MediaItem.css';
 
-import ExternalNavigationItem from '../../Header/NavigationItem/ExternalNavigationItem';
+import ExternalNavigationItemAsSpan from '../../Header/NavigationItem/ExternalNavigationItemAsSpan';
 
 const MediaItem = ({
     icon,
@@ -15,9 +15,9 @@ const MediaItem = ({
             <article className="media-item-body">
                 <h6>{title}</h6>
                 {link &&
-                    <ExternalNavigationItem className="link" path={link}>
+                    <ExternalNavigationItemAsSpan className="link" path={link}>
                         {linkText}
-                    </ExternalNavigationItem>
+                    </ExternalNavigationItemAsSpan>
                 }
                 {!link &&
                     <p>

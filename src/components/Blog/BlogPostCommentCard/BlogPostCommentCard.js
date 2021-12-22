@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import './BlogPostCommentCard.css';
 
 import formatingService from '../../../services/formatingService';
