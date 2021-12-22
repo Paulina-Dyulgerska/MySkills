@@ -39,7 +39,7 @@ const InputFieldWithLabel = ({
             setMinimise('');
         } else {
             const isInputValid = validateFieldFunction(userCurrentInputString);
-            console.log(isInputValid + ' hi from isInputValid');
+            // console.log(isInputValid + ' hi from isInputValid');
             if (!isInputValid) {
                 setHasError(true);
                 setValidationErrors(ca => ({...ca, [e.target.name]: errorMessage}));

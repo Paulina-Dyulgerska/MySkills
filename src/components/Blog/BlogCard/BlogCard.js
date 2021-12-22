@@ -22,17 +22,16 @@ const BlogCard = ({
     onClickTogglePopup,
     url,
 }) => {
-    console.log('Hi from blog post id: ' + id);
+    // console.log('Hi from blog post id: ' + id);
 
     publishDate = formatingService.formatDate(publishDate);
     modifiedDate = formatingService.formatDate(modifiedDate);
 
     const [currentLikes, setCurrentLikes] = useState(likes);
-    const [currentComments, setCurrentComments] = useState(comments);
 
     const onLikeClickHandler = () => {
         const newLikes = parseInt(currentLikes) + 1;
-        console.log(id)
+        // console.log(id)
 
         blogPostsService.patchLikes({ id, likes: newLikes })
             .then((res) => {
@@ -56,7 +55,7 @@ const BlogCard = ({
                 <p className="reactions">
                     <span className="comments" >
                         <ButtonCta to={`/blogposts/comments/${id}`} className="button">
-                            {currentComments} comments <i className="fas fa-comment-alt"></i>
+                            {comments} comments <i className="fas fa-comment-alt"></i>
                         </ButtonCta>
                     </span>
                     <span className="likes" onClick={onLikeClickHandler}> {currentLikes} likes <i className="fas fa-thumbs-up"></i></span>

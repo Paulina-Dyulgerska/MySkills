@@ -161,7 +161,6 @@ const Contact = (params) => {
                             defaultValue={contactMessage.email}
                             // onValueChange={onValueChange}
                             setValidationErrors={setValidationErrors}
-
                         >
                             Your Email *
                         </InputFieldWIthLabelControlled>

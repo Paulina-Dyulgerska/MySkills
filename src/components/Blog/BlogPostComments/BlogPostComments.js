@@ -19,7 +19,7 @@ import InputError from '../../Shared/InputError/InputError';
 
 const BlogPostComments = ({
     match,
-    history,
+    // history,
 }) => {
     const { user } = useContext(AuthContext);
 
@@ -30,7 +30,6 @@ const BlogPostComments = ({
     })
 
     const [blogPost, setBlogPost] = useState({});
-    const [comments, setComments] = useState([]);
     const [addCommentIsActive, setAddCommentIsActive] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
 
@@ -38,11 +37,10 @@ const BlogPostComments = ({
         blogPostsService.get(blogPostId)
             .then(res => {
                 setBlogPost(res);
-                setComments(res.comments);
                 return res;
             })
             .catch(err => console.log(err));
-    }, [comments]);
+    }, []);
 
 
     const onAddCommentClickHandler = () => {
@@ -80,7 +78,6 @@ const BlogPostComments = ({
                     { action: 'commentSubmit' })
                     .then(token => blogPostsService.addComment({ ...inputObject, token }))
                     .then(res => {
-                        setComments(res.comments);
                         setBlogPost(res);
                         // params.history.push(`/thank-you-contact-message-sent`);
                         // params.history.goBack();
@@ -101,10 +98,9 @@ const BlogPostComments = ({
     };
 
     const onLikeClickHandler = (commentId) => {
-        console.log('Hi from onLikeClickHandler for a comment like: ' + blogPostId + ' ' + commentId);
+        // console.log('Hi from onLikeClickHandler for a comment like: ' + blogPostId + ' ' + commentId);
         blogPostsService.addCommentLike({ blogPostId, commentId })
             .then(res => {
-                setComments(res.comments);
                 setBlogPost(res);
                 return res.comments;
             })

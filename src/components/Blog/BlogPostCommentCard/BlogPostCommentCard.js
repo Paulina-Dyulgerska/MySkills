@@ -15,10 +15,7 @@ const BlogPostCommentCard = ({
 }) => {
     createdOn = formatingService.formatDate(createdOn);
 
-    const [currentLikesChanged, setCurrentLikesChanged] = useState(false);
-
-    useEffect(()=> {
-    }, [currentLikesChanged]);
+    // const [currentLikesChanged, setCurrentLikesChanged] = useState(false);
 
     return (
         <article className="blog-post-item" >
@@ -31,8 +28,8 @@ const BlogPostCommentCard = ({
                 <p className="reactions">
                     <span className="likes" onClick={() => {
                                                             onLikeClickHandler(); 
-                                                            setCurrentLikesChanged(true);
-                                                    }}>
+                                                            // setCurrentLikesChanged(true);
+                                                        }}>
                         {likes} likes <i className="fas fa-thumbs-up"></i>
                     </span>
                 </p>
