@@ -22,10 +22,14 @@ const baseService = (baseURL, contentType, params) => {
         if (httpMethod === 'POST' || httpMethod === 'PUT' || httpMethod === 'PATCH') {
             // Build form data object.
             var urlencoded = new URLSearchParams();
-            console.log('Hi from form data object');
 
+            // FormData send the data az multipart/form-data, not az application/x-www-form-urlencoded, 
+            // that's why I use URLSearchParams:
+            // var urlencoded = new FormData();
+
+            // date passed to the current method:
             for (const key in data) {
-                console.log(`${key}: ${data[key]}`);
+                // console.log(`${key}: ${data[key]}`);
                 urlencoded.append(key, data[key]);
             }
 
@@ -38,12 +42,13 @@ const baseService = (baseURL, contentType, params) => {
             //     urlencoded.append(globalConstants.token, data[globalConstants.token]);
             // }
 
+            // requestOptions.body = data;
             requestOptions.body = urlencoded;
 
-            // data appended:
-            for (var pair of urlencoded.entries()) {
-                console.log(pair[0] + ', ' + pair[1]);
-            }
+            // data appended to the request body:
+            // for (var pair of urlencoded.entries()) {
+            //     console.log(pair[0] + ', ' + pair[1]);
+            // }
         }
 
         return requestOptions;

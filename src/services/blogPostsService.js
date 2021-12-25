@@ -4,6 +4,7 @@ import globalConstants from '../globalConstants/globalConstants';
 const blogPostsURL = globalConstants.backendWebApiServerUrl + '/blogPosts';
 const contentTypeFormUrlencoded = 'application/x-www-form-urlencoded';
 // const contentTypeFormMultipart = 'multipart/form-data';
+// const contentTypeFormUrlencoded = 'application/json';
 
 const blogPostsService = function () { }
 
