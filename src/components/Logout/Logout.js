@@ -21,8 +21,8 @@ const Logout = () => {
         } catch (ex) {
             var currentErrorCode = ex.code;
             var currentErrorMessage = ex.message;
-            setErrorMessage(currentErrorMessage);
-            console.log(currentErrorMessage, currentErrorCode);
+            setErrorMessage(()=> currentErrorMessage);
+            console.log(errorMessage, currentErrorCode);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

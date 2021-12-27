@@ -24,11 +24,11 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [passwordShow, setPasswordShow] = useState(false);
     const [showPasswordToggler, setShowPasswordToggler] = useState(false);
-    const history = useHistory();
     const [validationErrors, setValidationErrors] = useState({
         email: '',
         password: '',
     })
+    const history = useHistory();
 
     if (user.accessToken) {
         return (
@@ -57,6 +57,7 @@ const Login = () => {
 
             await window.grecaptcha.ready(() => {
                 window.grecaptcha.execute(globalConstants.reCaptchaSiteKey,
+                    // { action: e['data-action'] })
                     { action: 'loginSubmit' })
                     .then(token => accountsService.login(email, password, token))
                     // if this Promise is rejected -> it goes to the catch directly because I throw in the fetch, 
@@ -72,7 +73,7 @@ const Login = () => {
                             sessionStorage.setItem(globalConstants.userCredentialJWTExpiresIn, userCredential.expiresIn);
                             sessionStorage.setItem(globalConstants.rememberMe, rememberMe);
                         }
-                        history.push('/');
+                        history.goBack();
                     })
                     .catch(err => {
                         console.log('hi from login err in catch');

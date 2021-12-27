@@ -25,14 +25,14 @@ const BlogPostCommentCard = ({
                 <p className="details">{content}</p>
                 <p className="reactions">
                     <span className="likes" onClick={() => {
-                                                            onLikeClickHandler(); 
-                                                            // setCurrentLikesChanged(true);
-                                                        }}>
+                                                                onLikeClickHandler();
+                                                                // setCurrentLikesChanged(true);
+                                                            }}>
                         {likes} likes <i className="fas fa-thumbs-up"></i>
                     </span>
                 </p>
             </article>
-        </article>
+        </article >
     )
 }
 

@@ -29,8 +29,9 @@ const Register = () => {
     })
 
     if (user.accessToken) {
+        console.log(user);
         return (
-            <Redirect to='/' />
+            <Redirect to='/login' />
         )
     }
 

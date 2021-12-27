@@ -120,6 +120,10 @@
     /* box-shadow: 0 0 10px 0.5px #fff;   */
 }
 
+.nav-list-active {
+background-color: #B9F5FA;
+}
+
 .header-content .logo-img {
     position: relative;
     top: 10px;

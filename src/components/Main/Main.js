@@ -71,13 +71,13 @@ const Main = () => {
                     <Route path="/certificates" component={Certificates}></Route>
                     <Route path="/experience" component={Experience}></Route>
                     <Route path="/contact" component={Contact}></Route>
-                    <Route path="/blog" component={Blog}></Route>
-                    <Route path="/blogposts/comments/:id" component={BlogPostComments}></Route>
+                    <Route path="/blog" exact component={Blog}></Route>
+                    <Route path="/blog/comments/:id" component={BlogPostComments}></Route>
                     <Route path="/portfolio" component={Portfolio}></Route>
                     <Route path="/admin" component={Admin}></Route>
                     <Route path="/" exact component={Home}></Route>
-
-                    {/* TODO <Route path="/" component={NotFound}></Route> */}
+                    <Route render={()=> <h1>No such page</h1>}></Route>
+                    {/* TODO <Route component={NotFound}></Route> */}
                 </Switch>
 
             </section>

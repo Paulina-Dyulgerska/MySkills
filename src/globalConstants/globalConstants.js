@@ -24,4 +24,5 @@ const globalConstants = {
     rememberMe,
     resumeFileName,
 }
+
 export default globalConstants;

@@ -12,7 +12,7 @@ import TextBlockContent from '../TextBlockContent/TextBlockContent';
 const ThankYouRegister = () => {
     const { user } = useContext(AuthContext);
 
-    if (user.email) {
+    if (user.accessToken) {
         return (
             <Redirect to='/' />
         )
