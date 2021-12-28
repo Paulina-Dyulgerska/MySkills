@@ -1,5 +1,6 @@
 // import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useState, useLayoutEffect } from 'react';
+import { useEffect } from 'react/cjs/react.development';
 
 import './ScrollTop.css';
 
@@ -66,10 +67,24 @@ const ScrollTop = ({
         });
 
         // Remove listener (like componentWillUnmount)
+        // this is returned by every update of the parentDiv! I do not want this! But here this is 
+        // not a problem, because parentDiv is updated only when I change the parent, but I do not 
+        // change the parent i the whole app, because Main is the parent. So, I could live with 
+        // this logic for that case.
         return () => {
+            console.log('return 1');
             window.removeEventListener('scroll', handleShow);
         };
     }, [parentDiv]);
+
+    // this is executed only once - just before the Unmount of the component! I want this, not 
+    // the execution on each update like in the above useEffect!
+    useEffect(() => {  
+        return () => {
+            console.log('return 212');
+            window.removeEventListener('scroll', handleShow);
+        }; 
+    }, []);
 
     const backToTop = () => {
         window.scroll({ top: 0, behavior: 'smooth' });

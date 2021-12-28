@@ -41,10 +41,22 @@ const Portfolio = () => {
             delay
         );
 
+        // this is returned by every update of the index or projects.length, or before the component 
+        // Unmount! I do not want this!
+        // return () => {
+        //     resetTimeout();
+        //     // console.log("return");
+        // };
+    }, [index, projects.length]);
+
+    // this is executed only once - just before the Unmount of the component! I want this, not 
+    // the execution on each update of index or projects.length like in the above useEffect!
+    useEffect(() => {
         return () => {
             resetTimeout();
+            // console.log("return");
         };
-    }, [index, projects.length]);
+    }, []);
 
     const title = 'Conformity Check';
     const details = 'Conformities Management System';

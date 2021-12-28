@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './InputField.css';
 
@@ -11,6 +11,8 @@ const InputFieldWithLabel = ({
     name,
     className,
     autoComplete,
+    defaultValue,
+    // onValueChange,
     children,
     validateFieldFunction,
     errorMessage,
@@ -21,43 +23,54 @@ const InputFieldWithLabel = ({
     const [minimise, setMinimise] = useState('');
     const [hasError, setHasError] = useState(false);
 
-    // const onUserEnteringData = (e) => {
-    //     if (e.target.name === 'password' || e.target.name === 'confirmPassword') {
-    //         onChangeShowPasswordToggler(e.target.value);
-    //     }
-    //     setMinimise('minimise');
-    // }
+    useEffect(() => {
+        if (defaultValue) {
+            setMinimise('minimise');
+            // setCurrentValue(defaultValue)
+            // onValueChange(name, currentValue)
+        }
+    }, [defaultValue])
 
-    const checkUserCurrentInputString = async (e) => {
+    const checkUserCurrentInputString = (e) => {
         if (e.target.name === 'password' || e.target.name === 'confirmPassword') {
             onChangeShowPasswordToggler(e.target.value);
         }
-        setMinimise('minimise');
-        
+
         const userCurrentInputString = e.target?.value;
-        if (!userCurrentInputString) {
-            setMinimise('');
-        } else {
+        if (userCurrentInputString) {
+            setMinimise('minimise');
+
             const isInputValid = validateFieldFunction(userCurrentInputString);
             // console.log(isInputValid + ' hi from isInputValid');
             if (!isInputValid) {
                 setHasError(true);
-                setValidationErrors(ca => ({...ca, [e.target.name]: errorMessage}));
+                setValidationErrors(ca => ({ ...ca, [e.target.name]: errorMessage }));
             } else {
                 setHasError(false);
-                setValidationErrors(ca => ({...ca, [e.target.name]: ''}));
+                setValidationErrors(ca => ({ ...ca, [e.target.name]: '' }));
             }
+        }
+    }
+
+    const setMinimiseLabel = (e) => {
+        const userCurrentInputString = e.target?.value;
+        if (!userCurrentInputString) {
+            setMinimise('');
+        } else {
+            setMinimise('minimise');
         }
     }
 
     return (
         <article className={wrapperClassName}>
             <input type={type} id={id} name={name} className={className} autoComplete={autoComplete}
-                onChange={checkUserCurrentInputString}
+                defaultValue={defaultValue}
                 onFocus={checkUserCurrentInputString}
                 onPaste={checkUserCurrentInputString}
-                onKeyDown={checkUserCurrentInputString}
                 onBlur={checkUserCurrentInputString}
+                onChange={setMinimiseLabel}
+                onKeyDown={setMinimiseLabel}
+                onKeyPress={setMinimiseLabel}
             />
             <label htmlFor={id} className={`placeLabel ${minimise}`}>
                 {children}

@@ -37,13 +37,13 @@ validationService.nameValidatior = (inputString) => {
 }
 
 validationService.subjectValidator = (inputString) => {
-  const subjectRegExPattern = new RegExp('^[\-a-zA-Z0-9 .!?_:*()]{5,}$');
+  const subjectRegExPattern = new RegExp('^[\-a-zA-Z0-9, .!?_:*()]{5,}$');
   const hasMatch = subjectRegExPattern.test(inputString);
   return hasMatch;
 }
 
 validationService.messageValidator = (inputString) => {
-  const subjectRegExPattern = new RegExp('^[\-a-zA-Z0-9. !?_:*()\\n]{15,}$');
+  const subjectRegExPattern = new RegExp('^[\-a-zA-Z0-9., !?_:*()\\n]{15,}$');
   const hasMatch = subjectRegExPattern.test(inputString);
   return hasMatch;
 }

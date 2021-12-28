@@ -19,14 +19,14 @@ const ThankYouContactMessageSent = () => {
 
             <section className="thank-you-area-form content fadeInRight">
                 <TextBlockContent
-                    title={`Thank you for contacting us, ${user.userEmail}!`}
+                    title={`Thank you for contacting us${user.userEmail ? ` ${user.userEmail}` : ''}!`}
                     primary={["I am happy that you are part of our community!"]}
                     secondary={["You have successfully sent a message to our admins.",
                         "We will reply to your email in 24 hours."]}
                 >
                 </TextBlockContent>
             </section>
-        </section>
+        </section >
     )
 }
 

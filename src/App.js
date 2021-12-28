@@ -14,6 +14,8 @@ import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
 
 function App() {
+  // const history = useHistory();
+  
   const [user, setUser] = useState({
     userEmail: '',
     accessToken: localStorage.getItem(globalConstants.userCredentialAccessTokenJWT)
@@ -22,11 +24,11 @@ function App() {
     expiresIn: localStorage.getItem(globalConstants.userCredentialJWTExpiresIn)
       || sessionStorage.getItem(globalConstants.userCredentialJWTExpiresIn),
   });
-  const [rememberMe, setRememberMe] = useState(true);
   
+  const [rememberMe, setRememberMe] = useState(true);
+
   const hasAccessToken = localStorage.getItem(globalConstants.userCredentialAccessTokenJWT)
-      || sessionStorage.getItem(globalConstants.userCredentialAccessTokenJWT);
-  // const history = useHistory();
+    || sessionStorage.getItem(globalConstants.userCredentialAccessTokenJWT);
 
   useEffect(() => {
     if (!user.userEmail && hasAccessToken) {

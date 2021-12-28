@@ -20,8 +20,8 @@ const InputTextArea = ({
 
     const checkUserCurrentInputString = (e) => {
         const userCurrentInputString = e.target?.value;
+
         const isInputValid = validateFieldFunction(userCurrentInputString);
-        console.log(isInputValid + ' hi from isInputValid');
         if (!isInputValid) {
             setHasError(true);
             setValidationErrors(ca => ({...ca, [e.target.name]: errorMessage}));
@@ -39,6 +39,9 @@ const InputTextArea = ({
                 className={className}
                 rows={rows}
                 placeholder={placeholder}
+                // onFocus={checkUserCurrentInputString}
+                // onChange={checkUserCurrentInputString}
+                onPaste={checkUserCurrentInputString}
                 onBlur={checkUserCurrentInputString}
             >
             </textarea>

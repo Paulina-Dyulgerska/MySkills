@@ -15,7 +15,6 @@ import MediaItem from './MediaItem/MediaItem';
 import ButtonSubmit from '../Shared/Buttons/ButtonSubmit/ButtonSubmit';
 import TextBlockContent from '../Shared/TextBlockContent/TextBlockContent';
 import InputFieldWIthLabel from '../Shared/InputField/InputFieldWIthLabel';
-import InputFieldWIthLabelControlled from '../Shared/InputField/InputFieldWIthLabelControlled';
 import InputTextArea from '../Shared/InputField/InputTextArea';
 import LoadingBar from '../Shared/LoadingBar/LoadingBar';
 
@@ -150,7 +149,7 @@ const Contact = (params) => {
                         >
                             Your Name *
                         </InputFieldWIthLabel>
-                        <InputFieldWIthLabelControlled
+                        <InputFieldWIthLabel
                             wrapperClassName="input"
                             type="text"
                             name="email"
@@ -163,7 +162,7 @@ const Contact = (params) => {
                             setValidationErrors={setValidationErrors}
                         >
                             Your Email *
-                        </InputFieldWIthLabelControlled>
+                        </InputFieldWIthLabel>
                         <InputFieldWIthLabel
                             wrapperClassName="input"
                             type="text"
