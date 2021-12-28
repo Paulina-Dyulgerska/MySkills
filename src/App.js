@@ -28,7 +28,7 @@ function App() {
   const [rememberMe, setRememberMe] = useState(true);
 
   const hasAccessToken = localStorage.getItem(globalConstants.userCredentialAccessTokenJWT)
-    || sessionStorage.getItem(globalConstants.userCredentialAccessTokenJWT);
+                        || sessionStorage.getItem(globalConstants.userCredentialAccessTokenJWT);
 
   useEffect(() => {
     if (!user.userEmail && hasAccessToken) {
