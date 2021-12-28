@@ -28,7 +28,7 @@ const Register = () => {
         confirmPassword: '',
     })
 
-    if (user.accessToken) {
+    if (user.userEmail) {
         console.log(user);
         return (
             <Redirect to='/login' />

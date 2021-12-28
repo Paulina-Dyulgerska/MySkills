@@ -6,6 +6,9 @@ const NavigationItem = (props) => {
             <NavLink activeClassName='nav-list-active' exact={true} to={props.path || '/'}>
                 {props.children}
             </NavLink >
+            {/* <Link to={props.path || '/'}>
+                {props.children}
+            </Link > */}
         </li>
     );
 };

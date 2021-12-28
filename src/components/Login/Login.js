@@ -30,7 +30,7 @@ const Login = () => {
     })
     const history = useHistory();
 
-    if (user.accessToken) {
+    if (user.userEmail) {
         return (
             <Redirect to='/' />
         )

@@ -20,13 +20,13 @@ const Portfolio = () => {
         conformitiesAll,
     ];
 
-
     const delay = 4000;
     const [index, setIndex] = useState(0);
     const timeoutRef = useRef(null);
 
     function resetTimeout() {
         if (timeoutRef.current) {
+            // The global clearTimeout() method cancels a timeout previously established by calling setTimeout().
             clearTimeout(timeoutRef.current);
         }
     }
